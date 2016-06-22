@@ -269,3 +269,4 @@ TODO.txt
 *.GhostDoc.xml
 *.project.lock.json
 
+/nuspecs/nuget.exe

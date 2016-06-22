@@ -39,32 +39,8 @@
     <AssemblyOriginatorKeyFile>..\..\tools\StrongKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="jose-pcl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\jose-pcl.0.0.4\lib\portable-net45+netcore45+wpa81+wp8\jose-pcl.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PCLCrypto, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d4421c8a4786956c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PCLCrypto.2.0.147\lib\net45\PCLCrypto.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PInvoke.BCrypt, Version=0.3.0.0, Culture=neutral, PublicKeyToken=9e300f9f87f04a7a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PInvoke.BCrypt.0.3.2\lib\net40\PInvoke.BCrypt.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PInvoke.Kernel32, Version=0.3.0.0, Culture=neutral, PublicKeyToken=9e300f9f87f04a7a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PInvoke.Kernel32.0.3.2\lib\net40\PInvoke.Kernel32.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PInvoke.NCrypt, Version=0.3.0.0, Culture=neutral, PublicKeyToken=9e300f9f87f04a7a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PInvoke.NCrypt.0.3.2\lib\net40\PInvoke.NCrypt.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PInvoke.Windows.Core, Version=0.3.0.0, Culture=neutral, PublicKeyToken=9e300f9f87f04a7a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PInvoke.Windows.Core.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.Windows.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -72,12 +48,17 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Validation, Version=2.2.0.0, Culture=neutral, PublicKeyToken=2fc06f0d701809a7, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Validation.2.2.8\lib\dotnet\Validation.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\common\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\common\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\common\CommonVersionInfo.cs">
+      <Link>Properties\CommonVersionInfo.cs</Link>
+    </Compile>
     <Compile Include="AuthorizeClient.cs" />
     <Compile Include="AuthorizeState.cs" />
     <Compile Include="Claim.cs" />
@@ -108,12 +89,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="packages.config" />
+    <None Include="packages.IdentityModel.OidcClient.Net45.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IdentityModel\IdentityModel.Net45.csproj">
       <Project>{7e30e379-dcfc-4d18-9657-b36d338da40c}</Project>
       <Name>IdentityModel.Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\jose-pcl\JosePCL.Net45.csproj">
+      <Project>{62632111-e686-4679-aae4-dfd18f1abbb8}</Project>
+      <Name>JosePCL.Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCLCrypto.Desktop\PCLCrypto.Desktop.Net45.csproj">
+      <Project>{7c7e2d50-036f-4e08-b4e0-f09889501cfd}</Project>
+      <Name>PCLCrypto.Desktop.Net45</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

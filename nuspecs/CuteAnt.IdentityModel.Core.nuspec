@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CuteAnt.IdentityModel.Core</id>
+    <version>2.0.0-rc3-160601</version>
+    <title>CuteAnt.IdentityModel.Core</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>Dominick Baier, Brock Allen, Seabiscuit</authors>
+    <owners>Dominick Baier, Brock Allen, Seabiscuit</owners>
+    <iconUrl>http://1.gravatar.com/blavatar/3b437c799e12e32beb1d8cfda1199ab3?s=32</iconUrl>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>http://github.com/identitymodel/Thinktecture.IdentityModel</projectUrl>
+    <description>Helper library for claims based identity and access control in .NET.</description>
+    <summary>Helper library for claims based identity and access control in .NET.</summary>
+    <copyright>Dominick Baier, Brock Allen, Seabiscuit 2016</copyright>
+    <language>en-US</language>
+    <tags>WIF Security Federation Identity Claims Authentication Authorization Access Control</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5.1">
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="..\Deploy\Net45\Thinktecture.IdentityModel.Core.dll" target="lib\net451" />
+    <file src="..\Deploy\Net45\Thinktecture.IdentityModel.Core.xml" target="lib\net451" />
+  </files>
+</package>

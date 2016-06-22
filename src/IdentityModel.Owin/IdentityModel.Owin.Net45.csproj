@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6E04C61-55B9-40DB-8448-880EFA13E53F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IdentityModel.Owin</RootNamespace>
+    <AssemblyName>IdentityModel.Owin</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <IntermediateOutputPath>obj\Debug\Net45</IntermediateOutputPath>
+    <OutputPath>..\..\Deploy\Net45\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DESKTOPCLR;NET451;NET_3_5_GREATER;NET_4_0_GREATER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <IntermediateOutputPath>obj\Release\Net45</IntermediateOutputPath>
+    <OutputPath>..\..\Deploy\Net45\</OutputPath>
+    <DefineConstants>TRACE;DESKTOPCLR;NET451;NET_3_5_GREATER;NET_4_0_GREATER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Deploy\Net45\IdentityModel.Owin.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\tools\StrongKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CuteAnt, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.2.0.0-rc3-160601\lib\net451\CuteAnt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CuteAnt.AsyncEx, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.AsyncEx.2.0.0-rc3-160601\lib\net451\CuteAnt.AsyncEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CuteAnt.Extensions.DependencyInjection.Abstractions, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Extensions.DependencyInjection.Abstractions.2.0.0-rc3-160601\lib\net451\CuteAnt.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CuteAnt.Extensions.Logging, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Extensions.Logging.2.0.0-rc3-160601\lib\net451\CuteAnt.Extensions.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CuteAnt.Extensions.Logging.Abstractions, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Extensions.Logging.Abstractions.2.0.0-rc3-160601\lib\net451\CuteAnt.Extensions.Logging.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CuteAnt.IdentityModel.Tokens.Jwt, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.IdentityModel.Tokens.Jwt.4.0.0-rc3-160601\lib\net451\CuteAnt.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CuteAnt.Owin, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Owin.2.0.0-rc3-160601\lib\net451\CuteAnt.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CuteAnt.Owin.Security, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Owin.Security.2.0.0-rc3-160601\lib\net451\CuteAnt.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CuteAnt.Owin.Security.Jwt, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Owin.Security.Jwt.2.0.0-rc3-160601\lib\net451\CuteAnt.Owin.Security.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CuteAnt.Owin.Security.OAuth, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Owin.Security.OAuth.2.0.0-rc3-160601\lib\net451\CuteAnt.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.1.37.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Collections.Immutable.1.1.38-rc1-final\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Interactive, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ix-Main.1.2.5\lib\net45\System.Interactive.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Interactive.Async, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ix-Async.1.2.5\lib\net45\System.Interactive.Async.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\common\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\common\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\common\CommonVersionInfo.cs">
+      <Link>Properties\CommonVersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="AppBuilderExtensions\IdentityModelJwtBearerAuthenticationExtensions.cs" />
+    <Compile Include="AppBuilderExtensions\SamlBearerAuthenticationExtensions.cs" />
+    <Compile Include="AppBuilderExtensions\TokenLocation.cs" />
+    <Compile Include="HeaderOAuthBearerProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryStringOAuthBearerProvider.cs" />
+    <Compile Include="WifTokenFormat.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.IdentityModel.Owin.Net45.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Thinktecture.IdentityModel.Core\Thinktecture.IdentityModel.Core.Net45.csproj">
+      <Project>{6968aa1f-22a3-4b19-995d-af4213b869c7}</Project>
+      <Name>Thinktecture.IdentityModel.Core.Net45</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

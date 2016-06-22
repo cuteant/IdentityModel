@@ -6,27 +6,30 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using CuteAnt.Text.Encodings.Web;
 
 namespace IdentityModel.Client
 {
-    public class AuthorizeRequest
+  public class AuthorizeRequest
+  {
+    private readonly Uri _authorizeEndpoint;
+
+    public AuthorizeRequest(Uri authorizeEndpoint)
     {
-        private readonly Uri _authorizeEndpoint;
-
-        public AuthorizeRequest(Uri authorizeEndpoint)
-        {
-            _authorizeEndpoint = authorizeEndpoint;
-        }
-
-        public AuthorizeRequest(string authorizeEndpoint)
-        {
-            _authorizeEndpoint = new Uri(authorizeEndpoint);
-        }
-
-        public string Create(IDictionary<string, string> values)
-        {
-            var qs = string.Join("&", values.Select(kvp => String.Format("{0}={1}", WebUtility.UrlEncode(kvp.Key), WebUtility.UrlEncode(kvp.Value))).ToArray());
-            return string.Format("{0}?{1}", _authorizeEndpoint.AbsoluteUri, qs);
-        }
+      _authorizeEndpoint = authorizeEndpoint;
     }
+
+    public AuthorizeRequest(string authorizeEndpoint)
+    {
+      _authorizeEndpoint = new Uri(authorizeEndpoint);
+    }
+
+    public string Create(IDictionary<string, string> values)
+    {
+      // ## 苦竹 修改 ##
+      //var qs = string.Join("&", values.Select(kvp => String.Format("{0}={1}", WebUtility.UrlEncode(kvp.Key), WebUtility.UrlEncode(kvp.Value))).ToArray());
+      var qs = string.Join("&", values.Select(kvp => String.Format("{0}={1}", UrlEncoder.Default.Encode(kvp.Key), UrlEncoder.Default.Encode(kvp.Value))).ToArray());
+      return string.Format("{0}?{1}", _authorizeEndpoint.AbsoluteUri, qs);
+    }
+  }
 }

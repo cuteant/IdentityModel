@@ -20,13 +20,61 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DE4BD5EE-32BC-4E62-96FD-507E9A7668B9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspecs", "nuspecs", "{D2C8C0D2-FF61-4161-B098-1DA4678B145A}"
+	ProjectSection(SolutionItems) = preProject
+		nuspecs\CuteAnt.IdentityModel.Core.nuspec = nuspecs\CuteAnt.IdentityModel.Core.nuspec
+		nuspecs\CuteAnt.IdentityModel.HttpSigning.nuspec = nuspecs\CuteAnt.IdentityModel.HttpSigning.nuspec
+		nuspecs\CuteAnt.IdentityModel.nuspec = nuspecs\CuteAnt.IdentityModel.nuspec
+		nuspecs\CuteAnt.IdentityModel.OidcClient.nuspec = nuspecs\CuteAnt.IdentityModel.OidcClient.nuspec
+		nuspecs\CuteAnt.IdentityModel.Owin.nuspec = nuspecs\CuteAnt.IdentityModel.Owin.nuspec
+		nuspecs\CuteAnt.IdentityModel.Owin.ScopeValidation.nuspec = nuspecs\CuteAnt.IdentityModel.Owin.ScopeValidation.nuspec
+		nuspecs\JosePCL.nuspec = nuspecs\JosePCL.nuspec
+		nuspecs\package.cmd = nuspecs\package.cmd
+		nuspecs\PCLCrypto.Desktop.nuspec = nuspecs\PCLCrypto.Desktop.nuspec
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.Net45", "src\IdentityModel\IdentityModel.Net45.csproj", "{7E30E379-DCFC-4D18-9657-B36D338DA40C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.OidcClient.Net45", "src\IdentityModel.OidcClient\IdentityModel.OidcClient.Net45.csproj", "{D7C0EC27-D373-4711-93FA-65D4E784A5BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.HttpSigning.Net45", "src\IdentityModel.HttpSigning\IdentityModel.HttpSigning.Net45.csproj", "{91EC26F1-6E7B-4CE1-A1DE-001563E449DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinktecture.IdentityModel.Core.Net45", "src\Thinktecture.IdentityModel.Core\Thinktecture.IdentityModel.Core.Net45.csproj", "{6968AA1F-22A3-4B19-995D-AF4213B869C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.Owin.ScopeValidation.Net45", "src\IdentityModel.Owin.ScopeValidation\IdentityModel.Owin.ScopeValidation.Net45.csproj", "{BACEE8DE-315F-4870-8218-A05398D56A4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.Owin.Net45", "src\IdentityModel.Owin\IdentityModel.Owin.Net45.csproj", "{D6E04C61-55B9-40DB-8448-880EFA13E53F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCLCrypto.Desktop.Net45", "src\PCLCrypto.Desktop\PCLCrypto.Desktop.Net45.csproj", "{7C7E2D50-036F-4E08-B4E0-F09889501CFD}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PCLCrypto.Shared.Common", "src\PCLCrypto.Shared.Common\PCLCrypto.Shared.Common.shproj", "{802098CC-E489-4FC0-B115-30CC967B7B38}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PCLCrypto.Shared.Formatters", "src\PCLCrypto.Shared.Formatters\PCLCrypto.Shared.Formatters.shproj", "{2649B02A-7FDC-43FA-8A0C-755BBD74DBDD}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PCLCrypto.Shared.NetFx", "src\PCLCrypto.Shared.NetFx\PCLCrypto.Shared.NetFx.shproj", "{8F74D3D1-6E53-4814-B215-B4D3515DA80A}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PCLCrypto.Shared.NetFxSymmetric", "src\PCLCrypto.Shared.NetFxSymmetric\PCLCrypto.Shared.NetFxSymmetric.shproj", "{1511F9F5-0210-4375-B5C3-4CAF5B761FB4}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PCLCrypto.Shared.PlatformCommon", "src\PCLCrypto.Shared.PlatformCommon\PCLCrypto.Shared.PlatformCommon.shproj", "{3B2D4380-8BCB-4626-8E9E-6958E0A34115}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PCLCrypto.Shared.Win32RSA", "src\PCLCrypto.Shared.Win32RSA\PCLCrypto.Shared.Win32RSA.shproj", "{AEBD7D07-32C7-4813-84BA-5DC90E8C40B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JosePCL.Net45", "src\jose-pcl\JosePCL.Net45.csproj", "{62632111-E686-4679-AAE4-DFD18F1ABBB8}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\PCLCrypto.Shared.NetFx\PCLCrypto.Shared.NetFx.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.Formatters\PCLCrypto.Shared.Formatters.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.Win32RSA\PCLCrypto.Shared.Win32RSA.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.NetFxSymmetric\PCLCrypto.Shared.NetFxSymmetric.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.PlatformCommon\PCLCrypto.Shared.PlatformCommon.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.Common\PCLCrypto.Shared.Common.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.Win32RSA\PCLCrypto.Shared.Win32RSA.projitems*{aebd7d07-32c7-4813-84ba-5dc90e8c40b4}*SharedItemsImports = 13
+		src\PCLCrypto.Shared.PlatformCommon\PCLCrypto.Shared.PlatformCommon.projitems*{3b2d4380-8bcb-4626-8e9e-6958e0a34115}*SharedItemsImports = 13
+		..\SharedProjects\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems*{91ec26f1-6e7b-4ce1-a1de-001563e449df}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.Formatters\PCLCrypto.Shared.Formatters.projitems*{2649b02a-7fdc-43fa-8a0c-755bbd74dbdd}*SharedItemsImports = 13
+		src\PCLCrypto.Shared.Common\PCLCrypto.Shared.Common.projitems*{802098cc-e489-4fc0-b115-30cc967b7b38}*SharedItemsImports = 13
+		src\PCLCrypto.Shared.NetFx\PCLCrypto.Shared.NetFx.projitems*{8f74d3d1-6e53-4814-b215-b4d3515da80a}*SharedItemsImports = 13
+		src\PCLCrypto.Shared.NetFxSymmetric\PCLCrypto.Shared.NetFxSymmetric.projitems*{1511f9f5-0210-4375-b5c3-4caf5b761fb4}*SharedItemsImports = 13
 		..\SharedProjects\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems*{8dbb7dc8-2b90-4a8c-a60d-d41466174bde}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +90,30 @@ Global
 		{D7C0EC27-D373-4711-93FA-65D4E784A5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7C0EC27-D373-4711-93FA-65D4E784A5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7C0EC27-D373-4711-93FA-65D4E784A5BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91EC26F1-6E7B-4CE1-A1DE-001563E449DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91EC26F1-6E7B-4CE1-A1DE-001563E449DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91EC26F1-6E7B-4CE1-A1DE-001563E449DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91EC26F1-6E7B-4CE1-A1DE-001563E449DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6968AA1F-22A3-4B19-995D-AF4213B869C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6968AA1F-22A3-4B19-995D-AF4213B869C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6968AA1F-22A3-4B19-995D-AF4213B869C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6968AA1F-22A3-4B19-995D-AF4213B869C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BACEE8DE-315F-4870-8218-A05398D56A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BACEE8DE-315F-4870-8218-A05398D56A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BACEE8DE-315F-4870-8218-A05398D56A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BACEE8DE-315F-4870-8218-A05398D56A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6E04C61-55B9-40DB-8448-880EFA13E53F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6E04C61-55B9-40DB-8448-880EFA13E53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6E04C61-55B9-40DB-8448-880EFA13E53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6E04C61-55B9-40DB-8448-880EFA13E53F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C7E2D50-036F-4E08-B4E0-F09889501CFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C7E2D50-036F-4E08-B4E0-F09889501CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C7E2D50-036F-4E08-B4E0-F09889501CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C7E2D50-036F-4E08-B4E0-F09889501CFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62632111-E686-4679-AAE4-DFD18F1ABBB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62632111-E686-4679-AAE4-DFD18F1ABBB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62632111-E686-4679-AAE4-DFD18F1ABBB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62632111-E686-4679-AAE4-DFD18F1ABBB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +122,17 @@ Global
 		{8DBB7DC8-2B90-4A8C-A60D-D41466174BDE} = {58971894-BB84-4CC1-99E4-BD424B371E2F}
 		{7E30E379-DCFC-4D18-9657-B36D338DA40C} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
 		{D7C0EC27-D373-4711-93FA-65D4E784A5BC} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{91EC26F1-6E7B-4CE1-A1DE-001563E449DF} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{6968AA1F-22A3-4B19-995D-AF4213B869C7} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{BACEE8DE-315F-4870-8218-A05398D56A4F} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{D6E04C61-55B9-40DB-8448-880EFA13E53F} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{7C7E2D50-036F-4E08-B4E0-F09889501CFD} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{802098CC-E489-4FC0-B115-30CC967B7B38} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{2649B02A-7FDC-43FA-8A0C-755BBD74DBDD} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{8F74D3D1-6E53-4814-B215-B4D3515DA80A} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{1511F9F5-0210-4375-B5C3-4CAF5B761FB4} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{3B2D4380-8BCB-4626-8E9E-6958E0A34115} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{AEBD7D07-32C7-4813-84BA-5DC90E8C40B4} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{62632111-E686-4679-AAE4-DFD18F1ABBB8} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
 	EndGlobalSection
 EndGlobal

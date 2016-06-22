@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CuteAnt.IdentityModel</id>
+    <version>2.0.0-rc3-160601</version>
+    <title>CuteAnt.IdentityModel</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>Dominick Baier, Brock Allen, Seabiscuit</authors>
+    <owners>Dominick Baier, Brock Allen, Seabiscuit</owners>
+    <iconUrl>https://identityserver.github.io/Documentation/assets/images/icons/IDmodel_icon128.png</iconUrl>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>http://github.com/identitymodel</projectUrl>
+    <description>Helper library for claims-based identity, System.IdentityModel, JSON Web Tokens, OAuth 2.0 and OpenID Connect client</description>
+    <summary>Helper library for claims-based identity, System.IdentityModel, JSON Web Tokens, OAuth 2.0 and OpenID Connect client</summary>
+    <copyright>Dominick Baier, Brock Allen, Seabiscuit 2016</copyright>
+    <language>en-US</language>
+    <tags>OAuth2 OIDC OpenID Connect JWT Tokens Federation API Authorization</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="CuteAnt.Text.Encodings.Web" version="2.0.0-rc3-160601" />
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="Microsoft.Bcl" version="1.1.10" />
+        <dependency id="Microsoft.Bcl.Async" version="1.0.168" />
+        <dependency id="Microsoft.Bcl.Build" version="1.0.21" />
+        <dependency id="Microsoft.Net.Http" version="2.2.29" />
+      </group>
+      <group targetFramework=".NETFramework4.5.1">
+        <dependency id="CuteAnt.Text.Encodings.Web" version="2.0.0-rc3-160601" />
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="..\Deploy\Net45\IdentityModel.dll" target="lib\net451" />
+    <file src="..\Deploy\Net45\IdentityModel.xml" target="lib\net451" />
+    <file src="..\Deploy\Net40\IdentityModel.dll" target="lib\net40" />
+    <file src="..\Deploy\Net40\IdentityModel.xml" target="lib\net40" />
+  </files>
+</package>

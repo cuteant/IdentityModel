@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CuteAnt.IdentityModel.Owin.ScopeValidation</id>
+    <version>2.0.0-rc3-160601</version>
+    <title>CuteAnt.IdentityModel.Owin.ScopeValidation</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>Dominick Baier, Brock Allen, Seabiscuit</authors>
+    <owners>Dominick Baier, Brock Allen, Seabiscuit</owners>
+    <iconUrl>https://identityserver.github.io/Documentation/assets/images/icons/IDmodel_icon128.png</iconUrl>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>http://github.com/identitymodel</projectUrl>
+    <description>OWIN middleware for validating OAuth2 and OpenID Connect scope claims.</description>
+    <summary>OWIN middleware for validating OAuth2 and OpenID Connect scope claims.</summary>
+    <copyright>Dominick Baier, Brock Allen, Seabiscuit 2016</copyright>
+    <language>en-US</language>
+    <tags>Security OWIN Katana OAuth2 OpenID Connect Identity Claims Authorization Access Control WebAPI Web API</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.0">
+      </group>
+      <group targetFramework=".NETFramework4.5.1">
+        <dependency id="CuteAnt.Owin" version="2.0.0-rc3-160601" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="..\Deploy\Net45\IdentityModel.Owin.ScopeValidation.dll" target="lib\net451" />
+    <file src="..\Deploy\Net45\IdentityModel.Owin.ScopeValidation.xml" target="lib\net451" />
+  </files>
+</package>
