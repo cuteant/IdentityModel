@@ -1,0 +1,13 @@
+https://github.com/thinktecture
+https://github.com/IdentityModel
+https://github.com/IdentityServer
+
+https://github.com/damienbod
+https://damienbod.com
+
+文档：
+官方：http://identityserver.github.io/Documentation/
+翻译：http://www.cnblogs.com/weibinlong/p/5148849.html
+
+利用IdentityServer3在ASP.NET 5和Angular中实现OAuth2 Implicit Flow
+http://www.cnblogs.com/redmoon/p/5119112.html

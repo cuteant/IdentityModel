@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CuteAnt.Extensions.Serialization.GoogleProtobuf</id>
+    <version>2.0.0-rc3-160601</version>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <authors>SeaBiscuit</authors>
+    <owners>SeaBiscuit</owners>
+    <iconUrl>http://go.microsoft.com/fwlink/?LinkID=288859</iconUrl>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>http://www.cuteant.net/</projectUrl>
+    <description>CuteAnt.Extensions.Serialization.GoogleProtobuf Class Library</description>
+    <copyright>Copyright (c) 2000-2016 CuteAnt Development Team</copyright>
+    <tags>CuteAnt Serialization GoogleProtobuf</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5.1">
+        <dependency id="CuteAnt.Extensions.Serialization.Abstractions" version="2.0.0-rc3-160601" />
+        <dependency id="Google.Protobuf.My" version="3.0.0-beta3" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+    </frameworkAssemblies>
+  </metadata>
+</package>

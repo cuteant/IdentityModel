@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{873DECB5-F8C5-4206-BB7E-3BC707B883EE}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.Config = NuGet.Config
+		TechnicalReference.txt = TechnicalReference.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedProjects", "SharedProjects", "{58971894-BB84-4CC1-99E4-BD424B371E2F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CuteAnt.Extensions.Logging.Sources", "..\SharedProjects\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.shproj", "{8DBB7DC8-2B90-4A8C-A60D-D41466174BDE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{AB9207B8-D4C0-43C3-991C-7E8BBF8F4704}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DE4BD5EE-32BC-4E62-96FD-507E9A7668B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspecs", "nuspecs", "{D2C8C0D2-FF61-4161-B098-1DA4678B145A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.Net45", "src\IdentityModel\IdentityModel.Net45.csproj", "{7E30E379-DCFC-4D18-9657-B36D338DA40C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.OidcClient.Net45", "src\IdentityModel.OidcClient\IdentityModel.OidcClient.Net45.csproj", "{D7C0EC27-D373-4711-93FA-65D4E784A5BC}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\SharedProjects\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems*{8dbb7dc8-2b90-4a8c-a60d-d41466174bde}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E30E379-DCFC-4D18-9657-B36D338DA40C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E30E379-DCFC-4D18-9657-B36D338DA40C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E30E379-DCFC-4D18-9657-B36D338DA40C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E30E379-DCFC-4D18-9657-B36D338DA40C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7C0EC27-D373-4711-93FA-65D4E784A5BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7C0EC27-D373-4711-93FA-65D4E784A5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7C0EC27-D373-4711-93FA-65D4E784A5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7C0EC27-D373-4711-93FA-65D4E784A5BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8DBB7DC8-2B90-4A8C-A60D-D41466174BDE} = {58971894-BB84-4CC1-99E4-BD424B371E2F}
+		{7E30E379-DCFC-4D18-9657-B36D338DA40C} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{D7C0EC27-D373-4711-93FA-65D4E784A5BC} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+	EndGlobalSection
+EndGlobal
