@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 #if NET40
-[assembly: AssemblyTitle("IdentityModel.HttpSigning .NetFx4.0")]
+[assembly: AssemblyTitle("IdentityModel.HttpSigning for .NetFx4.0")]
 #elif NET451
 [assembly: AssemblyTitle("IdentityModel.HttpSigning for .NetFx4.5")]
 #endif

@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 #if NET40
-[assembly: AssemblyTitle("IdentityModel.Owin.PopAuthentication .NetFx4.0")]
+[assembly: AssemblyTitle("IdentityModel.Owin.PopAuthentication for .NetFx4.0")]
 #elif NET451
 [assembly: AssemblyTitle("IdentityModel.Owin.PopAuthentication for .NetFx4.5")]
 #endif

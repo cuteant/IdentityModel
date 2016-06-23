@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 #if NET40
-[assembly: AssemblyTitle("IdentityModel.WebApi.AuthenticationHandler .NetFx4.0")]
+[assembly: AssemblyTitle("IdentityModel.WebApi.AuthenticationHandler for .NetFx4.0")]
 #elif NET451
 [assembly: AssemblyTitle("IdentityModel.WebApi.AuthenticationHandler for .NetFx4.5")]
 #endif
