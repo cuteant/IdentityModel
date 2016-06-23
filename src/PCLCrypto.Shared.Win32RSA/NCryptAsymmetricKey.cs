@@ -18,6 +18,8 @@ namespace PCLCrypto
   {
     internal static byte[] ToByteArray(this ArraySegment<byte> segment)
     {
+      if (segment.Array == null || segment.Count == 0) { return new byte[0]; }
+
       var ms = new System.IO.MemoryStream(segment.Array, segment.Offset, segment.Count, false);
       return ms.ToArray();
     }

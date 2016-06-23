@@ -33,5 +33,7 @@
   <files>
     <file src="..\Deploy\Net45\IdentityModel.OidcClient.dll" target="lib\net451" />
     <file src="..\Deploy\Net45\IdentityModel.OidcClient.xml" target="lib\net451" />
+    <file src="..\Deploy\Net40\IdentityModel.OidcClient.dll" target="lib\net40" />
+    <file src="..\Deploy\Net40\IdentityModel.OidcClient.xml" target="lib\net40" />
   </files>
 </package>
