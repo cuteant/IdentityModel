@@ -40,7 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CuteAnt.Owin, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Owin.2.0.0-rc3-160601\lib\net451\CuteAnt.Owin.dll</HintPath>
+      <HintPath>..\..\packages\CuteAnt.Owin.2.0.0-rc3-160606\lib\net451\CuteAnt.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />

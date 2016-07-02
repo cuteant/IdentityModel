@@ -40,23 +40,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CuteAnt, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.2.0.0-rc3-160601\lib\net451\CuteAnt.dll</HintPath>
+      <HintPath>..\..\packages\CuteAnt.2.0.0-rc3-160605\lib\net451\CuteAnt.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CuteAnt.AsyncEx, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.AsyncEx.2.0.0-rc3-160601\lib\net451\CuteAnt.AsyncEx.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CuteAnt.Extensions.DependencyInjection.Abstractions, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Extensions.DependencyInjection.Abstractions.2.0.0-rc3-160601\lib\net451\CuteAnt.Extensions.DependencyInjection.Abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CuteAnt.Extensions.Logging, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Extensions.Logging.2.0.0-rc3-160601\lib\net451\CuteAnt.Extensions.Logging.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CuteAnt.Extensions.Logging.Abstractions, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Extensions.Logging.Abstractions.2.0.0-rc3-160601\lib\net451\CuteAnt.Extensions.Logging.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\CuteAnt.AsyncEx.2.0.0-rc3-160605\lib\net451\CuteAnt.AsyncEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CuteAnt.IdentityModel.Tokens.Jwt, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
@@ -64,39 +52,47 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="CuteAnt.Owin, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Owin.2.0.0-rc3-160601\lib\net451\CuteAnt.Owin.dll</HintPath>
+      <HintPath>..\..\packages\CuteAnt.Owin.2.0.0-rc3-160606\lib\net451\CuteAnt.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CuteAnt.Owin.Security, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Owin.Security.2.0.0-rc3-160601\lib\net451\CuteAnt.Owin.Security.dll</HintPath>
+      <HintPath>..\..\packages\CuteAnt.Owin.Security.2.0.0-rc3-160606\lib\net451\CuteAnt.Owin.Security.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CuteAnt.Owin.Security.Jwt, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Owin.Security.Jwt.2.0.0-rc3-160601\lib\net451\CuteAnt.Owin.Security.Jwt.dll</HintPath>
+      <HintPath>..\..\packages\CuteAnt.Owin.Security.Jwt.2.0.0-rc3-160606\lib\net451\CuteAnt.Owin.Security.Jwt.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CuteAnt.Owin.Security.OAuth, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Owin.Security.OAuth.2.0.0-rc3-160601\lib\net451\CuteAnt.Owin.Security.OAuth.dll</HintPath>
+      <HintPath>..\..\packages\CuteAnt.Owin.Security.OAuth.2.0.0-rc3-160606\lib\net451\CuteAnt.Owin.Security.OAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Logging.1.0.0\lib\netstandard1.1\Microsoft.Extensions.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Logging.Abstractions.1.0.0\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Collections.Immutable, Version=1.1.37.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Collections.Immutable.1.1.38-rc1-final\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    <Reference Include="System.Collections.Immutable, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Collections.Immutable.1.2.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.IdentityModel" />
-    <Reference Include="System.Interactive, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Ix-Main.1.2.5\lib\net45\System.Interactive.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Interactive.Async, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Ix-Async.1.2.5\lib\net45\System.Interactive.Async.dll</HintPath>
+    <Reference Include="System.Interactive, Version=3.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Interactive.3.0.0\lib\net45\System.Interactive.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.XML" />

@@ -42,7 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CuteAnt.Extensions.Primitives, Version=2.4.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Extensions.Primitives.2.0.0-rc3-160601\lib\net40\CuteAnt.Extensions.Primitives.dll</HintPath>
+      <HintPath>..\..\packages\CuteAnt.Extensions.Primitives.2.0.0-rc3-160602\lib\net40\CuteAnt.Extensions.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CuteAnt.Text.Encodings.Web, Version=2.4.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">

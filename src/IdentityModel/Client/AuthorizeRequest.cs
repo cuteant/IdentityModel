@@ -6,7 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+#if NET40
 using CuteAnt.Text.Encodings.Web;
+#else
+using System.Text.Encodings.Web;
+#endif
 
 namespace IdentityModel.Client
 {

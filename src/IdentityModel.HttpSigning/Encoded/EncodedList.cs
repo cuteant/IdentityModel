@@ -1,11 +1,14 @@
 ﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
-using CuteAnt.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if NET40
+using CuteAnt.Extensions.Logging;
+#else
+using Microsoft.Extensions.Logging;
+#endif
 
 namespace IdentityModel.HttpSigning
 {

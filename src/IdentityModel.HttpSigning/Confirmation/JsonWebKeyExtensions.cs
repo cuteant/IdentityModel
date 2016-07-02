@@ -3,8 +3,12 @@
 
 
 using IdentityModel.HttpSigning;
-using CuteAnt.Extensions.Logging;
 using System;
+#if NET40
+using CuteAnt.Extensions.Logging;
+#else
+using Microsoft.Extensions.Logging;
+#endif
 
 namespace IdentityModel.Jwt
 {
