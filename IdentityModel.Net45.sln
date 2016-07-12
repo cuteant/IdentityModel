@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{873DECB5-F8C5-4206-BB7E-3BC707B883EE}"
 	ProjectSection(SolutionItems) = preProject
@@ -30,6 +30,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspecs", "nuspecs", "{D2C8
 		nuspecs\JosePCL.nuspec = nuspecs\JosePCL.nuspec
 		nuspecs\package.cmd = nuspecs\package.cmd
 		nuspecs\PCLCrypto.Desktop.nuspec = nuspecs\PCLCrypto.Desktop.nuspec
+		nuspecs\publishing.cmd = nuspecs\publishing.cmd
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.Net45", "src\IdentityModel\IdentityModel.Net45.csproj", "{7E30E379-DCFC-4D18-9657-B36D338DA40C}"
@@ -62,20 +63,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JosePCL.Net45", "src\jose-p
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		src\PCLCrypto.Shared.NetFx\PCLCrypto.Shared.NetFx.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
-		src\PCLCrypto.Shared.Formatters\PCLCrypto.Shared.Formatters.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
-		src\PCLCrypto.Shared.Win32RSA\PCLCrypto.Shared.Win32RSA.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
-		src\PCLCrypto.Shared.NetFxSymmetric\PCLCrypto.Shared.NetFxSymmetric.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
-		src\PCLCrypto.Shared.PlatformCommon\PCLCrypto.Shared.PlatformCommon.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
-		src\PCLCrypto.Shared.Common\PCLCrypto.Shared.Common.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
-		src\PCLCrypto.Shared.Win32RSA\PCLCrypto.Shared.Win32RSA.projitems*{aebd7d07-32c7-4813-84ba-5dc90e8c40b4}*SharedItemsImports = 13
-		src\PCLCrypto.Shared.PlatformCommon\PCLCrypto.Shared.PlatformCommon.projitems*{3b2d4380-8bcb-4626-8e9e-6958e0a34115}*SharedItemsImports = 13
-		..\SharedProjects\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems*{91ec26f1-6e7b-4ce1-a1de-001563e449df}*SharedItemsImports = 4
-		src\PCLCrypto.Shared.Formatters\PCLCrypto.Shared.Formatters.projitems*{2649b02a-7fdc-43fa-8a0c-755bbd74dbdd}*SharedItemsImports = 13
-		src\PCLCrypto.Shared.Common\PCLCrypto.Shared.Common.projitems*{802098cc-e489-4fc0-b115-30cc967b7b38}*SharedItemsImports = 13
-		src\PCLCrypto.Shared.NetFx\PCLCrypto.Shared.NetFx.projitems*{8f74d3d1-6e53-4814-b215-b4d3515da80a}*SharedItemsImports = 13
 		src\PCLCrypto.Shared.NetFxSymmetric\PCLCrypto.Shared.NetFxSymmetric.projitems*{1511f9f5-0210-4375-b5c3-4caf5b761fb4}*SharedItemsImports = 13
+		src\PCLCrypto.Shared.Formatters\PCLCrypto.Shared.Formatters.projitems*{2649b02a-7fdc-43fa-8a0c-755bbd74dbdd}*SharedItemsImports = 13
+		src\PCLCrypto.Shared.PlatformCommon\PCLCrypto.Shared.PlatformCommon.projitems*{3b2d4380-8bcb-4626-8e9e-6958e0a34115}*SharedItemsImports = 13
+		src\PCLCrypto.Shared.Common\PCLCrypto.Shared.Common.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.Formatters\PCLCrypto.Shared.Formatters.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.NetFxSymmetric\PCLCrypto.Shared.NetFxSymmetric.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.NetFx\PCLCrypto.Shared.NetFx.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.PlatformCommon\PCLCrypto.Shared.PlatformCommon.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.Win32RSA\PCLCrypto.Shared.Win32RSA.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.Common\PCLCrypto.Shared.Common.projitems*{802098cc-e489-4fc0-b115-30cc967b7b38}*SharedItemsImports = 13
 		..\SharedProjects\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems*{8dbb7dc8-2b90-4a8c-a60d-d41466174bde}*SharedItemsImports = 13
+		src\PCLCrypto.Shared.NetFx\PCLCrypto.Shared.NetFx.projitems*{8f74d3d1-6e53-4814-b215-b4d3515da80a}*SharedItemsImports = 13
+		..\SharedProjects\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems*{91ec26f1-6e7b-4ce1-a1de-001563e449df}*SharedItemsImports = 4
+		src\PCLCrypto.Shared.Win32RSA\PCLCrypto.Shared.Win32RSA.projitems*{aebd7d07-32c7-4813-84ba-5dc90e8c40b4}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
