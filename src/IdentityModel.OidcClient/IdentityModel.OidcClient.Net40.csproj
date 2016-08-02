@@ -41,24 +41,24 @@
     <AssemblyOriginatorKeyFile>..\..\tools\StrongKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CuteAnt, Version=2.4.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.2.0.0-rc3-160605\lib\net40\CuteAnt.dll</HintPath>
+    <Reference Include="CuteAnt, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.2.0.0-rc3-160701\lib\net40\CuteAnt.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CuteAnt.Extensions.DependencyInjection.Abstractions, Version=2.4.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Extensions.DependencyInjection.Abstractions.2.0.0-rc3-160602\lib\net40\CuteAnt.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    <Reference Include="CuteAnt.Extensions.DependencyInjection.Abstractions, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Extensions.DependencyInjection.Abstractions.2.0.0-rc3-160701\lib\net40\CuteAnt.Extensions.DependencyInjection.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CuteAnt.Extensions.Logging, Version=2.4.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Extensions.Logging.2.0.0-rc3-160602\lib\net40\CuteAnt.Extensions.Logging.dll</HintPath>
+    <Reference Include="CuteAnt.Extensions.Logging, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Extensions.Logging.2.0.0-rc3-160701\lib\net40\CuteAnt.Extensions.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CuteAnt.Extensions.Logging.Abstractions, Version=2.4.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Extensions.Logging.Abstractions.2.0.0-rc3-160602\lib\net40\CuteAnt.Extensions.Logging.Abstractions.dll</HintPath>
+    <Reference Include="CuteAnt.Extensions.Logging.Abstractions, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Extensions.Logging.Abstractions.2.0.0-rc3-160701\lib\net40\CuteAnt.Extensions.Logging.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CuteAnt.Extensions.Primitives, Version=2.4.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Extensions.Primitives.2.0.0-rc3-160602\lib\net40\CuteAnt.Extensions.Primitives.dll</HintPath>
+    <Reference Include="CuteAnt.Extensions.Primitives, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Extensions.Primitives.2.0.0-rc3-160701\lib\net40\CuteAnt.Extensions.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>CuteAnt.IdentityModel.OidcClient</id>
-    <version>2.0.0-rc3-160611</version>
+    <version>2.0.0-rc3-160701</version>
     <title>CuteAnt.IdentityModel.OidcClient</title>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <authors>Dominick Baier, Brock Allen, Seabiscuit</authors>
@@ -17,16 +17,16 @@
     <tags>OAuth2 OIDC OpenID Connect JWT Tokens Federation API Authorization</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.0">
-        <dependency id="IdentityModel" version="2.0.0-rc3-160611" />
-        <dependency id="CuteAnt" version="2.0.0-rc3-160605" />
-        <dependency id="PCLCrypto.Desktop" version="2.0.0-rc3-160601" />
-        <dependency id="JosePCL" version="2.0.0-rc3-160601" />
+        <dependency id="IdentityModel" version="2.0.0-rc3-160701" />
+        <dependency id="CuteAnt" version="2.0.0-rc3-160701" />
+        <dependency id="PCLCrypto.Desktop" version="2.0.0-rc3-160701" />
+        <dependency id="JosePCL" version="2.0.0-rc3-160701" />
       </group>
       <group targetFramework=".NETFramework4.5.1">
-        <dependency id="IdentityModel" version="2.0.0-rc3-160611" />
-        <dependency id="CuteAnt" version="2.0.0-rc3-160605" />
-        <dependency id="PCLCrypto.Desktop" version="2.0.0-rc3-160601" />
-        <dependency id="JosePCL" version="2.0.0-rc3-160601" />
+        <dependency id="IdentityModel" version="2.0.0-rc3-160701" />
+        <dependency id="CuteAnt" version="2.0.0-rc3-160701" />
+        <dependency id="PCLCrypto.Desktop" version="2.0.0-rc3-160701" />
+        <dependency id="JosePCL" version="2.0.0-rc3-160701" />
       </group>
     </dependencies>
     <frameworkAssemblies>

@@ -39,32 +39,32 @@
     <AssemblyOriginatorKeyFile>..\..\tools\StrongKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CuteAnt, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.2.0.0-rc3-160605\lib\net451\CuteAnt.dll</HintPath>
+    <Reference Include="CuteAnt, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.2.0.0-rc3-160701\lib\net451\CuteAnt.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CuteAnt.AsyncEx, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.AsyncEx.2.0.0-rc3-160605\lib\net451\CuteAnt.AsyncEx.dll</HintPath>
+    <Reference Include="CuteAnt.AsyncEx, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.AsyncEx.2.0.0-rc3-160701\lib\net451\CuteAnt.AsyncEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CuteAnt.IdentityModel.Tokens.Jwt, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CuteAnt.IdentityModel.Tokens.Jwt.4.0.0-rc3-160601\lib\net451\CuteAnt.IdentityModel.Tokens.Jwt.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CuteAnt.Owin, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Owin.2.0.0-rc3-160610\lib\net451\CuteAnt.Owin.dll</HintPath>
+    <Reference Include="CuteAnt.Owin, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Owin.2.0.0-rc3-160701\lib\net451\CuteAnt.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CuteAnt.Owin.Security, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Owin.Security.2.0.0-rc3-160610\lib\net451\CuteAnt.Owin.Security.dll</HintPath>
+    <Reference Include="CuteAnt.Owin.Security, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Owin.Security.2.0.0-rc3-160701\lib\net451\CuteAnt.Owin.Security.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CuteAnt.Owin.Security.Jwt, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Owin.Security.Jwt.2.0.0-rc3-160610\lib\net451\CuteAnt.Owin.Security.Jwt.dll</HintPath>
+    <Reference Include="CuteAnt.Owin.Security.Jwt, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Owin.Security.Jwt.2.0.0-rc3-160701\lib\net451\CuteAnt.Owin.Security.Jwt.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CuteAnt.Owin.Security.OAuth, Version=2.5.2.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Owin.Security.OAuth.2.0.0-rc3-160610\lib\net451\CuteAnt.Owin.Security.OAuth.dll</HintPath>
+    <Reference Include="CuteAnt.Owin.Security.OAuth, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CuteAnt.Owin.Security.OAuth.2.0.0-rc3-160701\lib\net451\CuteAnt.Owin.Security.OAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
