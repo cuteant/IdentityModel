@@ -11,20 +11,31 @@ using static PCLCrypto.WinRTCrypto;
 
 namespace IdentityModel.OidcClient
 {
+  /// <summary>Creates an authorize request and coordinates a web view</summary>
   public class AuthorizeClient
   {
     private readonly OidcClientOptions _options;
 
+    /// <summary>Initializes a new instance of the <see cref="AuthorizeClient"/> class.</summary>
+    /// <param name="options">The options.</param>
     public AuthorizeClient(OidcClientOptions options)
     {
       _options = options;
     }
 
+    /// <summary>Prepares the authorize request.</summary>
+    /// <param name="extaParameters">The exta parameters.</param>
+    /// <returns>Authorize state</returns>
     public async Task<AuthorizeState> PrepareAuthorizeAsync(object extaParameters = null)
     {
       return await CreateAuthorizeStateAsync(extaParameters);
     }
 
+    /// <summary>Starts an authorize request using a browser.</summary>
+    /// <param name="trySilent">if set to <c>true</c> try a silent request.</param>
+    /// <param name="extraParameters">The extra parameters.</param>
+    /// <returns>The authorize result</returns>
+    /// <exception cref="System.InvalidOperationException">No web view configured.</exception>
     public async Task<AuthorizeResult> AuthorizeAsync(bool trySilent = false, object extraParameters = null)
     {
       if (_options.WebView == null)
@@ -35,7 +46,6 @@ namespace IdentityModel.OidcClient
       InvokeResult wviResult;
       AuthorizeResult result = new AuthorizeResult
       {
-        Success = false,
         State = await CreateAuthorizeStateAsync(extraParameters)
       };
 
@@ -55,9 +65,7 @@ namespace IdentityModel.OidcClient
 
       if (wviResult.ResultType == InvokeResultType.Success)
       {
-        result.Success = true;
         result.Data = wviResult.Response;
-
         return result;
       }
 
@@ -65,6 +73,15 @@ namespace IdentityModel.OidcClient
       return result;
     }
 
+    /// <summary>Starts an end_session request using a browser.</summary>
+    /// <param name="identityToken">The identity token.</param>
+    /// <param name="trySilent">if set to <c>true</c> try a silent request.</param>
+    /// <returns></returns>
+    /// <exception cref="System.InvalidOperationException">
+    /// No web view defined.
+    /// or
+    /// no endsession_endpoint defined
+    /// </exception>
     public async Task EndSessionAsync(string identityToken = null, bool trySilent = true)
     {
       if (_options.WebView == null)
@@ -102,6 +119,7 @@ namespace IdentityModel.OidcClient
       var state = new AuthorizeState();
 
       state.Nonce = RNG.CreateUniqueId();
+      state.State = RNG.CreateUniqueId();
       state.RedirectUri = _options.RedirectUri;
 
       string codeChallenge = CreateCodeChallenge(state);
@@ -149,6 +167,7 @@ namespace IdentityModel.OidcClient
           redirectUri: state.RedirectUri,
           responseMode: _options.UseFormPost ? OidcConstants.ResponseModes.FormPost : null,
           nonce: state.Nonce,
+          state: state.State,
           codeChallenge: codeChallenge,
           codeChallengeMethod: OidcConstants.CodeChallengeMethods.Sha256,
           extra: extraParameters);

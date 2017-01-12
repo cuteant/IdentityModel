@@ -4,9 +4,8 @@
 
 namespace IdentityModel.OidcClient
 {
-  public class IdentityTokenValidationResult : Result
-  {
-    public Claims Claims { get; set; }
-    public string SignatureAlgorithm { get; set; }
-  }
+    class TokenResponseValidationResult : Result
+    {
+        public IdentityTokenValidationResult IdentityTokenValidationResult { get; set; }
+    }
 }

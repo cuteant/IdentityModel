@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>PCLCrypto.Desktop</id>
-    <version>2.0.0-rc3-160701</version>
+    <version>2.0.0-rc3-161101</version>
     <title>PCL Crypto - Portable Crypto APIs</title>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <authors>Andrew Arnott, Seabiscuit</authors>
@@ -17,12 +17,12 @@
     <tags>crypto security cryptography portable pcl winrt android ios xamarin monoandroid monodroid monotouch</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.0">
-        <dependency id="PInvoke.NCrypt" version="0.3.2" />
-        <dependency id="Validation" version="2.3.5" />
+        <dependency id="PInvoke.NCrypt" version="0.3.152" />
+        <dependency id="Validation" version="2.3.7" />
       </group>
       <group targetFramework=".NETFramework4.5.1">
-        <dependency id="PInvoke.NCrypt" version="0.3.2" />
-        <dependency id="Validation" version="2.3.5" />
+        <dependency id="PInvoke.NCrypt" version="0.3.152" />
+        <dependency id="Validation" version="2.3.7" />
       </group>
     </dependencies>
     <frameworkAssemblies>

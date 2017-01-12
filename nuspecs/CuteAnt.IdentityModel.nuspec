@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>CuteAnt.IdentityModel</id>
-    <version>2.0.0-rc3-160701</version>
+    <version>$version$</version>
     <title>CuteAnt.IdentityModel</title>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <authors>Dominick Baier, Brock Allen, Seabiscuit</authors>
@@ -17,7 +17,8 @@
     <tags>OAuth2 OIDC OpenID Connect JWT Tokens Federation API Authorization</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.0">
-        <dependency id="CuteAnt.Text.Encodings.Web" version="2.0.0-rc3-160701" />
+        <dependency id="CuteAnt" version="2.0.0-rc3-161101" />
+        <dependency id="CuteAnt.Text.Encodings.Web" version="2.0.0-rc3-161011" />
         <dependency id="Newtonsoft.Json" version="9.0.1" />
         <dependency id="Microsoft.Bcl" version="1.1.10" />
         <dependency id="Microsoft.Bcl.Async" version="1.0.168" />
@@ -26,7 +27,7 @@
       </group>
       <group targetFramework=".NETFramework4.5.1">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
-        <dependency id="System.Text.Encodings.Web" version="4.0.0" />
+        <dependency id="System.Text.Encodings.Web" version="4.3.0" />
       </group>
     </dependencies>
     <frameworkAssemblies>

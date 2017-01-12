@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 using System.Linq;
 using JosePCL.Keys.Rsa;
 using Newtonsoft.Json.Linq;
+using IdentityModel.Jwt;
+using JosePCL.Serialization;
+using PCLCrypto;
+using System.Collections.Generic;
 #if NET40
 using CuteAnt.Extensions.Logging;
 #else
@@ -17,6 +21,13 @@ namespace IdentityModel.OidcClient.IdentityTokenValidation
 {
   public class DefaultIdentityTokenValidator : IIdentityTokenValidator
   {
+    private IEnumerable<string> _supportedAlgorithms = new List<string>
+    {
+      OidcConstants.Algorithms.Asymmetric.RS256,
+      OidcConstants.Algorithms.Asymmetric.RS384,
+      OidcConstants.Algorithms.Asymmetric.RS512
+    };
+
     private static readonly ILogger s_logger = TraceLogger.GetLogger<DefaultIdentityTokenValidator>();
 
     public TimeSpan ClockSkew { get; set; } = TimeSpan.FromMinutes(5);
@@ -26,27 +37,44 @@ namespace IdentityModel.OidcClient.IdentityTokenValidation
       if (s_logger.IsDebugLevelEnabled()) s_logger.LogDebug("starting identity token validation");
       if (s_logger.IsDebugLevelEnabled()) s_logger.LogDebug($"identity token: {identityToken}");
 
-      var fail = new IdentityTokenValidationResult
+      var fail = new IdentityTokenValidationResult();
+
+      ValidatedToken token;
+      try
       {
-        Success = false
-      };
+        token = ValidateSignature(identityToken, providerInformation.KeySet);
+      }
+      catch (Exception ex)
+      {
+        fail.Error = ex.ToString();
+        s_logger.LogError(fail.Error);
 
-      var e = Base64Url.Decode(providerInformation.KeySet.Keys.First().E);
-      var n = Base64Url.Decode(providerInformation.KeySet.Keys.First().N);
-      var pubKey = PublicKey.New(e, n);
+#if NET40
+        return TaskEx.FromResult(fail);
+#else
+        return Task.FromResult(fail);
+#endif
+      }
 
-      var json = JosePCL.Jwt.Decode(identityToken, pubKey);
-      if (s_logger.IsDebugLevelEnabled()) s_logger.LogDebug("decoded JWT: " + json);
+      if (!token.Success)
+      {
+        fail.Error = token.Error;
+        s_logger.LogError(fail.Error);
 
-      var payload = JObject.Parse(json);
+#if NET40
+        return TaskEx.FromResult(fail);
+#else
+        return Task.FromResult(fail);
+#endif
+      }
 
-      var issuer = payload["iss"].ToString();
+      var issuer = token.Payload["iss"].ToString();
       if (s_logger.IsDebugLevelEnabled()) s_logger.LogDebug($"issuer: {issuer}");
 
-      var audience = payload["aud"].ToString();
+      var audience = token.Payload["aud"].ToString();
       if (s_logger.IsDebugLevelEnabled()) s_logger.LogDebug($"audience: {audience}");
 
-      if (issuer != providerInformation.IssuerName)
+      if (!string.Equals(issuer, providerInformation.IssuerName, StringComparison.Ordinal))
       {
         fail.Error = "Invalid issuer name";
         s_logger.LogError(fail.Error);
@@ -58,7 +86,7 @@ namespace IdentityModel.OidcClient.IdentityTokenValidation
 #endif
       }
 
-      if (audience != clientId)
+      if (!string.Equals(audience, clientId, StringComparison.Ordinal))
       {
         fail.Error = "Invalid audience";
         s_logger.LogError(fail.Error);
@@ -71,8 +99,8 @@ namespace IdentityModel.OidcClient.IdentityTokenValidation
       }
 
       var utcNow = DateTime.UtcNow;
-      var exp = payload.Value<long>("exp");
-      var nbf = payload.Value<long?>("nbf");
+      var exp = token.Payload.Value<long>("exp");
+      var nbf = token.Payload.Value<long?>("nbf");
 
       if (s_logger.IsDebugLevelEnabled()) s_logger.LogDebug($"exp: {exp}");
 
@@ -115,11 +143,77 @@ namespace IdentityModel.OidcClient.IdentityTokenValidation
       return Task.FromResult(new IdentityTokenValidationResult
 #endif
       {
-        Success = true,
-        Claims = payload.ToClaims(),
-        SignatureAlgorithm = "RS256"
+        Claims = token.Payload.ToClaims(),
+        SignatureAlgorithm = token.Algorithm
       });
+    }
 
+    ICryptographicKey LoadKey(JsonWebKeySet keySet, string kid)
+    {
+      if (s_logger.IsDebugLevelEnabled()) s_logger.LogDebug($"Searching keyset for id: {kid}");
+
+      foreach (var webkey in keySet.Keys)
+      {
+        if (webkey.Kid == kid)
+        {
+          var e = Base64Url.Decode(webkey.E);
+          var n = Base64Url.Decode(webkey.N);
+
+          if (s_logger.IsDebugLevelEnabled()) s_logger.LogDebug("found");
+          return PublicKey.New(e, n);
+        }
+      }
+
+      if (s_logger.IsDebugLevelEnabled()) s_logger.LogDebug("Key not found");
+      return null;
+    }
+
+    ValidatedToken ValidateSignature(string token, JsonWebKeySet keySet)
+    {
+      var parts = Compact.Parse(token);
+      var header = JObject.Parse(parts.First().Utf8);
+
+      var kid = header["kid"].ToString();
+      if (kid.IsMissing())
+      {
+        var error = "JWT has no kid";
+
+        s_logger.LogError(error);
+        return new ValidatedToken { Error = error };
+      }
+
+      var alg = header["alg"].ToString();
+
+      if (!_supportedAlgorithms.Contains(alg))
+      {
+        var error = $"JWT uses an unsupported algorithm: {alg}";
+
+        s_logger.LogError(error);
+        return new ValidatedToken { Error = error };
+      }
+
+      if (s_logger.IsDebugLevelEnabled()) s_logger.LogDebug("Token signing algorithm: " + alg);
+
+      var key = LoadKey(keySet, kid);
+      if (key == null)
+      {
+        return new ValidatedToken
+        {
+          Error = "No key found that matches the kid of the token"
+        };
+      }
+
+      var json = JosePCL.Jwt.Decode(token, key);
+      if (s_logger.IsDebugLevelEnabled()) s_logger.LogDebug("decoded JWT: " + json);
+
+      var payload = JObject.Parse(json);
+
+      return new ValidatedToken
+      {
+        KeyId = kid,
+        Algorithm = alg,
+        Payload = payload
+      };
     }
   }
 }

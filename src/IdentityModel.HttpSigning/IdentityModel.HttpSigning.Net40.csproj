@@ -61,8 +61,8 @@
       <HintPath>..\..\packages\CuteAnt.Extensions.Primitives.2.0.0-rc3-161011\lib\net40\CuteAnt.Extensions.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="jose-jwt, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\jose-jwt.2.0.1\lib\net40\jose-jwt.dll</HintPath>
+    <Reference Include="jose-jwt, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\jose-jwt.2.1.0\lib\net40\jose-jwt.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
