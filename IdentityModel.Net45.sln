@@ -25,8 +25,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspecs", "nuspecs", "{D2C8
 		nuspecs\CuteAnt.IdentityModel.HttpSigning.nuspec = nuspecs\CuteAnt.IdentityModel.HttpSigning.nuspec
 		nuspecs\CuteAnt.IdentityModel.nuspec = nuspecs\CuteAnt.IdentityModel.nuspec
 		nuspecs\CuteAnt.IdentityModel.OidcClient.nuspec = nuspecs\CuteAnt.IdentityModel.OidcClient.nuspec
+		nuspecs\CuteAnt.IdentityModel.OidcClient.Plus.nuspec = nuspecs\CuteAnt.IdentityModel.OidcClient.Plus.nuspec
 		nuspecs\CuteAnt.IdentityModel.Owin.nuspec = nuspecs\CuteAnt.IdentityModel.Owin.nuspec
 		nuspecs\CuteAnt.IdentityModel.Owin.ScopeValidation.nuspec = nuspecs\CuteAnt.IdentityModel.Owin.ScopeValidation.nuspec
+		nuspecs\CuteAnt.IdentityModel.Plus.nuspec = nuspecs\CuteAnt.IdentityModel.Plus.nuspec
 		nuspecs\JosePCL.nuspec = nuspecs\JosePCL.nuspec
 		nuspecs\package.cmd = nuspecs\package.cmd
 		nuspecs\PCLCrypto.Desktop.nuspec = nuspecs\PCLCrypto.Desktop.nuspec
@@ -61,11 +63,16 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PCLCrypto.Shared.Win32RSA",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JosePCL.Net45", "src\jose-pcl\JosePCL.Net45.csproj", "{62632111-E686-4679-AAE4-DFD18F1ABBB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuteAnt.IdentityModel.OidcClient.Net45", "src\IdentityModel.OidcClient2\CuteAnt.IdentityModel.OidcClient.Net45.csproj", "{579240C0-76A3-45C5-BFFA-FAED1EC29BD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuteAnt.IdentityModel.Net45", "src\IdentityModel2\CuteAnt.IdentityModel.Net45.csproj", "{DF16CF1A-42F6-4F6B-B56C-5EA23AB27F8C}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\PCLCrypto.Shared.NetFxSymmetric\PCLCrypto.Shared.NetFxSymmetric.projitems*{1511f9f5-0210-4375-b5c3-4caf5b761fb4}*SharedItemsImports = 13
 		src\PCLCrypto.Shared.Formatters\PCLCrypto.Shared.Formatters.projitems*{2649b02a-7fdc-43fa-8a0c-755bbd74dbdd}*SharedItemsImports = 13
 		src\PCLCrypto.Shared.PlatformCommon\PCLCrypto.Shared.PlatformCommon.projitems*{3b2d4380-8bcb-4626-8e9e-6958e0a34115}*SharedItemsImports = 13
+		..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems*{579240c0-76a3-45c5-bffa-faed1ec29bd1}*SharedItemsImports = 4
 		src\PCLCrypto.Shared.Common\PCLCrypto.Shared.Common.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
 		src\PCLCrypto.Shared.Formatters\PCLCrypto.Shared.Formatters.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
 		src\PCLCrypto.Shared.NetFxSymmetric\PCLCrypto.Shared.NetFxSymmetric.projitems*{7c7e2d50-036f-4e08-b4e0-f09889501cfd}*SharedItemsImports = 4
@@ -116,6 +123,14 @@ Global
 		{62632111-E686-4679-AAE4-DFD18F1ABBB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62632111-E686-4679-AAE4-DFD18F1ABBB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62632111-E686-4679-AAE4-DFD18F1ABBB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{579240C0-76A3-45C5-BFFA-FAED1EC29BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{579240C0-76A3-45C5-BFFA-FAED1EC29BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{579240C0-76A3-45C5-BFFA-FAED1EC29BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{579240C0-76A3-45C5-BFFA-FAED1EC29BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF16CF1A-42F6-4F6B-B56C-5EA23AB27F8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF16CF1A-42F6-4F6B-B56C-5EA23AB27F8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF16CF1A-42F6-4F6B-B56C-5EA23AB27F8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF16CF1A-42F6-4F6B-B56C-5EA23AB27F8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,5 +151,7 @@ Global
 		{3B2D4380-8BCB-4626-8E9E-6958E0A34115} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
 		{AEBD7D07-32C7-4813-84BA-5DC90E8C40B4} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
 		{62632111-E686-4679-AAE4-DFD18F1ABBB8} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{579240C0-76A3-45C5-BFFA-FAED1EC29BD1} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
+		{DF16CF1A-42F6-4F6B-B56C-5EA23AB27F8C} = {3DE4D4CB-EFB0-4B66-A26E-55CCF2D52F32}
 	EndGlobalSection
 EndGlobal

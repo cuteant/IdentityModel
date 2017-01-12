@@ -17,13 +17,13 @@
     <tags>OAuth2 OIDC OpenID Connect JWT Tokens Federation API Authorization</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.0">
-        <dependency id="IdentityModel" version="$version$" />
+        <dependency id="CuteAnt.IdentityModel" version="$version$" />
         
         <dependency id="PCLCrypto.Desktop" version="2.0.0-rc3-161101" />
         <dependency id="JosePCL" version="2.0.0-rc3-161101" />
       </group>
       <group targetFramework=".NETFramework4.5.1">
-        <dependency id="IdentityModel" version="$version$" />
+        <dependency id="CuteAnt.IdentityModel" version="$version$" />
         
         <dependency id="CuteAnt" version="2.0.0-rc3-161101" />
         <dependency id="PCLCrypto.Desktop" version="2.0.0-rc3-161101" />

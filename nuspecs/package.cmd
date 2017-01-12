@@ -12,3 +12,6 @@
 %~dp0nuget.exe pack %~dp0CuteAnt.IdentityModel.OidcClient.nuspec %NUGET_PACK_OPTS%
 %~dp0nuget.exe pack %~dp0CuteAnt.IdentityModel.Owin.nuspec %NUGET_PACK_OPTS%
 %~dp0nuget.exe pack %~dp0CuteAnt.IdentityModel.Owin.ScopeValidation.nuspec %NUGET_PACK_OPTS%
+
+%~dp0nuget.exe pack %~dp0CuteAnt.IdentityModel.Plus.nuspec %NUGET_PACK_OPTS%
+%~dp0nuget.exe pack %~dp0CuteAnt.IdentityModel.OidcClient.Plus.nuspec %NUGET_PACK_OPTS%
