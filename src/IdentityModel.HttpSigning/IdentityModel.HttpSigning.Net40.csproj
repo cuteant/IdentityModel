@@ -42,23 +42,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CuteAnt, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.2.0.0-rc3-160701\lib\net40\CuteAnt.dll</HintPath>
+      <HintPath>..\..\packages\CuteAnt.2.0.0-rc3-161101\lib\net40\CuteAnt.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CuteAnt.Extensions.DependencyInjection.Abstractions, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Extensions.DependencyInjection.Abstractions.2.0.0-rc3-160701\lib\net40\CuteAnt.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\CuteAnt.Extensions.DependencyInjection.Abstractions.2.0.0-rc3-161011\lib\net40\CuteAnt.Extensions.DependencyInjection.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CuteAnt.Extensions.Logging, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Extensions.Logging.2.0.0-rc3-160701\lib\net40\CuteAnt.Extensions.Logging.dll</HintPath>
+      <HintPath>..\..\packages\CuteAnt.Extensions.Logging.2.0.0-rc3-161011\lib\net40\CuteAnt.Extensions.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CuteAnt.Extensions.Logging.Abstractions, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Extensions.Logging.Abstractions.2.0.0-rc3-160701\lib\net40\CuteAnt.Extensions.Logging.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\CuteAnt.Extensions.Logging.Abstractions.2.0.0-rc3-161011\lib\net40\CuteAnt.Extensions.Logging.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CuteAnt.Extensions.Primitives, Version=2.8.6.168, Culture=neutral, PublicKeyToken=8df3f1eee85cc956, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CuteAnt.Extensions.Primitives.2.0.0-rc3-160701\lib\net40\CuteAnt.Extensions.Primitives.dll</HintPath>
+      <HintPath>..\..\packages\CuteAnt.Extensions.Primitives.2.0.0-rc3-161011\lib\net40\CuteAnt.Extensions.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="jose-jwt, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -157,7 +157,7 @@
       <Name>IdentityModel.Net40</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="..\..\..\SharedProjects\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems" Label="Shared" />
+  <Import Project="..\..\..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
