@@ -18,21 +18,21 @@ namespace CuteAnt.IdentityModel.OidcClient
 
         public HashAlgorithm GetMatchingHashAlgorithm(string signatureAlgorithm)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("GetMatchingHashAlgorithm");
-            if (_logger.IsDebugLevelEnabled()) _logger.LogDebug("Determining matching hash algorithm for {signatureAlgorithm}", signatureAlgorithm);
+            _logger.LogTrace("GetMatchingHashAlgorithm");
+            _logger.LogDebug("Determining matching hash algorithm for {signatureAlgorithm}", signatureAlgorithm);
 
             var signingAlgorithmBits = int.Parse(signatureAlgorithm.Substring(signatureAlgorithm.Length - 3));
             
             switch (signingAlgorithmBits)
             {
                 case 256:
-                    if (_logger.IsDebugLevelEnabled()) _logger.LogDebug("SHA256");
+                    _logger.LogDebug("SHA256");
                     return SHA256.Create();
                 case 384:
-                    if (_logger.IsDebugLevelEnabled()) _logger.LogDebug("SHA384");
+                    _logger.LogDebug("SHA384");
                     return SHA384.Create();
                 case 512:
-                    if (_logger.IsDebugLevelEnabled()) _logger.LogDebug("SHA512");
+                    _logger.LogDebug("SHA512");
                     return SHA512.Create();
                 default:
                     return null;
@@ -41,7 +41,7 @@ namespace CuteAnt.IdentityModel.OidcClient
 
         public bool ValidateHash(string data, string hashedData, string signatureAlgorithm)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("ValidateHash");
+            _logger.LogTrace("ValidateHash");
 
             var hashAlgorithm = GetMatchingHashAlgorithm(signatureAlgorithm);
             if (hashAlgorithm == null)
@@ -51,7 +51,7 @@ namespace CuteAnt.IdentityModel.OidcClient
 
             using (hashAlgorithm)
             {
-                var hash = hashAlgorithm.ComputeHash(Encoding.UTF8.GetBytes(data));
+                var hash = hashAlgorithm.ComputeHash(Encoding.ASCII.GetBytes(data));
 
                 byte[] leftPart = new byte[hashAlgorithm.HashSize / 16];
                 Array.Copy(hash, leftPart, hashAlgorithm.HashSize / 16);
@@ -70,21 +70,21 @@ namespace CuteAnt.IdentityModel.OidcClient
 
         public string CreateState()
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("CreateState");
+            _logger.LogTrace("CreateState");
 
             return CryptoRandom.CreateUniqueId(16);
         }
 
         public string CreateNonce()
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("CreateNonce");
+            _logger.LogTrace("CreateNonce");
 
             return CryptoRandom.CreateUniqueId(16);
         }
 
         public Pkce CreatePkceData()
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("CreatePkceData");
+            _logger.LogTrace("CreatePkceData");
 
             var pkce = new Pkce
             {

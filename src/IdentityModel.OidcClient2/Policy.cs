@@ -21,6 +21,14 @@ namespace CuteAnt.IdentityModel.OidcClient
         public DiscoveryPolicy Discovery { get; set; } = new DiscoveryPolicy();
 
         /// <summary>
+        /// Gets or sets a value indicating whether a subject id is required (defaults to true).
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if subject id is required; otherwise, <c>false</c>.
+        /// </value>
+        public bool RequireSubject { get; set; } = true;
+
+        /// <summary>
         /// Gets or sets a value indicating whether a c_hash is required (defaults to true).
         /// </summary>
         /// <value>
@@ -50,7 +58,7 @@ namespace CuteAnt.IdentityModel.OidcClient
         /// <value>
         /// The supported algorithms.
         /// </value>
-        public ICollection<string> SupportedAlgorithms { get; set; } = new HashSet<string>
+        public ICollection<string> ValidSignatureAlgorithms { get; set; } = new HashSet<string>
         {
             OidcConstants.Algorithms.Asymmetric.RS256,
             OidcConstants.Algorithms.Asymmetric.RS384,

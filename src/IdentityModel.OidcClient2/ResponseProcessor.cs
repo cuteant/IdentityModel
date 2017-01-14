@@ -27,7 +27,11 @@ namespace CuteAnt.IdentityModel.OidcClient
 
         public async Task<ResponseValidationResult> ProcessResponseAsync(AuthorizeResponse authorizeResponse, AuthorizeState state)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("ProcessResponseAsync");
+            _logger.LogTrace("ProcessResponseAsync");
+
+            //////////////////////////////////////////////////////
+            // validate common front-channel parameters
+            //////////////////////////////////////////////////////
 
             if (string.IsNullOrEmpty(authorizeResponse.Code))
             {
@@ -66,7 +70,7 @@ namespace CuteAnt.IdentityModel.OidcClient
 
         public async Task<ResponseValidationResult> ProcessHybridFlowResponseAsync(AuthorizeResponse authorizeResponse, AuthorizeState state)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("ProcessHybridFlowResponseAsync");
+            _logger.LogTrace("ProcessHybridFlowResponseAsync");
 
             var result = new ResponseValidationResult();
 
@@ -77,33 +81,46 @@ namespace CuteAnt.IdentityModel.OidcClient
             // id_token must be present
             if (authorizeResponse.IdentityToken.IsMissing())
             {
-                result.Error = "Missing identity token";
+                result.Error = "Missing identity token.";
                 _logger.LogError(result.Error);
 
                 return result;
             }
 
             // id_token must be valid
-            var validationResult = _tokenValidator.Validate(authorizeResponse.IdentityToken);
-            if (validationResult.IsError)
+            var frontChannelValidationResult = _tokenValidator.Validate(authorizeResponse.IdentityToken);
+            if (frontChannelValidationResult.IsError)
             {
-                result.Error = validationResult.Error ?? "Identity token validation error";
+                result.Error = frontChannelValidationResult.Error ?? "Identity token validation error.";
                 _logger.LogError(result.Error);
 
                 return result;
             }
 
-            // nonce must be valid
-            if (!ValidateNonce(state.Nonce, validationResult.User))
+            // validate sub
+            if (_options.Policy.RequireSubject)
             {
-                result.Error = "Invalid nonce";
+                var sub = frontChannelValidationResult.User.FindFirst(JwtClaimTypes.Subject);
+                if (sub == null)
+                {
+                    return new ResponseValidationResult
+                    {
+                        Error = "sub is missing."
+                    };
+                }
+            }
+
+            // nonce must be valid
+            if (!ValidateNonce(state.Nonce, frontChannelValidationResult.User))
+            {
+                result.Error = "Invalid nonce.";
                 _logger.LogError(result.Error);
 
                 return result;
             }
 
             // validate c_hash
-            var cHash = validationResult.User.FindFirst(JwtClaimTypes.AuthorizationCodeHash);
+            var cHash = frontChannelValidationResult.User.FindFirst(JwtClaimTypes.AuthorizationCodeHash);
             if (cHash == null)
             {
                 if (_options.Policy.RequireAuthorizationCodeHash)
@@ -116,9 +133,9 @@ namespace CuteAnt.IdentityModel.OidcClient
             }
             else
             {
-                if (!_crypto.ValidateHash(authorizeResponse.Code, cHash.Value, validationResult.SignatureAlgorithm))
+                if (!_crypto.ValidateHash(authorizeResponse.Code, cHash.Value, frontChannelValidationResult.SignatureAlgorithm))
                 {
-                    result.Error = "Invalid c_hash";
+                    result.Error = "Invalid c_hash.";
                     _logger.LogError(result.Error);
 
                     return result;
@@ -147,6 +164,33 @@ namespace CuteAnt.IdentityModel.OidcClient
                 return result;
             }
 
+            // validate sub
+            if (_options.Policy.RequireSubject)
+            {
+                var sub = tokenResponseValidationResult.IdentityTokenValidationResult.User.FindFirst(JwtClaimTypes.Subject);
+                if (sub == null)
+                {
+                    return new ResponseValidationResult
+                    {
+                        Error = "sub is missing."
+                    };
+                }
+            }
+
+            // compare front & back channel subs
+            var frontChannelSub = frontChannelValidationResult.User.FindFirst(JwtClaimTypes.Subject)?.Value ?? "none";
+            var backChannelSub = tokenResponseValidationResult.IdentityTokenValidationResult.User.FindFirst(JwtClaimTypes.Subject)?.Value ?? "none";
+
+            if (!string.Equals(frontChannelSub, backChannelSub, StringComparison.Ordinal))
+            {
+                var error = $"Subject on front-channel ({frontChannelSub}) does not match subject on back-channel ({backChannelSub}).";
+
+                _logger.LogError(error);
+                result.Error = error;
+
+                return result;
+            }
+
             return new ResponseValidationResult
             {
                 AuthorizeResponse = authorizeResponse,
@@ -157,7 +201,7 @@ namespace CuteAnt.IdentityModel.OidcClient
 
         public async Task<ResponseValidationResult> ProcessCodeFlowResponseAsync(AuthorizeResponse authorizeResponse, AuthorizeState state)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("ProcessCodeFlowResponseAsync");
+            _logger.LogTrace("ProcessCodeFlowResponseAsync");
 
             var result = new ResponseValidationResult();
 
@@ -169,8 +213,10 @@ namespace CuteAnt.IdentityModel.OidcClient
             var tokenResponse = await RedeemCodeAsync(authorizeResponse.Code, state);
             if (tokenResponse.IsError)
             {
-                // todo: logging?
-                result.Error = tokenResponse.Error;
+                var error = $"Error redeeming code: {tokenResponse.Error}";
+                _logger.LogError(error);
+
+                result.Error = error;
                 return result;
             }
 
@@ -178,7 +224,10 @@ namespace CuteAnt.IdentityModel.OidcClient
             var tokenResponseValidationResult = ValidateTokenResponse(tokenResponse);
             if (tokenResponseValidationResult.IsError)
             {
-                result.Error = tokenResponseValidationResult.Error;
+                var error = $"Error validating token response: {tokenResponseValidationResult.Error}";
+                _logger.LogError(error);
+
+                result.Error = error;
                 return result;
             }
 
@@ -192,14 +241,14 @@ namespace CuteAnt.IdentityModel.OidcClient
 
         public TokenResponseValidationResult ValidateTokenResponse(TokenResponse response, bool requireIdentityToken = true)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("ValidateTokenResponse");
+            _logger.LogTrace("ValidateTokenResponse");
 
             var result = new TokenResponseValidationResult();
 
             // token response must contain an access token
             if (response.AccessToken.IsMissing())
             {
-                result.Error = "access token is missing on token response";
+                result.Error = "Access token is missing on token response.";
                 _logger.LogError(result.Error);
 
                 return result;
@@ -210,7 +259,7 @@ namespace CuteAnt.IdentityModel.OidcClient
                 // token response must contain an identity token (openid scope is mandatory)
                 if (response.IdentityToken.IsMissing())
                 {
-                    result.Error = "identity token is missing on token response";
+                    result.Error = "Identity token is missing on token response.";
                     _logger.LogError(result.Error);
 
                     return result;
@@ -229,6 +278,19 @@ namespace CuteAnt.IdentityModel.OidcClient
                     return result;
                 }
 
+                // validate sub
+                if (_options.Policy.RequireSubject)
+                {
+                    var sub = validationResult.User.FindFirst(JwtClaimTypes.Subject);
+                    if (sub == null)
+                    {
+                        return new TokenResponseValidationResult
+                        {
+                            Error = "sub is missing."
+                        };
+                    }
+                }
+
                 // validate at_hash
                 var atHash = validationResult.User.FindFirst(JwtClaimTypes.AccessTokenHash);
                 if (atHash == null)
@@ -245,7 +307,7 @@ namespace CuteAnt.IdentityModel.OidcClient
                 {
                     if (!_crypto.ValidateHash(response.AccessToken, atHash.Value, validationResult.SignatureAlgorithm))
                     {
-                        result.Error = "Invalid access token hash";
+                        result.Error = "Invalid access token hash.";
                         _logger.LogError(result.Error);
 
                         return result;
@@ -263,7 +325,7 @@ namespace CuteAnt.IdentityModel.OidcClient
 
         private bool ValidateNonce(string nonce, ClaimsPrincipal user)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("ValidateNonce");
+            _logger.LogTrace("ValidateNonce");
 
             var tokenNonce = user.FindFirst(JwtClaimTypes.Nonce)?.Value ?? "";
             var match = string.Equals(nonce, tokenNonce, StringComparison.Ordinal);
@@ -278,7 +340,7 @@ namespace CuteAnt.IdentityModel.OidcClient
 
         private async Task<TokenResponse> RedeemCodeAsync(string code, AuthorizeState state)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("RedeemCodeAsync");
+            _logger.LogTrace("RedeemCodeAsync");
 
             var client = GetTokenClient();
 

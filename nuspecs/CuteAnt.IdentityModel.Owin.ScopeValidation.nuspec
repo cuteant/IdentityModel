@@ -17,7 +17,7 @@
     <tags>Security OWIN Katana OAuth2 OpenID Connect Identity Claims Authorization Access Control WebAPI Web API</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.5.1">
-        <dependency id="CuteAnt.Owin" version="2.0.0-rc3-161101" />
+        <dependency id="CuteAnt.Owin" version="2.0.0-rc3-161201" />
       </group>
     </dependencies>
     <frameworkAssemblies>

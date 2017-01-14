@@ -27,7 +27,7 @@ namespace CuteAnt.IdentityModel.OidcClient
         /// <returns>The validation result</returns>
         public IdentityTokenValidationResult Validate(string identityToken)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("Validate");
+            _logger.LogTrace("Validate");
 
             var keys = new List<SecurityKey>();
             foreach (var webKey in _options.ProviderInformation.KeySet.Keys)
@@ -40,7 +40,7 @@ namespace CuteAnt.IdentityModel.OidcClient
 
                 keys.Add(key);
 
-                if (_logger.IsDebugLevelEnabled()) _logger.LogDebug("Added signing key with kid: {kid}", key?.KeyId ?? "not set");
+                _logger.LogDebug("Added signing key with kid: {kid}", key?.KeyId ?? "not set");
             }
 
             var parameters = new TokenValidationParameters
@@ -78,11 +78,11 @@ namespace CuteAnt.IdentityModel.OidcClient
             var jwt = token as JwtSecurityToken;
             var algorithm = jwt.Header.Alg;
 
-            if (!_options.Policy.SupportedAlgorithms.Contains(algorithm))
+            if (!_options.Policy.ValidSignatureAlgorithms.Contains(algorithm))
             {
                 return new IdentityTokenValidationResult
                 {
-                    Error = $"Identity token uses unsupported algorithm: {algorithm}"
+                    Error = $"Identity token uses invalid algorithm: {algorithm}"
                 };
             };
 

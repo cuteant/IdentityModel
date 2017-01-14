@@ -25,7 +25,7 @@
       <group targetFramework=".NETFramework4.5.1">
         <dependency id="CuteAnt.IdentityModel" version="$version$"/>
 
-        <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.4-rc3-161101"/>
+        <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.4-rc3-161201"/>
         <dependency id="jose-jwt" version="2.1.0" />
       </group>
     </dependencies>

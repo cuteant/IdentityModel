@@ -29,7 +29,7 @@ namespace CuteAnt.IdentityModel.OidcClient
 
         public async Task<AuthorizeResult> AuthorizeAsync(DisplayMode displayMode = DisplayMode.Visible, int timeout = 300, object extraParameters = null)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("AuthorizeAsync");
+            _logger.LogTrace("AuthorizeAsync");
 
             if (_options.Browser == null)
             {
@@ -46,7 +46,7 @@ namespace CuteAnt.IdentityModel.OidcClient
                 Timeout = TimeSpan.FromSeconds(timeout),
                 DisplayMode = displayMode
             };
-            
+
             if (_options.ResponseMode == OidcClientOptions.AuthorizeResponseMode.FormPost)
             {
                 browserOptions.ResponseMode = OidcClientOptions.AuthorizeResponseMode.FormPost;
@@ -70,7 +70,7 @@ namespace CuteAnt.IdentityModel.OidcClient
 
         public AuthorizeState CreateAuthorizeState(object extraParameters = null)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("CreateAuthorizeStateAsync");
+            _logger.LogTrace("CreateAuthorizeStateAsync");
 
             var pkce = _crypto.CreatePkceData();
 
@@ -84,15 +84,15 @@ namespace CuteAnt.IdentityModel.OidcClient
 
             state.StartUrl = CreateUrl(state.State, state.Nonce, pkce.CodeChallenge, extraParameters);
 
-            if(_logger.IsInformationLevelEnabled()) _logger.LogInformation("CreateAuthorizeStateAsync success.");
-            if(_logger.IsInformationLevelEnabled()) _logger.LogInformation(LogSerializer.Serialize(state));
+            _logger.LogInformation("CreateAuthorizeStateAsync success.");
+            _logger.LogInformation(LogSerializer.Serialize(state));
 
             return state;
         }
 
         internal string CreateUrl(string state, string nonce, string codeChallenge, object extraParameters)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("CreateUrl");
+            _logger.LogTrace("CreateUrl");
 
             var parameters = CreateParameters(state, nonce, codeChallenge, extraParameters);
             var request = new AuthorizeRequest(_options.ProviderInformation.AuthorizeEndpoint);
@@ -102,7 +102,7 @@ namespace CuteAnt.IdentityModel.OidcClient
 
         internal Dictionary<string, string> CreateParameters(string state, string nonce, string codeChallenge, object extraParameters)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("CreateParameters");
+            _logger.LogTrace("CreateParameters");
 
             string responseType = null;
             switch (_options.Flow)
@@ -148,13 +148,16 @@ namespace CuteAnt.IdentityModel.OidcClient
             {
                 foreach (var entry in extraDictionary)
                 {
-                    if (parameters.ContainsKey(entry.Key))
+                    if (!string.IsNullOrWhiteSpace(entry.Value))
                     {
-                        parameters[entry.Key] = entry.Value;
-                    }
-                    else
-                    {
-                        parameters.Add(entry.Key, entry.Value);
+                        if (parameters.ContainsKey(entry.Key))
+                        {
+                            parameters[entry.Key] = entry.Value;
+                        }
+                        else
+                        {
+                            parameters.Add(entry.Key, entry.Value);
+                        }
                     }
                 }
             }
@@ -164,7 +167,7 @@ namespace CuteAnt.IdentityModel.OidcClient
 
         private Dictionary<string, string> ObjectToDictionary(object values)
         {
-            if(_logger.IsTraceLevelEnabled()) _logger.LogTrace("ObjectToDictionary");
+            _logger.LogTrace("ObjectToDictionary");
 
             if (values == null)
             {

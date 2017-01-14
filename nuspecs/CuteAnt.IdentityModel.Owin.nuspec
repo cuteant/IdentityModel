@@ -19,7 +19,7 @@
       <group targetFramework=".NETFramework4.5.1">
         <dependency id="CuteAnt.IdentityModel.Core" version="$version$" />
 
-        <dependency id="CuteAnt.Owin.Security.Jwt" version="2.0.0-rc3-161101" />
+        <dependency id="CuteAnt.Owin.Security.Jwt" version="2.0.0-rc3-161201" />
         <dependency id="Newtonsoft.Json" version="9.0.1" />
       </group>
     </dependencies>
