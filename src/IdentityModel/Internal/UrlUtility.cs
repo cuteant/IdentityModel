@@ -1,4 +1,5 @@
-﻿//------------------------------------------------------------------------------
+﻿#if NET40
+//------------------------------------------------------------------------------
 // <copyright file="WebUtility.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
@@ -235,3 +236,4 @@ namespace IdentityModel
     #endregion
   }
 }
+#endif

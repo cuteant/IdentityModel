@@ -1,148 +1,75 @@
 ﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
-using Newtonsoft.Json.Linq;
 using System;
 using System.Net;
 
 namespace IdentityModel.Client
 {
-    public class TokenResponse
+  /// <summary>Models a response from an OpenID Connect/OAuth 2 token endpoint</summary>
+  /// <seealso cref="IdentityModel.Client.Response" />
+  public class TokenResponse : Response
+  {
+    /// <summary>Initializes a new instance of the <see cref="TokenResponse"/> class.</summary>
+    /// <param name="raw">The raw response data.</param>
+    public TokenResponse(string raw)
+      : base(raw)
     {
-        public string Raw { get; protected set; }
-        public JObject Json { get; protected set; }
-
-        private bool _isHttpError;
-        private HttpStatusCode _httpErrorstatusCode;
-        private string _httpErrorReason;
-
-        public TokenResponse(string raw)
-        {
-            Raw = raw;
-
-            try
-            {
-                Json = JObject.Parse(raw);
-            }
-            catch (Exception ex)
-            {
-                throw new InvalidOperationException("Invalid JSON response", ex);
-            }
-        }
-
-        public TokenResponse(HttpStatusCode statusCode, string reason)
-        {
-            _isHttpError = true;
-            _httpErrorstatusCode = statusCode;
-            _httpErrorReason = reason;
-        }
-
-        public bool IsHttpError
-        {
-            get
-            {
-                return _isHttpError;
-            }
-        }
-
-        public HttpStatusCode HttpErrorStatusCode
-        {
-            get
-            {
-                return _httpErrorstatusCode;
-            }
-        }
-
-        public string HttpErrorReason
-        {
-            get
-            {
-                return _httpErrorReason;
-            }
-        }
-
-        public string AccessToken
-        {
-            get
-            {
-                return GetStringOrNull(OidcConstants.TokenResponse.AccessToken);
-            }
-        }
-
-        public string IdentityToken
-        {
-            get
-            {
-                return GetStringOrNull(OidcConstants.TokenResponse.IdentityToken);
-            }
-        }
-
-        public string Error
-        {
-            get
-            {
-                return GetStringOrNull(OidcConstants.TokenResponse.Error);
-            }
-        }
-
-        public bool IsError
-        {
-            get
-            {
-                return (IsHttpError ||
-                        !string.IsNullOrWhiteSpace(GetStringOrNull(OidcConstants.TokenResponse.Error)));
-            }
-        }
-
-        public long ExpiresIn
-        {
-            get
-            {
-                return GetLongOrNull(OidcConstants.TokenResponse.ExpiresIn);
-            }
-        }
-
-        public string TokenType
-        {
-            get
-            {
-                return GetStringOrNull(OidcConstants.TokenResponse.TokenType);
-            }
-        }
-
-        public string RefreshToken
-        {
-            get
-            {
-                return GetStringOrNull(OidcConstants.TokenResponse.RefreshToken);
-            }
-        }
-
-        protected virtual string GetStringOrNull(string name)
-        {
-            JToken value;
-            if (Json != null && Json.TryGetValue(name, StringComparison.OrdinalIgnoreCase, out value))
-            {
-                return value.ToString();
-            }
-
-            return null;
-        }
-
-        protected virtual long GetLongOrNull(string name)
-        {
-            JToken value;
-            if (Json != null && Json.TryGetValue(name, out value))
-            {
-                long longValue = 0;
-                if (long.TryParse(value.ToString(), out longValue))
-                {
-                    return longValue;
-                }
-            }
-
-            return 0;
-        }
     }
+
+    /// <summary>Initializes a new instance of the <see cref="TokenResponse"/> class.</summary>
+    /// <param name="exception">The exception.</param>
+    public TokenResponse(Exception exception)
+      : base(exception)
+    {
+    }
+
+    /// <summary>Initializes a new instance of the <see cref="TokenResponse"/> class.</summary>
+    /// <param name="statusCode">The status code.</param>
+    /// <param name="reason">The reason.</param>
+    public TokenResponse(HttpStatusCode statusCode, string reason)
+      : base(statusCode, reason)
+    {
+    }
+
+    /// <summary>Gets the access token.</summary>
+    /// <value>The access token.</value>
+    public string AccessToken => TryGet(OidcConstants.TokenResponse.AccessToken);
+
+    /// <summary>Gets the identity token.</summary>
+    /// <value>The identity token.</value>
+    public string IdentityToken => TryGet(OidcConstants.TokenResponse.IdentityToken);
+
+    /// <summary>Gets the type of the token.</summary>
+    /// <value>The type of the token.</value>
+    public string TokenType => TryGet(OidcConstants.TokenResponse.TokenType);
+
+    /// <summary>Gets the refresh token.</summary>
+    /// <value>The refresh token.</value>
+    public string RefreshToken => TryGet(OidcConstants.TokenResponse.RefreshToken);
+
+    /// <summary>Gets the error description.</summary>
+    /// <value>The error description.</value>
+    public string ErrorDescription => TryGet(OidcConstants.TokenResponse.ErrorDescription);
+
+    /// <summary>Gets the expires in.</summary>
+    /// <value>The expires in.</value>
+    public long ExpiresIn
+    {
+      get
+      {
+        var value = TryGet(OidcConstants.TokenResponse.ExpiresIn);
+
+        if (value != null)
+        {
+          if (long.TryParse(value, out long longValue))
+          {
+            return longValue;
+          }
+        }
+
+        return 0;
+      }
+    }
+  }
 }

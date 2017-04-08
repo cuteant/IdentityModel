@@ -4,9 +4,9 @@
 
 namespace IdentityModel.Extensions
 {
-    public enum HashStringEncoding
-    {
-        Base64,
-        Base64Url
-    }
+  public enum HashStringEncoding
+  {
+    Base64,
+    Base64Url
+  }
 }

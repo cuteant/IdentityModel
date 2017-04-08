@@ -1,68 +1,40 @@
 ﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Security.Claims;
+using Newtonsoft.Json.Linq;
 
 namespace IdentityModel.Client
 {
-  public class UserInfoResponse
+  /// <summary>Models an OpenID Connect userinfo response</summary>
+  /// <seealso cref="IdentityModel.Client.Response" />
+  public class UserInfoResponse : Response
   {
-    public UserInfoResponse(string raw)
+    /// <summary>Gets the claims.</summary>
+    /// <value>The claims.</value>
+    public IEnumerable<Claim> Claims { get; }
+
+    /// <summary>Initializes a new instance of the <see cref="UserInfoResponse"/> class.</summary>
+    /// <param name="raw">The raw response data.</param>
+    public UserInfoResponse(string raw) : base(raw)
     {
-      Raw = raw;
-
-      try
-      {
-        JsonObject = JObject.Parse(raw);
-        var claims = new List<Tuple<string, string>>();
-
-        foreach (var x in JsonObject)
-        {
-          var array = x.Value as JArray;
-
-          if (array != null)
-          {
-            foreach (var item in array)
-            {
-              claims.Add(Tuple.Create(x.Key, item.ToString()));
-            }
-          }
-          else
-          {
-            claims.Add(Tuple.Create(x.Key, x.Value.ToString()));
-          }
-        }
-
-        Claims = claims;
-      }
-      catch (Exception ex)
-      {
-        IsError = true;
-        ErrorMessage = ex.Message;
-      }
+      if (!IsError) Claims = Json.ToClaims();
     }
 
-    public UserInfoResponse(HttpStatusCode statusCode, string httpErrorReason)
+    /// <summary>Initializes a new instance of the <see cref="UserInfoResponse"/> class.</summary>
+    /// <param name="exception">The exception.</param>
+    public UserInfoResponse(Exception exception) : base(exception)
     {
-      IsHttpError = true;
-      IsError = true;
-      HttpErrorStatusCode = statusCode;
-      HttpErrorReason = httpErrorReason;
     }
 
-    public string Raw { get; private set; }
-    public JObject JsonObject { get; private set; }
-    public IEnumerable<Tuple<string, string>> Claims { get; set; }
-
-    public bool IsHttpError { get; private set; }
-    public HttpStatusCode HttpErrorStatusCode { get; private set; }
-    public string HttpErrorReason { get; private set; }
-
-    public bool IsError { get; private set; }
-    public string ErrorMessage { get; set; }
+    /// <summary>Initializes a new instance of the <see cref="UserInfoResponse"/> class.</summary>
+    /// <param name="statusCode">The status code.</param>
+    /// <param name="reason">The reason.</param>
+    public UserInfoResponse(HttpStatusCode statusCode, string reason) : base(statusCode, reason)
+    {
+    }
   }
 }
