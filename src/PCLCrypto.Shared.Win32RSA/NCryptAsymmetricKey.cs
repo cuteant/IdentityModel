@@ -26,14 +26,10 @@ namespace PCLCrypto
   }
 #endif
 
-  /// <summary>
-  /// A PCL facade over an NCrypt asymmetric key.
-  /// </summary>
+  /// <summary>A PCL facade over an NCrypt asymmetric key.</summary>
   internal class NCryptAsymmetricKey : NCryptKeyBase
   {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="NCryptAsymmetricKey"/> class.
-    /// </summary>
+    /// <summary>Initializes a new instance of the <see cref="NCryptAsymmetricKey"/> class.</summary>
     /// <param name="provider">The key provider that created this instance.</param>
     /// <param name="key">The handle to the NCrypt key that this instance will represent.</param>
     /// <param name="isPublicOnly"><c>true</c> if the private key data is not included.</param>
@@ -47,52 +43,36 @@ namespace PCLCrypto
       this.IsPublicOnly = isPublicOnly;
     }
 
-    /// <summary>
-    /// A delegate that will sign data or verify a signature.
-    /// </summary>
+    /// <summary>A delegate that will sign data or verify a signature.</summary>
     /// <param name="paddingInfo">The padding info to pass to the signing or verification method.</param>
     /// <param name="flags">Flags to pass to the signing or verification method.</param>
     protected unsafe delegate void SignOrVerifyAction(void* paddingInfo, NCryptSignHashFlags flags);
 
-    /// <summary>
-    /// A delegate that will encrypt or decrypt data.
-    /// </summary>
+    /// <summary>A delegate that will encrypt or decrypt data.</summary>
     /// <param name="paddingInfo">The padding info to pass to the encryption or decryption method.</param>
     /// <param name="flags">Flags to pass to the encrypt/decrypt method.</param>
     /// <returns>The result of the cipher operation.</returns>
     protected unsafe delegate byte[] EncryptOrDecryptFunction(void* paddingInfo, NCryptEncryptFlags flags);
 
-    /// <summary>
-    /// Gets the key provider responsible for creating this instance.
-    /// </summary>
+    /// <summary>Gets the key provider responsible for creating this instance.</summary>
     protected NCryptAsymmetricKeyProviderBase Provider { get; }
 
-    /// <summary>
-    /// Gets the padding mode for use in encryption.
-    /// </summary>
+    /// <summary>Gets the padding mode for use in encryption.</summary>
     protected AsymmetricEncryptionPadding? EncryptionPadding => this.Algorithm.GetEncryptionPadding();
 
-    /// <summary>
-    /// Gets the padding mode for use in signatures.
-    /// </summary>
+    /// <summary>Gets the padding mode for use in signatures.</summary>
     protected AsymmetricSignaturePadding? SignaturePadding => this.Algorithm.GetSignaturePadding();
 
-    /// <summary>
-    /// Gets the algorithm in which this key was created.
-    /// </summary>
+    /// <summary>Gets the algorithm in which this key was created.</summary>
     protected AsymmetricAlgorithm Algorithm => this.Provider.Algorithm;
 
-    /// <summary>
-    /// Gets the hashing algorithm associated with this asymmetric algorithm, if any.
-    /// </summary>
+    /// <summary>Gets the hashing algorithm associated with this asymmetric algorithm, if any.</summary>
     protected HashAlgorithm? SignatureHash => this.Algorithm.GetHashAlgorithm();
 
     /// <inheritdoc />
     protected override IHashAlgorithmProvider SignatureHashAlgorithm { get; }
 
-    /// <summary>
-    /// Gets a value indicating whether this key only contains the public key.
-    /// </summary>
+    /// <summary>Gets a value indicating whether this key only contains the public key.</summary>
     protected bool IsPublicOnly { get; }
 
     /// <inheritdoc />
@@ -229,9 +209,7 @@ namespace PCLCrypto
 #endif
     }
 
-    /// <summary>
-    /// Performs a signing or verification operation.
-    /// </summary>
+    /// <summary>Performs a signing or verification operation.</summary>
     /// <param name="action">The delegate that will actually perform the cryptographic operation.</param>
     /// <remarks>
     /// This method should not throw an error when verifying a signature and
@@ -276,9 +254,7 @@ namespace PCLCrypto
       }
     }
 
-    /// <summary>
-    /// Performs an encryption or decryption operation.
-    /// </summary>
+    /// <summary>Performs an encryption or decryption operation.</summary>
     /// <param name="cipherFunction">The delegate that will actually perform the cryptographic operation.</param>
     /// <returns>A buffer containing the result of the cryptographic operation.</returns>
     protected unsafe byte[] EncryptOrDecrypt(EncryptOrDecryptFunction cipherFunction)

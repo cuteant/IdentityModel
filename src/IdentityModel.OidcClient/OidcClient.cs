@@ -16,9 +16,7 @@ using Microsoft.Extensions.Logging;
 
 namespace IdentityModel.OidcClient
 {
-  /// <summary>
-  /// OpenID Connect client
-  /// </summary>
+  /// <summary>OpenID Connect client</summary>
   public class OidcClient
   {
     private static ILogger s_logger = TraceLogger.GetLogger<OidcClient>();
@@ -27,20 +25,14 @@ namespace IdentityModel.OidcClient
     private readonly OidcClientOptions _options;
     private readonly ResponseValidator _validator;
 
-    /// <summary>
-    /// Gets the options.
-    /// </summary>
-    /// <value>
-    /// The options.
-    /// </value>
+    /// <summary>Gets the options.</summary>
+    /// <value>The options.</value>
     public OidcClientOptions Options
     {
       get { return _options; }
     }
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="OidcClient"/> class.
-    /// </summary>
+    /// <summary>Initializes a new instance of the <see cref="OidcClient"/> class.</summary>
     /// <param name="options">The options.</param>
     public OidcClient(OidcClientOptions options)
     {
@@ -50,9 +42,7 @@ namespace IdentityModel.OidcClient
       _options = options;
     }
 
-    /// <summary>
-    /// Starts an authentication request.
-    /// </summary>
+    /// <summary>Starts an authentication request.</summary>
     /// <param name="trySilent">if set to <c>true</c> a silent login attempt is made.</param>
     /// <param name="extraParameters">extra parameters to send to the authorize endpoint.</param>
     /// <returns></returns>
@@ -70,9 +60,7 @@ namespace IdentityModel.OidcClient
       return await ValidateResponseAsync(authorizeResult.Data, authorizeResult.State);
     }
 
-    /// <summary>
-    /// Prepares an authentication request.
-    /// </summary>
+    /// <summary>Prepares an authentication request.</summary>
     /// <param name="extraParameters">extra parameters to send to the authorize endpoint.</param>
     /// <returns>An authorize state object that can be later used to validate the response</returns>
     public async Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null)
@@ -82,9 +70,7 @@ namespace IdentityModel.OidcClient
       return await _authorizeClient.PrepareAuthorizeAsync(extraParameters);
     }
 
-    /// <summary>
-    /// Starts and end session request.
-    /// </summary>
+    /// <summary>Starts and end session request.</summary>
     /// <param name="identityToken">An identity token to send as a hint.</param>
     /// <param name="trySilent">if set to <c>true</c> a silent end session attempt is made.</param>
     /// <returns></returns>
@@ -93,9 +79,7 @@ namespace IdentityModel.OidcClient
       return _authorizeClient.EndSessionAsync(identityToken, trySilent);
     }
 
-    /// <summary>
-    /// Validates the response.
-    /// </summary>
+    /// <summary>Validates the response.</summary>
     /// <param name="data">The response data.</param>
     /// <param name="state">The state.</param>
     /// <returns>Result of the login response validation</returns>
@@ -164,9 +148,7 @@ namespace IdentityModel.OidcClient
       return await ProcessClaimsAsync(validationResult);
     }
 
-    /// <summary>
-    /// Gets the user claims from the userinfo endpoint.
-    /// </summary>
+    /// <summary>Gets the user claims from the userinfo endpoint.</summary>
     /// <param name="accessToken">The access token.</param>
     /// <returns>User claims</returns>
     public async Task<UserInfoResult> GetUserInfoAsync(string accessToken)
@@ -196,9 +178,7 @@ namespace IdentityModel.OidcClient
       };
     }
 
-    /// <summary>
-    /// Starts a refresh token request.
-    /// </summary>
+    /// <summary>Starts a refresh token request.</summary>
     /// <param name="refreshToken">The refresh token.</param>
     /// <returns>A refresh token result</returns>
     public async Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken)

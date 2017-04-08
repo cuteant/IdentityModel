@@ -14,14 +14,10 @@ namespace PCLCrypto
     using Validation;
     using static PInvoke.BCrypt;
 
-    /// <summary>
-    /// The base class for BCrypt implementations of the <see cref="ICryptographicKey"/> interface.
-    /// </summary>
+    /// <summary>The base class for BCrypt implementations of the <see cref="ICryptographicKey"/> interface.</summary>
     internal abstract class BCryptKeyBase : CryptographicKey, ICryptographicKey
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BCryptKeyBase" /> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="BCryptKeyBase" /> class.</summary>
         internal BCryptKeyBase()
         {
         }
@@ -29,9 +25,7 @@ namespace PCLCrypto
         /// <inheritdoc />
         public int KeySize => BCryptGetProperty<int>(this.Key, PropertyNames.BCRYPT_KEY_LENGTH);
 
-        /// <summary>
-        /// Gets the handle to the BCrypt cryptographic key for purposes of key export.
-        /// </summary>
+        /// <summary>Gets the handle to the BCrypt cryptographic key for purposes of key export.</summary>
         protected abstract SafeKeyHandle Key { get; }
 
         /// <inheritdoc />
@@ -40,9 +34,7 @@ namespace PCLCrypto
         /// <inheritdoc />
         public abstract byte[] ExportPublicKey(CryptographicPublicKeyBlobType blobType);
 
-        /// <summary>
-        /// Disposes of managed and native resources of this object.
-        /// </summary>
+        /// <summary>Disposes of managed and native resources of this object.</summary>
         /// <param name="disposing"><c>true</c> if this object is being disposed of; <c>false</c> if being finalized.</param>
         protected override void Dispose(bool disposing)
         {

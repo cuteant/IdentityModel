@@ -14,19 +14,13 @@ namespace PCLCrypto
     using Validation;
     using Platform = System.Security.Cryptography;
 
-    /// <summary>
-    /// The .NET Framework implementation of <see cref="IHashAlgorithmProvider"/>.
-    /// </summary>
+    /// <summary>The .NET Framework implementation of <see cref="IHashAlgorithmProvider"/>.</summary>
     internal class HashAlgorithmProvider : IHashAlgorithmProvider
     {
-        /// <summary>
-        /// The algorithm used by this instance.
-        /// </summary>
+        /// <summary>The algorithm used by this instance.</summary>
         private readonly HashAlgorithm algorithm;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HashAlgorithmProvider"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="HashAlgorithmProvider"/> class.</summary>
         /// <param name="algorithm">The algorithm.</param>
         internal HashAlgorithmProvider(HashAlgorithm algorithm)
         {
@@ -86,13 +80,9 @@ namespace PCLCrypto
 
 #if Android
 
-        /// <summary>
-        /// Creates the hash algorithm.
-        /// </summary>
+        /// <summary>Creates the hash algorithm.</summary>
         /// <param name="algorithm">The algorithm.</param>
-        /// <returns>
-        /// A platform-specific hash algorithm.
-        /// </returns>
+        /// <returns>A platform-specific hash algorithm.</returns>
         internal static MessageDigest CreateHashAlgorithm(HashAlgorithm algorithm)
         {
             switch (algorithm)
@@ -114,13 +104,9 @@ namespace PCLCrypto
 
 #else
 
-        /// <summary>
-        /// Creates the hash algorithm.
-        /// </summary>
+        /// <summary>Creates the hash algorithm.</summary>
         /// <param name="algorithm">The algorithm.</param>
-        /// <returns>
-        /// A platform-specific hash algorithm.
-        /// </returns>
+        /// <returns>A platform-specific hash algorithm.</returns>
         internal static Platform.HashAlgorithm CreateHashAlgorithm(HashAlgorithm algorithm)
         {
 #if SILVERLIGHT

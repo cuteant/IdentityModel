@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\PCLCrypto.Shared.Common\PCLCrypto.Shared.Common.projitems" Label="Shared" />
+  <Import Project="..\PCLCrypto.Shared.Formatters\PCLCrypto.Shared.Formatters.projitems" Label="Shared" />
+  <Import Project="..\PCLCrypto.Shared.NetFx\PCLCrypto.Shared.NetFx.projitems" Label="Shared" />
+  <Import Project="..\PCLCrypto.Shared.NetFxSymmetric\PCLCrypto.Shared.NetFxSymmetric.projitems" Label="Shared" />
+  <Import Project="..\PCLCrypto.Shared.PlatformCommon\PCLCrypto.Shared.PlatformCommon.projitems" Label="Shared" />
+  <Import Project="..\PCLCrypto.Shared.Win32RSA\PCLCrypto.Shared.Win32RSA.projitems" Label="Shared" />
+  <Import Project="..\PCLCryptoVersion.props" />
+  
+  <PropertyGroup>
+    <TargetFrameworks>net461;net451;net40</TargetFrameworks>
+    <RootNamespace>PCLCrypto</RootNamespace>
+    <AssemblyName>PCLCrypto</AssemblyName>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet">
+    <PackageId>PCLCrypto.Unofficial</PackageId>
+    <Title>PCL Crypto (Unofficial) - Portable Crypto APIs</Title>
+    <Description>PCL Crypto provides a consistent, portable set of crypto APIs for .NET 4.5.1 and .Net 4.0. This makes it easier to create cross-platform .NET libraries and apps. Crypto functionality includes asymmetric and symmetric encryption and signatures, and key derivation. PCLCrypto calls into each native platform's crypto API for maximum performance. For RSA operations this produces a 2-100X improvement in performance on Android and iOS over using the standard RSACryptoServiceProvider API.</Description>
+    <PackageTags>crypto security cryptography portable pcl winrt android ios xamarin monoandroid monodroid monotouch</PackageTags>
+    <IsPackable>true</IsPackable>
+    <Authors>Andrew Arnott, Seabiscuit</Authors>
+    <Copyright>Copyright © CuteAnt Development Team</Copyright>
+    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <PackageIconUrl>https://raw.githubusercontent.com/AArnott/PCLCrypto/313d8a787a/icons/icon_64x64.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/aarnott/pclcrypto/</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/AArnott/PCLCrypto/313d8a787a/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/aarnott/pclcrypto/</RepositoryUrl>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net451' or '$(TargetFramework)' == 'net40'">
+    <DefineConstants>$(DefineConstants);DESKTOP</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard1.4'">
+    <DefineConstants>$(DefineConstants);PCL</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net451' or '$(TargetFramework)' == 'net40'">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\PCLCryptoVersionInfo.cs" Link="Properties\PCLCryptoVersionInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Validation" Version="2.4.15" />
+    <PackageReference Include="PInvoke.NCrypt" Version="0.5.64" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.4'">
+    <PackageReference Include="System.Security.Cryptography.Cng" Version="4.3.0" />
+    <PackageReference Include="System.Security.Cryptography.Csp" Version="4.3.0" />
+  </ItemGroup>
+</Project>

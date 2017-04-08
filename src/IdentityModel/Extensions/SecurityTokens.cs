@@ -15,15 +15,11 @@ using System.Xml;
 
 namespace IdentityModel.Extensions
 {
-  /// <summary>
-  /// Extension methods to convert tokens to string and claims
-  /// </summary>
+  /// <summary>Extension methods to convert tokens to string and claims</summary>
   public static class SecurityTokensExtensions
   {
     #region GenericXmlSecurityToken Special Cases
-    /// <summary>
-    /// Turns a supported generic XML security token to a security token.
-    /// </summary>
+    /// <summary>Turns a supported generic XML security token to a security token.</summary>
     /// <param name="token">The generic XML security token.</param>
     /// <returns>A SecurityToken</returns>
     public static SecurityToken ToSecurityToken(this GenericXmlSecurityToken token)
@@ -32,9 +28,7 @@ namespace IdentityModel.Extensions
       return token.ToSecurityToken(handler);
     }
 
-    /// <summary>
-    /// Turns a supported generic XML security token to a security token.
-    /// </summary>
+    /// <summary>Turns a supported generic XML security token to a security token.</summary>
     /// <param name="token">The token.</param>
     /// <param name="decryptionCertificate">The decryption certificate.</param>
     /// <returns>A SecurityToken</returns>
@@ -47,9 +41,7 @@ namespace IdentityModel.Extensions
       return token.ToSecurityToken(handler);
     }
 
-    /// <summary>
-    /// Turns a supported generic XML security token to a security token.
-    /// </summary>
+    /// <summary>Turns a supported generic XML security token to a security token.</summary>
     /// <param name="token">The generic XML security token.</param>
     /// <param name="handler">The security token handler.</param>
     /// <returns>A SecurityToken</returns>
@@ -67,9 +59,7 @@ namespace IdentityModel.Extensions
       }
     }
 
-    /// <summary>
-    /// Retrieves the XML from a GenericXmlSecurityToken
-    /// </summary>
+    /// <summary>Retrieves the XML from a GenericXmlSecurityToken</summary>
     /// <param name="token">The token.</param>
     /// <returns>The token XML string.</returns>
     public static string ToTokenXmlString(this GenericXmlSecurityToken token)
@@ -79,9 +69,7 @@ namespace IdentityModel.Extensions
     #endregion
 
     #region To Token XML String
-    /// <summary>
-    /// Converts a supported token to an XML string.
-    /// </summary>
+    /// <summary>Converts a supported token to an XML string.</summary>
     /// <param name="token">The token.</param>
     /// <returns>The token XML string.</returns>
     public static string ToTokenXmlString(this SecurityToken token)
@@ -96,9 +84,7 @@ namespace IdentityModel.Extensions
       return token.ToTokenXmlString(handler);
     }
 
-    /// <summary>
-    /// Converts a supported token to an XML string.
-    /// </summary>
+    /// <summary>Converts a supported token to an XML string.</summary>
     /// <param name="token">The token.</param>
     /// <param name="handler">The token handler.</param>
     /// <returns>The token XML string.</returns>
@@ -118,9 +104,7 @@ namespace IdentityModel.Extensions
     #endregion
 
     #region To ClaimsPrincipal
-    /// <summary>
-    /// Converts a SecurityToken to an IClaimsPrincipal.
-    /// </summary>
+    /// <summary>Converts a SecurityToken to an IClaimsPrincipal.</summary>
     /// <param name="token">The token.</param>
     /// <param name="signingCertificate">The signing certificate.</param>
     /// <returns>An IClaimsPrincipal</returns>
@@ -130,9 +114,7 @@ namespace IdentityModel.Extensions
       return token.ToClaimsPrincipal(configuration.CreateDefaultHandlerCollection());
     }
 
-    /// <summary>
-    /// Converts a SecurityToken to an IClaimsPrincipal.
-    /// </summary>
+    /// <summary>Converts a SecurityToken to an IClaimsPrincipal.</summary>
     /// <param name="token">The token.</param>
     /// <param name="signingCertificate">The signing certificate.</param>
     /// <param name="audienceUri">The audience URI.</param>
@@ -147,9 +129,7 @@ namespace IdentityModel.Extensions
       return token.ToClaimsPrincipal(configuration.CreateDefaultHandlerCollection());
     }
 
-    /// <summary>
-    /// Converts a SecurityToken to an IClaimsPrincipal.
-    /// </summary>
+    /// <summary>Converts a SecurityToken to an IClaimsPrincipal.</summary>
     /// <param name="token">The token.</param>
     /// <param name="handler">The handler.</param>
     /// <returns>An IClaimsPrincipal</returns>

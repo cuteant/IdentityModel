@@ -10,9 +10,7 @@ namespace IdentityModel.Extensions
 {
     public static partial class XmlExtensions
     {
-        /// <summary>
-        /// Converts a XElement to a XmlElement.
-        /// </summary>
+        /// <summary>Converts a XElement to a XmlElement.</summary>
         /// <param name="element">The XElement.</param>
         /// <returns>A XmlElement</returns>
         public static XmlElement ToXmlElement(this XElement element)

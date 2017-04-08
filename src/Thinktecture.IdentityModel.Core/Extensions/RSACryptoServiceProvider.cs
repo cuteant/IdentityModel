@@ -10,14 +10,10 @@ using System.Text;
 
 namespace Thinktecture.IdentityModel.Extensions
 {
-    /// <summary>
-    /// Extension methods for RSACryptoServiceProvider
-    /// </summary>
+    /// <summary>Extension methods for RSACryptoServiceProvider</summary>
     public static class RSAExtensions
     {
-        /// <summary>
-        /// Calculates a hash for an RSA key.
-        /// </summary>
+        /// <summary>Calculates a hash for an RSA key.</summary>
         /// <param name="rsa">The RSA key.</param>
         /// <returns>The hash byte array</returns>
         public static byte[] GetKeyHash(this RSA rsa)
@@ -29,9 +25,7 @@ namespace Thinktecture.IdentityModel.Extensions
             return rsa.GetKeyHash(string.Empty);
         }
 
-        /// <summary>
-        /// Calculates a hash string for an RSA key.
-        /// </summary>
+        /// <summary>Calculates a hash string for an RSA key.</summary>
         /// <param name="rsa">The RSA key.</param>
         /// <returns>The hash string</returns>
         public static string GetKeyHashString(this RSA rsa)
@@ -43,9 +37,7 @@ namespace Thinktecture.IdentityModel.Extensions
             return Convert.ToBase64String(rsa.GetKeyHash(string.Empty));
         }
 
-        /// <summary>
-        /// Calculates a hash string for an RSA key.
-        /// </summary>
+        /// <summary>Calculates a hash string for an RSA key.</summary>
         /// <param name="rsa">The RSA Key</param>
         /// <param name="entropy">Additional entropy.</param>
         /// <returns>The hash string</returns>
@@ -59,9 +51,7 @@ namespace Thinktecture.IdentityModel.Extensions
             return Convert.ToBase64String(rsa.GetKeyHash(entropy));
         }
 
-        /// <summary>
-        /// Calculates a hash for an RSA key.
-        /// </summary>
+        /// <summary>Calculates a hash for an RSA key.</summary>
         /// <param name="rsa">The RSA key.</param>
         /// <param name="entropy">Additional entropy.</param>
         /// <returns>The hash byte array</returns>

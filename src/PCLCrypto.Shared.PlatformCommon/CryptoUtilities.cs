@@ -11,9 +11,7 @@ namespace PCLCrypto
   using System.Threading.Tasks;
   using Validation;
 
-  /// <summary>
-  /// An assortment of crypto utilities.
-  /// </summary>
+  /// <summary>An assortment of crypto utilities.</summary>
   internal static class CryptoUtilities
   {
     /// <summary>
@@ -42,9 +40,7 @@ namespace PCLCrypto
       }
     }
 
-    /// <summary>
-    /// Grows a buffer as necessary to align with a block size.
-    /// </summary>
+    /// <summary>Grows a buffer as necessary to align with a block size.</summary>
     /// <param name="buffer">The buffer to grow.</param>
     /// <param name="blockLength">The length (in bytes) of a block.</param>
     internal static void ApplyZeroPadding(ref byte[] buffer, int blockLength)
@@ -60,9 +56,7 @@ namespace PCLCrypto
       }
     }
 
-    /// <summary>
-    /// Grows a buffer as necessary to align with a block size.
-    /// </summary>
+    /// <summary>Grows a buffer as necessary to align with a block size.</summary>
     /// <param name="buffer">The buffer to grow.</param>
     /// <param name="blockLength">The length (in bytes) of a block.</param>
     /// <param name="bufferOffset">The index of the first byte in <paramref name="buffer"/> that is part of the message.</param>
@@ -83,9 +77,7 @@ namespace PCLCrypto
       }
     }
 
-    /// <summary>
-    /// Performs a constant time comparison between two buffers.
-    /// </summary>
+    /// <summary>Performs a constant time comparison between two buffers.</summary>
     /// <param name="buffer1">The first buffer.</param>
     /// <param name="buffer2">The second buffer.</param>
     /// <returns><c>true</c> if the buffers have exactly the same contents; <c>false</c> otherwise.</returns>
@@ -111,9 +103,7 @@ namespace PCLCrypto
       return !mismatchFound;
     }
 
-    /// <summary>
-    /// Creates a copy of a byte array.
-    /// </summary>
+    /// <summary>Creates a copy of a byte array.</summary>
     /// <param name="buffer">The array to be copied. May be null.</param>
     /// <returns>The copy of the array, or null if <paramref name="buffer"/> was null.</returns>
     internal static byte[] CloneArray(this byte[] buffer)
@@ -128,9 +118,7 @@ namespace PCLCrypto
       return result;
     }
 
-    /// <summary>
-    /// Gets an <see cref="ArraySegment{T}"/> for a given array, which may be null.
-    /// </summary>
+    /// <summary>Gets an <see cref="ArraySegment{T}"/> for a given array, which may be null.</summary>
     /// <typeparam name="T">The type of element in the array.</typeparam>
     /// <param name="buffer">The array, which may be null.</param>
     /// <returns>The array segment.</returns>
@@ -139,9 +127,7 @@ namespace PCLCrypto
       return buffer != null ? new ArraySegment<T>(buffer) : default(ArraySegment<T>);
     }
 
-    /// <summary>
-    /// Disposes a value if it is not null.
-    /// </summary>
+    /// <summary>Disposes a value if it is not null.</summary>
     /// <param name="value">The value to be disposed of.</param>
     internal static void DisposeIfNotNull(this IDisposable value)
     {
@@ -151,9 +137,7 @@ namespace PCLCrypto
       }
     }
 
-    /// <summary>
-    /// Gets legal crypto key sizes for asymmetric algorithms (for platforms that do not expose the actual values).
-    /// </summary>
+    /// <summary>Gets legal crypto key sizes for asymmetric algorithms (for platforms that do not expose the actual values).</summary>
     /// <param name="algorithm">The asymmetric algorithm whose keys are of interest to the caller.</param>
     /// <returns>A list of legal key size ranges.</returns>
 #if NET40
@@ -200,9 +184,7 @@ namespace PCLCrypto
       return new[] { range };
     }
 
-    /// <summary>
-    /// Allocates an array of characters to represent the specified string, with a null terminating character as the last array element.
-    /// </summary>
+    /// <summary>Allocates an array of characters to represent the specified string, with a null terminating character as the last array element.</summary>
     /// <param name="value">The string to represent as a character array.</param>
     /// <returns>The character array with null terminator.</returns>
     internal static char[] ToCharArrayWithNullTerminator(this string value)
@@ -214,9 +196,7 @@ namespace PCLCrypto
       return buffer;
     }
 
-    /// <summary>
-    /// Returns a copy of the specified buffer where the copy has its byte order reversed.
-    /// </summary>
+    /// <summary>Returns a copy of the specified buffer where the copy has its byte order reversed.</summary>
     /// <param name="data">The buffer to copy and reverse.</param>
     /// <returns>The new buffer with the contents of the original buffer reversed.</returns>
     internal static byte[] CopyAndReverse(byte[] data)

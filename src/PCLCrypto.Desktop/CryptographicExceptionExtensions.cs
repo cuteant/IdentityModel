@@ -9,18 +9,14 @@ namespace PCLCrypto
     using System.Security.Cryptography;
     using System.Text;
 
-    /// <summary>
-    /// Extension methosd for the <see cref="CryptographicException"/> class.
-    /// </summary>
+    /// <summary>Extension methosd for the <see cref="CryptographicException"/> class.</summary>
     internal static class CryptographicExceptionExtensions
     {
 #pragma warning disable SA1310 // Field names must not contain underscore
         private const int NTE_NOT_SUPPORTED = unchecked((int)0x80090029);
 #pragma warning restore SA1310 // Field names must not contain underscore
 
-        /// <summary>
-        /// Checks whether the specified exception originates represents a "Not supported" error.
-        /// </summary>
+        /// <summary>Checks whether the specified exception originates represents a "Not supported" error.</summary>
         /// <param name="exception">The exception to check.</param>
         /// <returns><c>true</c> if the exception is definitely a 'not supported' exception.</returns>
         internal static bool IsNotSupportedException(this CryptographicException exception)

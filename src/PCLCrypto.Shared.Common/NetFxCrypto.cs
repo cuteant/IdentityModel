@@ -8,9 +8,7 @@ namespace PCLCrypto
     using System.Linq;
     using System.Text;
 
-    /// <summary>
-    /// Exposes cryptography using API familiar to .NET Framework developers.
-    /// </summary>
+    /// <summary>Exposes cryptography using API familiar to .NET Framework developers.</summary>
     public static class NetFxCrypto
     {
 #if !PCL
@@ -22,9 +20,7 @@ namespace PCLCrypto
         private static IRandomNumberGenerator randomNumberGenerator;
 #endif
 
-        /// <summary>
-        /// Gets a cryptographically strong random number generator.
-        /// </summary>
+        /// <summary>Gets a cryptographically strong random number generator.</summary>
         public static IRandomNumberGenerator RandomNumberGenerator
         {
             get
@@ -42,9 +38,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets tools to derive a key from a password for buffer.
-        /// </summary>
+        /// <summary>Gets tools to derive a key from a password for buffer.</summary>
         public static IDeriveBytes DeriveBytes
         {
             get
@@ -57,9 +51,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the factory for <see cref="IECDiffieHellman"/> instances.
-        /// </summary>
+        /// <summary>Gets the factory for <see cref="IECDiffieHellman"/> instances.</summary>
         public static IECDiffieHellmanFactory ECDiffieHellman
         {
             get
@@ -74,9 +66,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the factory for <see cref="IECDiffieHellmanPublicKey"/> instances.
-        /// </summary>
+        /// <summary>Gets the factory for <see cref="IECDiffieHellmanPublicKey"/> instances.</summary>
         public static IECDiffieHellmanCngPublicKeyFactory ECDiffieHellmanCngPublicKey
         {
             get

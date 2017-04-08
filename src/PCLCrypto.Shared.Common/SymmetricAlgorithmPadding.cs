@@ -3,24 +3,16 @@
 
 namespace PCLCrypto
 {
-    /// <summary>
-    /// A PCL-compatible enumeration describing cipher block padding options.
-    /// </summary>
+    /// <summary>A PCL-compatible enumeration describing cipher block padding options.</summary>
     public enum SymmetricAlgorithmPadding
     {
-        /// <summary>
-        /// Use no padding at all.
-        /// </summary>
+        /// <summary>Use no padding at all.</summary>
         None,
 
-        /// <summary>
-        /// The PKCS #7 padding string consists of a sequence of bytes, each of which is equal to the total number of padding bytes added.
-        /// </summary>
+        /// <summary>The PKCS #7 padding string consists of a sequence of bytes, each of which is equal to the total number of padding bytes added.</summary>
         PKCS7,
 
-        /// <summary>
-        /// The padding string consists of bytes set to zero.
-        /// </summary>
+        /// <summary>The padding string consists of bytes set to zero.</summary>
         Zeros,
     }
 }

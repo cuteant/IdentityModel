@@ -9,14 +9,10 @@ using System.IdentityModel.Tokens;
 
 namespace Thinktecture.IdentityModel.Tokens
 {
-    /// <summary>
-    /// Simple implementation of an issuer registy that returns the certificate issuer name or public key hash as an issuer
-    /// </summary>
+    /// <summary>Simple implementation of an issuer registy that returns the certificate issuer name or public key hash as an issuer</summary>
     public class TestIssuerNameRegistry : IssuerNameRegistry
     {
-        /// <summary>
-        /// Gets the name of the issuer.
-        /// </summary>
+        /// <summary>Gets the name of the issuer.</summary>
         /// <param name="securityToken">The security token.</param>
         /// <returns></returns>
         public override string GetIssuerName(SecurityToken securityToken)

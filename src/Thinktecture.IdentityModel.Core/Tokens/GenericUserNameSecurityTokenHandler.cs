@@ -11,36 +11,24 @@ using System.Security.Claims;
 
 namespace Thinktecture.IdentityModel.Tokens
 {
-    /// <summary>
-    /// Generic security token handler for username/password type credentials
-    /// </summary>
+    /// <summary>Generic security token handler for username/password type credentials</summary>
     public class GenericUserNameSecurityTokenHandler : UserNameSecurityTokenHandler
     {
-        /// <summary>
-        /// Callback type for validating the credential
-        /// </summary>
+        /// <summary>Callback type for validating the credential</summary>
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         /// <returns>True when the credential could be validated succesfully. Otherwise false.</returns>
         public delegate bool ValidateUserNameCredentialDelegate(string username, string password);
 
-        /// <summary>
-        /// Gets or sets the credential validation callback
-        /// </summary>
-        /// <value>
-        /// The credential validation callback.
-        /// </value>
+        /// <summary>Gets or sets the credential validation callback</summary>
+        /// <value>The credential validation callback.</value>
         public ValidateUserNameCredentialDelegate ValidateUserNameCredential { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GenericUserNameSecurityTokenHandler"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="GenericUserNameSecurityTokenHandler"/> class.</summary>
         public GenericUserNameSecurityTokenHandler()
         { }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GenericUserNameSecurityTokenHandler"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="GenericUserNameSecurityTokenHandler"/> class.</summary>
         /// <param name="validateUserNameCredential">The credential validation callback.</param>
         public GenericUserNameSecurityTokenHandler(ValidateUserNameCredentialDelegate validateUserNameCredential)
         {
@@ -52,9 +40,7 @@ namespace Thinktecture.IdentityModel.Tokens
             ValidateUserNameCredential = validateUserNameCredential;
         }
 
-        /// <summary>
-        /// Validates the user name credential core.
-        /// </summary>
+        /// <summary>Validates the user name credential core.</summary>
         /// <param name="userName">Name of the user.</param>
         /// <param name="password">The password.</param>
         /// <returns></returns>
@@ -68,9 +54,7 @@ namespace Thinktecture.IdentityModel.Tokens
             return ValidateUserNameCredential(userName, password);
         }
 
-        /// <summary>
-        /// Validates the username and password.
-        /// </summary>
+        /// <summary>Validates the username and password.</summary>
         /// <param name="token">The token.</param>
         /// <returns>A ClaimsIdentityCollection representing the identity in the token</returns>
         public override ReadOnlyCollection<ClaimsIdentity> ValidateToken(SecurityToken token)
@@ -120,12 +104,8 @@ namespace Thinktecture.IdentityModel.Tokens
             return new List<ClaimsIdentity> { new ClaimsIdentity(claims, "Password") }.AsReadOnly();
         }
 
-        /// <summary>
-        /// Gets a value indicating whether this instance can validate a token.
-        /// </summary>
-        /// <value>
-        /// 	<c>true</c> if this instance can validate a token; otherwise, <c>false</c>.
-        /// </value>
+        /// <summary>Gets a value indicating whether this instance can validate a token.</summary>
+        /// <value><c>true</c> if this instance can validate a token; otherwise, <c>false</c>.</value>
         public override bool CanValidateToken
         {
             get

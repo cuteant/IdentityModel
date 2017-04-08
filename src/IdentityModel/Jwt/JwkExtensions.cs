@@ -5,15 +5,19 @@
 using Newtonsoft.Json;
 using System.Text;
 
-namespace IdentityModel.Jwt
+namespace IdentityModel.Jwk
 {
-    public static class JsonWebKeyExtensions
+  /// <summary>Extensions for JsonWebKey</summary>
+  public static class JsonWebKeyExtensions
+  {
+    /// <summary>Converts a JSON web key to a URL safe string.</summary>
+    /// <param name="key">The key.</param>
+    /// <returns></returns>
+    public static string ToJwkString(this JsonWebKey key)
     {
-        public static string ToJwkString(this IdentityModel.Jwt.JsonWebKey key)
-        {
-            var json = JsonConvert.SerializeObject(key);
-            // using UTF8 because we don't have ASCII in PCLs
-            return Base64Url.Encode(Encoding.UTF8.GetBytes(json));
-        }
+      var json = JsonConvert.SerializeObject(key);
+      // using UTF8 because we don't have ASCII in PCLs
+      return Base64Url.Encode(Encoding.UTF8.GetBytes(json));
     }
+  }
 }

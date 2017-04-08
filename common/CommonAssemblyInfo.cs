@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyCompany(CuteAnt.AssemblyInfo.AssemblyCompany)]
 [assembly: AssemblyCopyright(CuteAnt.AssemblyInfo.AssemblyCopyright)]
-[assembly: AssemblyProduct("CuteAnt ASP.NET Class Library")]
+[assembly: AssemblyProduct("CuteAnt-IdentityModel")]
 [assembly: AssemblyTrademark(CuteAnt.AssemblyInfo.AssemblyEmail)]
 [assembly: AssemblyCulture("")]
 #if !PORTABLE

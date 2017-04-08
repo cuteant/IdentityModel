@@ -5,9 +5,7 @@ namespace PCLCrypto
 {
     using Validation;
 
-    /// <summary>
-    /// A .NET Framework implementation of <see cref="ICryptographicEngine"/>.
-    /// </summary>
+    /// <summary>A .NET Framework implementation of <see cref="ICryptographicEngine"/>.</summary>
     internal class CryptographicEngine : ICryptographicEngine
     {
         /// <inheritdoc />

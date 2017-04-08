@@ -1,4 +1,5 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+﻿#if !NET40
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
@@ -8,14 +9,10 @@ using System.Xml;
 
 namespace IdentityModel.Tokens
 {
-    /// <summary>
-    /// Helper class to create an authentication instant claim
-    /// </summary>
+    /// <summary>Helper class to create an authentication instant claim</summary>
     public static class AuthenticationInstantClaim
     {
-        /// <summary>
-        /// Returns an authentication instant claim for the current date/time
-        /// </summary>
+        /// <summary>Returns an authentication instant claim for the current date/time</summary>
         /// <value>authentication instant claim.</value>
         public static Claim Now
         {
@@ -26,3 +23,4 @@ namespace IdentityModel.Tokens
         }
     }
 }
+#endif

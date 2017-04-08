@@ -15,9 +15,7 @@ using CuteAnt.IdentityModel.OidcClient.Browser;
 
 namespace CuteAnt.IdentityModel.OidcClient
 {
-    /// <summary>
-    /// OpenID Connect client
-    /// </summary>
+    /// <summary>OpenID Connect client</summary>
     public class OidcClient
     {
         private readonly OidcClientOptions _options;
@@ -32,9 +30,7 @@ namespace CuteAnt.IdentityModel.OidcClient
             get { return _options; }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OidcClient"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="OidcClient"/> class.</summary>
         /// <param name="options">The options.</param>
         /// <exception cref="System.ArgumentNullException">options</exception>
         public OidcClient(OidcClientOptions options)
@@ -68,9 +64,7 @@ namespace CuteAnt.IdentityModel.OidcClient
             return await ProcessResponseAsync(authorizeResult.Data, authorizeResult.State);
         }
 
-        /// <summary>
-        /// Prepares the login request.
-        /// </summary>
+        /// <summary>Prepares the login request.</summary>
         /// <param name="extraParameters">extra parameters to send to the authorize endpoint.</param>
         /// <returns>State for initiating the authorize request and processing the response</returns>
         public async Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null)
@@ -81,9 +75,7 @@ namespace CuteAnt.IdentityModel.OidcClient
             return _authorizeClient.CreateAuthorizeState(extraParameters);
         }
 
-        /// <summary>
-        /// Processes the authorize response.
-        /// </summary>
+        /// <summary>Processes the authorize response.</summary>
         /// <param name="data">The response data.</param>
         /// <param name="state">The state.</param>
         /// <returns>Result of the login response validation</returns>
@@ -141,9 +133,7 @@ namespace CuteAnt.IdentityModel.OidcClient
             return loginResult;
         }
 
-        /// <summary>
-        /// Gets the user claims from the userinfo endpoint.
-        /// </summary>
+        /// <summary>Gets the user claims from the userinfo endpoint.</summary>
         /// <param name="accessToken">The access token.</param>
         /// <returns>User claims</returns>
         public async Task<UserInfoResult> GetUserInfoAsync(string accessToken)
@@ -171,9 +161,7 @@ namespace CuteAnt.IdentityModel.OidcClient
             };
         }
 
-        /// <summary>
-        /// Refreshes an access token.
-        /// </summary>
+        /// <summary>Refreshes an access token.</summary>
         /// <param name="refreshToken">The refresh token.</param>
         /// <returns>A token response.</returns>
         public async Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken)

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-#if NET_4_0_GREATER
+#if !NET40
 using System.Runtime.InteropServices.WindowsRuntime;
 #endif
 using JosePCL.Serialization;
@@ -17,7 +17,7 @@ namespace JosePCL.Util
       get { return zero; }
     }
 
-#if NET_4_0_GREATER
+#if !NET40
     public static string Dump([ReadOnlyArray] byte[] arr)
 #else
     public static string Dump(byte[] arr)
@@ -56,7 +56,7 @@ namespace JosePCL.Util
       return result;
     }
 
-#if NET_4_0_GREATER
+#if !NET40
     public static byte[] FirstHalf([ReadOnlyArray] byte[] arr)
 #else
     public static byte[] FirstHalf(byte[] arr)
@@ -73,7 +73,7 @@ namespace JosePCL.Util
       return result;
     }
 
-#if NET_4_0_GREATER
+#if !NET40
     public static byte[] SecondHalf([ReadOnlyArray] byte[] arr)
 #else
     public static byte[] SecondHalf(byte[] arr)
@@ -99,7 +99,7 @@ namespace JosePCL.Util
           : new[] { (byte)(_value & 0xFF), (byte)((_value >> 8) & 0xFF), (byte)((_value >> 16) & 0xFF), (byte)((_value >> 24) & 0xFF), (byte)((_value >> 32) & 0xFF), (byte)((_value >> 40) & 0xFF), (byte)((_value >> 48) & 0xFF), (byte)((_value >> 56) & 0xFF) };
     }
 
-#if NET_4_0_GREATER
+#if !NET40
     public static long BytesToLong([ReadOnlyArray] byte[] array)
 #else
     public static long BytesToLong(byte[] array)
@@ -116,7 +116,7 @@ namespace JosePCL.Util
       return msb | lsb;
     }
 
-#if NET_4_0_GREATER
+#if !NET40
     public static bool ConstantTimeEquals([ReadOnlyArray] byte[] expected, [ReadOnlyArray] byte[] actual)
 #else
     public static bool ConstantTimeEquals(byte[] expected, byte[] actual)
@@ -140,7 +140,7 @@ namespace JosePCL.Util
       return equals;
     }
 
-#if NET_4_0_GREATER
+#if !NET40
     public static byte[] Xor([ReadOnlyArray] byte[] left, [ReadOnlyArray] byte[] right)
 #else
     public static byte[] Xor(byte[] left, byte[] right)
@@ -158,7 +158,7 @@ namespace JosePCL.Util
       return result;
     }
 
-#if NET_4_0_GREATER
+#if !NET40
     public static byte[] XorLong([ReadOnlyArray] byte[] left, long right)
 #else
     public static byte[] XorLong(byte[] left, long right)
@@ -170,7 +170,7 @@ namespace JosePCL.Util
       return LongToBytes(_left ^ right);
     }
 
-#if NET_4_0_GREATER
+#if !NET40
     public static byte[] LeftmostBits([ReadOnlyArray] byte[] data, int lengthBits)
 #else
     public static byte[] LeftmostBits(byte[] data, int lengthBits)

@@ -8,9 +8,7 @@ namespace PCLCrypto
     using System.Linq;
     using System.Text;
 
-    /// <summary>
-    /// Exposes cryptography using API familiar to WinRT developers.
-    /// </summary>
+    /// <summary>Exposes cryptography using API familiar to WinRT developers.</summary>
     public static class WinRTCrypto
     {
 #if !PCL
@@ -50,20 +48,14 @@ namespace PCLCrypto
         /// </summary>
         private static IKeyDerivationParametersFactory keyDerivationParametersFactory;
 
-        /// <summary>
-        /// Backing field for the CryptographicEngine property.
-        /// </summary>
+        /// <summary>Backing field for the CryptographicEngine property.</summary>
         private static ICryptographicEngine cryptographicEngine;
 
-        /// <summary>
-        /// Backing field for the CryptographicBuffer property.
-        /// </summary>
+        /// <summary>Backing field for the CryptographicBuffer property.</summary>
         private static ICryptographicBuffer cryptographicBuffer;
 #endif
 
-        /// <summary>
-        /// Gets the asymmetric key algorithm provider factory.
-        /// </summary>
+        /// <summary>Gets the asymmetric key algorithm provider factory.</summary>
         public static IAsymmetricKeyAlgorithmProviderFactory AsymmetricKeyAlgorithmProvider
         {
             get
@@ -81,9 +73,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the symmetric key algorithm provider factory.
-        /// </summary>
+        /// <summary>Gets the symmetric key algorithm provider factory.</summary>
         public static ISymmetricKeyAlgorithmProviderFactory SymmetricKeyAlgorithmProvider
         {
             get
@@ -101,9 +91,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the hash algorithm provider factory.
-        /// </summary>
+        /// <summary>Gets the hash algorithm provider factory.</summary>
         public static IHashAlgorithmProviderFactory HashAlgorithmProvider
         {
             get
@@ -121,9 +109,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the MAC algorithm provider factory.
-        /// </summary>
+        /// <summary>Gets the MAC algorithm provider factory.</summary>
         public static IMacAlgorithmProviderFactory MacAlgorithmProvider
         {
             get
@@ -141,9 +127,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the key derivation algorithm provider factory.
-        /// </summary>
+        /// <summary>Gets the key derivation algorithm provider factory.</summary>
         public static IKeyDerivationAlgorithmProviderFactory KeyDerivationAlgorithmProvider
         {
             get
@@ -161,9 +145,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the key derivation parameters factory.
-        /// </summary>
+        /// <summary>Gets the key derivation parameters factory.</summary>
         public static IKeyDerivationParametersFactory KeyDerivationParameters
         {
             get
@@ -181,9 +163,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the service for signatures and encryption.
-        /// </summary>
+        /// <summary>Gets the service for signatures and encryption.</summary>
         public static ICryptographicEngine CryptographicEngine
         {
             get
@@ -201,9 +181,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the service for buffers.
-        /// </summary>
+        /// <summary>Gets the service for buffers.</summary>
         public static ICryptographicBuffer CryptographicBuffer
         {
             get

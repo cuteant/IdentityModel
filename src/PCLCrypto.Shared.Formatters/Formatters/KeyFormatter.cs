@@ -10,61 +10,39 @@ namespace PCLCrypto.Formatters
     using System.Text;
     using Validation;
 
-    /// <summary>
-    /// A base class for encoding and decoding RSA keys in various formats.
-    /// </summary>
+    /// <summary>A base class for encoding and decoding RSA keys in various formats.</summary>
     internal abstract class KeyFormatter
     {
-        /// <summary>
-        /// The PKCS1 key formatter.
-        /// </summary>
+        /// <summary>The PKCS1 key formatter.</summary>
         internal static readonly KeyFormatter Pkcs1 = new Pkcs1KeyFormatter();
 
-        /// <summary>
-        /// The PKCS8 key formatter.
-        /// </summary>
+        /// <summary>The PKCS8 key formatter.</summary>
         internal static readonly KeyFormatter Pkcs8 = new Pkcs8KeyFormatter();
 
-        /// <summary>
-        /// The X509 subject public key information formatter.
-        /// </summary>
+        /// <summary>The X509 subject public key information formatter.</summary>
         internal static readonly KeyFormatter X509SubjectPublicKeyInfo = new X509SubjectPublicKeyInfoFormatter();
 
-        /// <summary>
-        /// The CAPI key formatter.
-        /// </summary>
+        /// <summary>The CAPI key formatter.</summary>
         internal static readonly KeyFormatter Capi = new CapiKeyFormatter();
 
 #if !SILVERLIGHT
-        /// <summary>
-        /// The key formatter for BCrypt RSA private keys.
-        /// </summary>
+        /// <summary>The key formatter for BCrypt RSA private keys.</summary>
         internal static readonly KeyFormatter BCryptRsaPrivateKey = new BCryptRsaKeyFormatter(CryptographicPrivateKeyBlobType.BCryptPrivateKey);
 
-        /// <summary>
-        /// The key formatter for BCrypt RSA full private keys.
-        /// </summary>
+        /// <summary>The key formatter for BCrypt RSA full private keys.</summary>
         internal static readonly KeyFormatter BCryptRsaFullPrivateKey = new BCryptRsaKeyFormatter(CryptographicPrivateKeyBlobType.BCryptFullPrivateKey);
 
-        /// <summary>
-        /// The key formatter for BCrypt RSA public keys.
-        /// </summary>
+        /// <summary>The key formatter for BCrypt RSA public keys.</summary>
         internal static readonly KeyFormatter BCryptRsaPublicKey = new BCryptRsaKeyFormatter(CryptographicPublicKeyBlobType.BCryptPublicKey);
 #endif
 
-        /// <summary>
-        /// The PKCS1 object identifier
-        /// </summary>
+        /// <summary>The PKCS1 object identifier</summary>
         protected static readonly byte[] Pkcs1ObjectIdentifier = new byte[] { 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01 };
 
-        /// <summary>
-        /// The RSA encryption object identifier
-        /// </summary>
+        /// <summary>The RSA encryption object identifier</summary>
         protected static readonly byte[] RsaEncryptionObjectIdentifier = new byte[] { 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x01 };
 
-        /// <summary>
-        /// Gets the formatter to use for a given blob type.
-        /// </summary>
+        /// <summary>Gets the formatter to use for a given blob type.</summary>
         /// <param name="blobType">Type of the key blob.</param>
         /// <returns>An instance of <see cref="KeyFormatter"/></returns>
         internal static KeyFormatter GetFormatter(CryptographicPrivateKeyBlobType blobType)
@@ -88,9 +66,7 @@ namespace PCLCrypto.Formatters
             }
         }
 
-        /// <summary>
-        /// Gets the formatter to use for a given blob type.
-        /// </summary>
+        /// <summary>Gets the formatter to use for a given blob type.</summary>
         /// <param name="blobType">Type of the key blob.</param>
         /// <returns>An instance of <see cref="KeyFormatter"/></returns>
         internal static KeyFormatter GetFormatter(CryptographicPublicKeyBlobType blobType)
@@ -112,9 +88,7 @@ namespace PCLCrypto.Formatters
             }
         }
 
-        /// <summary>
-        /// Writes a key to the specified stream.
-        /// </summary>
+        /// <summary>Writes a key to the specified stream.</summary>
         /// <param name="stream">The stream.</param>
         /// <param name="parameters">The parameters.</param>
         internal void Write(Stream stream, RSAParameters parameters)
@@ -122,9 +96,7 @@ namespace PCLCrypto.Formatters
             this.Write(stream, parameters, HasPrivateKey(parameters));
         }
 
-        /// <summary>
-        /// Writes a key to the specified stream.
-        /// </summary>
+        /// <summary>Writes a key to the specified stream.</summary>
         /// <param name="stream">The stream.</param>
         /// <param name="parameters">The parameters.</param>
         /// <param name="includePrivateKey">if set to <c>true</c> the private key will be written as well; otherwise just the public key will be written.</param>
@@ -141,9 +113,7 @@ namespace PCLCrypto.Formatters
             this.WriteCore(stream, parameters);
         }
 
-        /// <summary>
-        /// Writes a key to a buffer.
-        /// </summary>
+        /// <summary>Writes a key to a buffer.</summary>
         /// <param name="parameters">The parameters.</param>
         /// <returns>The buffer with the serialized key.</returns>
         internal byte[] Write(RSAParameters parameters)
@@ -151,9 +121,7 @@ namespace PCLCrypto.Formatters
             return this.Write(parameters, HasPrivateKey(parameters));
         }
 
-        /// <summary>
-        /// Writes a key to a buffer.
-        /// </summary>
+        /// <summary>Writes a key to a buffer.</summary>
         /// <param name="parameters">The parameters.</param>
         /// <param name="includePrivateKey">if set to <c>true</c> the private key will be written as well; otherwise just the public key will be written.</param>
         /// <returns>The buffer with the serialized key.</returns>
@@ -164,9 +132,7 @@ namespace PCLCrypto.Formatters
             return ms.ToArray();
         }
 
-        /// <summary>
-        /// Reads a key from the specified stream.
-        /// </summary>
+        /// <summary>Reads a key from the specified stream.</summary>
         /// <param name="stream">The stream.</param>
         /// <returns>The RSA key parameters.</returns>
         internal RSAParameters Read(Stream stream)
@@ -175,9 +141,7 @@ namespace PCLCrypto.Formatters
             return TrimLeadingZeros(parameters);
         }
 
-        /// <summary>
-        /// Reads a key from the specified buffer.
-        /// </summary>
+        /// <summary>Reads a key from the specified buffer.</summary>
         /// <param name="keyBlob">The buffer containing the key data.</param>
         /// <returns>The RSA key parameters.</returns>
         internal RSAParameters Read(byte[] keyBlob)
@@ -186,9 +150,7 @@ namespace PCLCrypto.Formatters
             return this.Read(ms);
         }
 
-        /// <summary>
-        /// Returns an instance of <see cref="RSAParameters"/> that does not contain private key info.
-        /// </summary>
+        /// <summary>Returns an instance of <see cref="RSAParameters"/> that does not contain private key info.</summary>
         /// <param name="value">The RSA parameters which may include a private key.</param>
         /// <returns>An instance of <see cref="RSAParameters"/> that only includes public key information.</returns>
         protected internal static RSAParameters PublicKeyFilter(RSAParameters value)
@@ -200,14 +162,10 @@ namespace PCLCrypto.Formatters
             };
         }
 
-        /// <summary>
-        /// Tries to add/remove leading zeros as necessary in an attempt to make the parameters CAPI compatible.
-        /// </summary>
+        /// <summary>Tries to add/remove leading zeros as necessary in an attempt to make the parameters CAPI compatible.</summary>
         /// <param name="parameters">The parameters.</param>
         /// <returns>The modified set of parameters.</returns>
-        /// <remarks>
-        /// The original parameters and their buffers are not modified.
-        /// </remarks>
+        /// <remarks>The original parameters and their buffers are not modified.</remarks>
         protected internal static RSAParameters NegotiateSizes(RSAParameters parameters)
         {
             if (HasPrivateKey(parameters))
@@ -240,9 +198,7 @@ namespace PCLCrypto.Formatters
             return parameters;
         }
 
-        /// <summary>
-        /// Determines whether a set of RSA parameters includes a private key.
-        /// </summary>
+        /// <summary>Determines whether a set of RSA parameters includes a private key.</summary>
         /// <param name="parameters">The parameters.</param>
         /// <returns><c>true</c> if a private key is included; <c>false</c> otherwise.</returns>
         protected internal static bool HasPrivateKey(RSAParameters parameters)
@@ -296,9 +252,7 @@ namespace PCLCrypto.Formatters
 
 #endif
 
-        /// <summary>
-        /// Checks whether two buffers have equal contents.
-        /// </summary>
+        /// <summary>Checks whether two buffers have equal contents.</summary>
         /// <param name="buffer1">The first buffer.</param>
         /// <param name="buffer2">The second buffer.</param>
         /// <returns><c>true</c> if the buffers contain equal contents.</returns>
@@ -346,9 +300,7 @@ namespace PCLCrypto.Formatters
             return buffer;
         }
 
-        /// <summary>
-        /// Trim all leading zeros from an <see cref="RSAParameters"/> struct.
-        /// </summary>
+        /// <summary>Trim all leading zeros from an <see cref="RSAParameters"/> struct.</summary>
         /// <param name="parameters">The struct from which to remove parameters.</param>
         /// <returns>The trimmed version of the struct.</returns>
         protected static RSAParameters TrimLeadingZeros(RSAParameters parameters)
@@ -372,9 +324,7 @@ namespace PCLCrypto.Formatters
         /// </summary>
         /// <param name="buffer">The buffer.</param>
         /// <param name="desiredLength">The length to try to trim or pad to match.</param>
-        /// <returns>
-        /// A buffer without a leading zero. It may be the same buffer as was provided if no leading zero was found.
-        /// </returns>
+        /// <returns>A buffer without a leading zero. It may be the same buffer as was provided if no leading zero was found.</returns>
         protected static byte[] TrimOrPadZeroToLength(byte[] buffer, int desiredLength)
         {
             Requires.Range(desiredLength > 0, "desiredLength");
@@ -406,14 +356,10 @@ namespace PCLCrypto.Formatters
             return result;
         }
 
-        /// <summary>
-        /// Returns a buffer with a 0x00 byte prepended if the buffer doesn't start with that byte.
-        /// </summary>
+        /// <summary>Returns a buffer with a 0x00 byte prepended if the buffer doesn't start with that byte.</summary>
         /// <param name="buffer">The buffer to prepend.</param>
         /// <param name="alwaysPrependZero">if set to <c>true</c> a new buffer with a zero prepended will always be returned, even if the given buffer already has a leading zero.</param>
-        /// <returns>
-        /// A buffer with the prepended zero.
-        /// </returns>
+        /// <returns>A buffer with the prepended zero.</returns>
         protected static byte[] PrependLeadingZero(byte[] buffer, bool alwaysPrependZero = false)
         {
             Requires.NotNull(buffer, "buffer");
@@ -428,9 +374,7 @@ namespace PCLCrypto.Formatters
             return buffer;
         }
 
-        /// <summary>
-        /// Throws an exception if a condition does not evaluate to true.
-        /// </summary>
+        /// <summary>Throws an exception if a condition does not evaluate to true.</summary>
         /// <param name="condition">if set to <c>false</c> an exception will be thrown.</param>
         /// <param name="message">An optional message describing the failure.</param>
         protected static void VerifyFormat(bool condition, string message = null)
@@ -441,9 +385,7 @@ namespace PCLCrypto.Formatters
             }
         }
 
-        /// <summary>
-        /// Throws an exception. For use during key deserialization.
-        /// </summary>
+        /// <summary>Throws an exception. For use during key deserialization.</summary>
         /// <param name="message">An optional message describing the failure.</param>
         /// <returns>Nothing. This method always throws.</returns>
         protected static Exception FailFormat(string message = null)
@@ -451,9 +393,7 @@ namespace PCLCrypto.Formatters
             throw new FormatException(message ?? "Unexpected format or unsupported key.");
         }
 
-        /// <summary>
-        /// Returns a copy of the specified buffer where the copy has its byte order reversed.
-        /// </summary>
+        /// <summary>Returns a copy of the specified buffer where the copy has its byte order reversed.</summary>
         /// <param name="data">The buffer to copy and reverse.</param>
         /// <returns>The new buffer with the contents of the original buffer reversed.</returns>
         protected static byte[] CopyAndReverse(byte[] data)
@@ -464,16 +404,12 @@ namespace PCLCrypto.Formatters
             return reversed;
         }
 
-        /// <summary>
-        /// Reads a key from the specified stream.
-        /// </summary>
+        /// <summary>Reads a key from the specified stream.</summary>
         /// <param name="stream">The stream.</param>
         /// <returns>The RSA Parameters of the key.</returns>
         protected abstract RSAParameters ReadCore(Stream stream);
 
-        /// <summary>
-        /// Writes a key to the specified stream.
-        /// </summary>
+        /// <summary>Writes a key to the specified stream.</summary>
         /// <param name="stream">The stream.</param>
         /// <param name="parameters">The RSA parameters of the key.</param>
         protected abstract void WriteCore(Stream stream, RSAParameters parameters);

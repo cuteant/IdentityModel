@@ -16,9 +16,7 @@ namespace CuteAnt.IdentityModel.OidcClient
         private readonly ILogger<AuthorizeClient> _logger;
         private readonly OidcClientOptions _options;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AuthorizeClient"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="AuthorizeClient"/> class.</summary>
         /// <param name="options">The options.</param>
         public AuthorizeClient(OidcClientOptions options)
         {

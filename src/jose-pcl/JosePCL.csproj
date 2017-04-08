@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\JoseVersion.props" />
+  
+  <PropertyGroup>
+    <TargetFrameworks>net461;net451;net40</TargetFrameworks>
+    <RootNamespace>JosePCL</RootNamespace>
+    <AssemblyName>JosePCL</AssemblyName>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet">
+    <PackageId>JosePCL.Unofficial</PackageId>
+    <Title>Jose PCL (Unofficial)</Title>
+    <Description>Portable Javascript Object Signing and Encryption (JOSE) and JSON Web Token (JWT) implementation for Windows 8, Windows Phone 8, Windows Silverlight 8 and .NET framework platforms.</Description>
+    <PackageTags> jwt json jwa jwe jws aes cbc gcm rsa hmac sha rsassa pss rsaes oaep pkcs1-v1_5 es elliptic curve ecdsa key wrap kw pbes pbes2 pbkdf pbkdf2 password based encryption javascript object signing winrt winmd windows 8.1 phone portable</PackageTags>
+    <IsPackable>true</IsPackable>
+    <Authors>Dmitry Vsekhvalnov, Seabiscuit</Authors>
+    <Copyright>Copyright dvsekhvalnov, Seabiscuit 2016</Copyright>
+    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288859</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/dvsekhvalnov/jose-pcl</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.github.com/dvsekhvalnov/jose-pcl/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/dvsekhvalnov/jose-pcl</RepositoryUrl>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net451' or '$(TargetFramework)' == 'net40'">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\JoseVersionInfo.cs" Link="Properties\JoseVersionInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PCLCrypto.Desktop\PCLCrypto.csproj" />
+  </ItemGroup>
+</Project>

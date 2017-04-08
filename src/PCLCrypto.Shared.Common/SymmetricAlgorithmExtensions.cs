@@ -6,14 +6,10 @@ namespace PCLCrypto
     using System;
     using Validation;
 
-    /// <summary>
-    /// Extension methods for the <see cref="SymmetricAlgorithm"/> enum and related types.
-    /// </summary>
+    /// <summary>Extension methods for the <see cref="SymmetricAlgorithm"/> enum and related types.</summary>
     public static class SymmetricAlgorithmExtensions
     {
-        /// <summary>
-        /// Gets a value indicating whether the specified algorithm is implemented by a block cipher.
-        /// </summary>
+        /// <summary>Gets a value indicating whether the specified algorithm is implemented by a block cipher.</summary>
         /// <param name="algorithm">The algorithm to check.</param>
         /// <returns><c>true</c> if the cipher is a block cipher; <c>false</c> otherwise.</returns>
         public static bool IsBlockCipher(this SymmetricAlgorithm algorithm)
@@ -21,9 +17,7 @@ namespace PCLCrypto
             return algorithm.GetMode() != SymmetricAlgorithmMode.Streaming;
         }
 
-        /// <summary>
-        /// Gets a value indicating whether the specified algorithm is implemented by a block cipher.
-        /// </summary>
+        /// <summary>Gets a value indicating whether the specified algorithm is implemented by a block cipher.</summary>
         /// <param name="algorithm">The algorithm to check.</param>
         /// <returns><c>true</c> if the cipher is a block cipher; <c>false</c> otherwise.</returns>
         public static bool IsBlockCipher(this SymmetricAlgorithmName algorithm)
@@ -42,28 +36,20 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets a value indicating whether the specified mode is implemented by a block cipher.
-        /// </summary>
+        /// <summary>Gets a value indicating whether the specified mode is implemented by a block cipher.</summary>
         /// <param name="mode">The mode to check.</param>
         /// <returns><c>true</c> if the cipher is a block cipher; <c>false</c> otherwise.</returns>
         public static bool IsBlockCipher(this SymmetricAlgorithmMode mode) => mode != SymmetricAlgorithmMode.Streaming;
 
-        /// <summary>
-        /// Gets a value indicating whether the specified mode offers authentication.
-        /// </summary>
+        /// <summary>Gets a value indicating whether the specified mode offers authentication.</summary>
         /// <param name="mode">The mode to check.</param>
         /// <returns><c>true</c> if the cipher is an authenticating block mode cipher; <c>false</c> otherwise.</returns>
         public static bool IsAuthenticated(this SymmetricAlgorithmMode mode)
             => mode == SymmetricAlgorithmMode.Gcm || mode == SymmetricAlgorithmMode.Ccm;
 
-        /// <summary>
-        /// Returns a platform-specific algorithm that conforms to the prescribed platform-neutral algorithm.
-        /// </summary>
+        /// <summary>Returns a platform-specific algorithm that conforms to the prescribed platform-neutral algorithm.</summary>
         /// <param name="algorithm">The PCL algorithm.</param>
-        /// <returns>
-        /// The platform-specific algorithm.
-        /// </returns>
+        /// <returns>The platform-specific algorithm.</returns>
         public static SymmetricAlgorithmName GetName(this SymmetricAlgorithm algorithm)
         {
             switch (algorithm)
@@ -97,9 +83,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the block mode for an algorithm.
-        /// </summary>
+        /// <summary>Gets the block mode for an algorithm.</summary>
         /// <param name="algorithm">The algorithm.</param>
         /// <returns>The block mode.</returns>
         public static SymmetricAlgorithmMode GetMode(this SymmetricAlgorithm algorithm)
@@ -135,9 +119,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the padding.
-        /// </summary>
+        /// <summary>Gets the padding.</summary>
         /// <param name="algorithm">The algorithm.</param>
         /// <returns>The padding.</returns>
         public static SymmetricAlgorithmPadding GetPadding(this SymmetricAlgorithm algorithm)
@@ -170,9 +152,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Finds a composite <see cref="SymmetricAlgorithm"/> for the specified unit parts, if one exists.
-        /// </summary>
+        /// <summary>Finds a composite <see cref="SymmetricAlgorithm"/> for the specified unit parts, if one exists.</summary>
         /// <param name="name">The name of the base algorithm to use.</param>
         /// <param name="mode">The algorithm's mode (i.e. streaming or some block mode).</param>
         /// <param name="padding">The padding to use.</param>
@@ -193,9 +173,7 @@ namespace PCLCrypto
             return false;
         }
 
-        /// <summary>
-        /// Gets a value indicating whether the specified block mode requires an initialization vector.
-        /// </summary>
+        /// <summary>Gets a value indicating whether the specified block mode requires an initialization vector.</summary>
         /// <param name="mode">The block mode to check.</param>
         /// <returns><c>true</c> if the block mode uses an initialization vector; <c>false</c> otherwise.</returns>
         public static bool UsesIV(this SymmetricAlgorithmMode mode)
@@ -215,16 +193,12 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets a value indicating whether the specified algorithm requires an initialization vector.
-        /// </summary>
+        /// <summary>Gets a value indicating whether the specified algorithm requires an initialization vector.</summary>
         /// <param name="algorithm">The algorithm to check.</param>
         /// <returns><c>true</c> if the block mode uses an initialization vector; <c>false</c> otherwise.</returns>
         public static bool UsesIV(this SymmetricAlgorithm algorithm) => UsesIV(algorithm.GetMode());
 
-        /// <summary>
-        /// Gets the string representation of an algorithm name.
-        /// </summary>
+        /// <summary>Gets the string representation of an algorithm name.</summary>
         /// <param name="algorithm">The algorithm.</param>
         /// <returns>A non-empty string, such as "AES".</returns>
         public static string GetString(this SymmetricAlgorithmName algorithm)

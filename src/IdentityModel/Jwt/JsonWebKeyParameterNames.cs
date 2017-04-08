@@ -25,11 +25,9 @@
 //
 //------------------------------------------------------------------------------
 
-namespace IdentityModel.Jwt
+namespace IdentityModel.Jwk
 {
-    /// <summary>
-    /// Names for Json Web Key Values
-    /// </summary>
+    /// <summary>Names for Json Web Key Values</summary>
     public static class JsonWebKeyParameterNames
     {
 #pragma warning disable 1591

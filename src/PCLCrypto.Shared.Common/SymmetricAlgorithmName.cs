@@ -3,34 +3,22 @@
 
 namespace PCLCrypto
 {
-    /// <summary>
-    /// A PCL-compatible enumeration describing symmetric algorithms.
-    /// </summary>
+    /// <summary>A PCL-compatible enumeration describing symmetric algorithms.</summary>
     public enum SymmetricAlgorithmName
     {
-        /// <summary>
-        /// The AES algorithm.
-        /// </summary>
+        /// <summary>The AES algorithm.</summary>
         Aes,
 
-        /// <summary>
-        /// The DES algorithm.
-        /// </summary>
+        /// <summary>The DES algorithm.</summary>
         Des,
 
-        /// <summary>
-        /// The TRIPLEDES algorithm.
-        /// </summary>
+        /// <summary>The TRIPLEDES algorithm.</summary>
         TripleDes,
 
-        /// <summary>
-        /// The RC2 algorithm.
-        /// </summary>
+        /// <summary>The RC2 algorithm.</summary>
         Rc2,
 
-        /// <summary>
-        /// The RC4 algorithm.
-        /// </summary>
+        /// <summary>The RC4 algorithm.</summary>
         Rc4,
     }
 }

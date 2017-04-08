@@ -7,19 +7,13 @@ using System.Runtime.CompilerServices;
 
 namespace Thinktecture.IdentityModel
 {
-    /// <summary>
-    /// Helper class to do equality checks without leaking timing information
-    /// </summary>
+    /// <summary>Helper class to do equality checks without leaking timing information</summary>
     public static class ObfuscatingComparer
     {
-        /// <summary>
-        /// Checks two strings for equality without leaking timing information.
-        /// </summary>
+        /// <summary>Checks two strings for equality without leaking timing information.</summary>
         /// <param name="s1">string 1.</param>
         /// <param name="s2">string 2.</param>
-        /// <returns>
-        /// 	<c>true</c> if the specified strings are equal; otherwise, <c>false</c>.
-        /// </returns>
+        /// <returns><c>true</c> if the specified strings are equal; otherwise, <c>false</c>.</returns>
         [MethodImpl(MethodImplOptions.NoOptimization)]
         public static bool IsEqual(string s1, string s2)
         {

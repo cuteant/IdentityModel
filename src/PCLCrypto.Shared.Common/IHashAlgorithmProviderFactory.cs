@@ -3,9 +3,7 @@
 
 namespace PCLCrypto
 {
-    /// <summary>
-    /// Constructs instances of <see cref="IHashAlgorithmProvider"/>.
-    /// </summary>
+    /// <summary>Constructs instances of <see cref="IHashAlgorithmProvider"/>.</summary>
     public interface IHashAlgorithmProviderFactory
     {
         /// <summary>

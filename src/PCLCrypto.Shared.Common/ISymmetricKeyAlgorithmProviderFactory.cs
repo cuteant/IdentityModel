@@ -14,9 +14,7 @@ namespace PCLCrypto
     /// </summary>
     public interface ISymmetricKeyAlgorithmProviderFactory
     {
-        /// <summary>
-        /// Returns a crypto key management for a specified algorithm.
-        /// </summary>
+        /// <summary>Returns a crypto key management for a specified algorithm.</summary>
         /// <param name="name">The name of the base algorithm to use.</param>
         /// <param name="mode">The algorithm's mode (i.e. streaming or some block mode).</param>
         /// <param name="padding">The padding to use.</param>

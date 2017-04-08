@@ -7,9 +7,7 @@ namespace PCLCrypto
     using System.Collections.Generic;
     using System.Text;
 
-    /// <summary>
-    /// A factory for instances of <see cref="IECDiffieHellman"/>.
-    /// </summary>
+    /// <summary>A factory for instances of <see cref="IECDiffieHellman"/>.</summary>
     public interface IECDiffieHellmanFactory
     {
         /// <summary>

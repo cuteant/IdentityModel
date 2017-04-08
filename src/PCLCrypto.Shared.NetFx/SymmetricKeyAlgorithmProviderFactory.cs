@@ -10,14 +10,10 @@ namespace PCLCrypto
     using System.Threading.Tasks;
     using Validation;
 
-    /// <summary>
-    /// WinRT implementation of the <see cref="ISymmetricKeyAlgorithmProviderFactory"/> interface.
-    /// </summary>
+    /// <summary>WinRT implementation of the <see cref="ISymmetricKeyAlgorithmProviderFactory"/> interface.</summary>
     internal class SymmetricKeyAlgorithmProviderFactory : ISymmetricKeyAlgorithmProviderFactory
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SymmetricKeyAlgorithmProviderFactory"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="SymmetricKeyAlgorithmProviderFactory"/> class.</summary>
         public SymmetricKeyAlgorithmProviderFactory()
         {
         }

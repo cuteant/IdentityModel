@@ -12,24 +12,16 @@ namespace PCLCrypto
     using Validation;
     using Platform = System.Security.Cryptography;
 
-    /// <summary>
-    /// A .NET Framework implementation of the <see cref="CryptographicHash"/> interface.
-    /// </summary>
+    /// <summary>A .NET Framework implementation of the <see cref="CryptographicHash"/> interface.</summary>
     internal class NetFxCryptographicHash : CryptographicHash
     {
-        /// <summary>
-        /// A zero-length byte array.
-        /// </summary>
+        /// <summary>A zero-length byte array.</summary>
         private static readonly byte[] EmptyBlock = new byte[0];
 
-        /// <summary>
-        /// A value indicating whether <see cref="TransformFinalBlock"/> has been called.
-        /// </summary>
+        /// <summary>A value indicating whether <see cref="TransformFinalBlock"/> has been called.</summary>
         private bool transformedFinalBlock;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NetFxCryptographicHash"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="NetFxCryptographicHash"/> class.</summary>
         /// <param name="algorithm">The algorithm.</param>
         internal NetFxCryptographicHash(Platform.HashAlgorithm algorithm)
         {
@@ -38,9 +30,7 @@ namespace PCLCrypto
             this.Algorithm = algorithm;
         }
 
-        /// <summary>
-        /// Gets the platform-specific hash algorithm.
-        /// </summary>
+        /// <summary>Gets the platform-specific hash algorithm.</summary>
         protected Platform.HashAlgorithm Algorithm { get; private set; }
 
         /// <inheritdoc />
@@ -88,9 +78,7 @@ namespace PCLCrypto
             return hash;
         }
 
-        /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
+        /// <summary>Releases unmanaged and - optionally - managed resources.</summary>
         /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
         protected override void Dispose(bool disposing)
         {

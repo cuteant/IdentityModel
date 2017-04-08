@@ -11,19 +11,13 @@ namespace PCLCrypto
   using System.Threading.Tasks;
   using Validation;
 
-  /// <summary>
-  /// .NET Framework implementation of the <see cref="IAsymmetricKeyAlgorithmProvider"/> interface.
-  /// </summary>
+  /// <summary>.NET Framework implementation of the <see cref="IAsymmetricKeyAlgorithmProvider"/> interface.</summary>
   internal class CngAsymmetricKeyAlgorithmProvider : IAsymmetricKeyAlgorithmProvider
   {
-    /// <summary>
-    /// The algorithm used by this instance.
-    /// </summary>
+    /// <summary>The algorithm used by this instance.</summary>
     private readonly AsymmetricAlgorithm algorithm;
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="CngAsymmetricKeyAlgorithmProvider"/> class.
-    /// </summary>
+    /// <summary>Initializes a new instance of the <see cref="CngAsymmetricKeyAlgorithmProvider"/> class.</summary>
     /// <param name="algorithm">The algorithm.</param>
     public CngAsymmetricKeyAlgorithmProvider(AsymmetricAlgorithm algorithm)
     {
@@ -83,9 +77,7 @@ namespace PCLCrypto
       return new CngCryptographicKey(key, null);
     }
 
-    /// <summary>
-    /// Gets the platform-specific enum value for the given PCL enum value.
-    /// </summary>
+    /// <summary>Gets the platform-specific enum value for the given PCL enum value.</summary>
     /// <param name="blobType">The platform independent enum value for the blob type.</param>
     /// <returns>The platform-specific enum value for the equivalent blob type.</returns>
     internal static CngKeyBlobFormat GetPlatformKeyBlobType(CryptographicPrivateKeyBlobType blobType)
@@ -101,9 +93,7 @@ namespace PCLCrypto
       }
     }
 
-    /// <summary>
-    /// Gets the platform-specific enum value for the given PCL enum value.
-    /// </summary>
+    /// <summary>Gets the platform-specific enum value for the given PCL enum value.</summary>
     /// <param name="blobType">The platform independent enum value for the blob type.</param>
     /// <returns>The platform-specific enum value for the equivalent blob type.</returns>
     internal static CngKeyBlobFormat GetPlatformKeyBlobType(CryptographicPublicKeyBlobType blobType)
@@ -117,9 +107,7 @@ namespace PCLCrypto
       }
     }
 
-    /// <summary>
-    /// Returns the platform-specific algorithm to pass to the platform APIs for a given algorithm.
-    /// </summary>
+    /// <summary>Returns the platform-specific algorithm to pass to the platform APIs for a given algorithm.</summary>
     /// <param name="algorithm">The algorithm desired.</param>
     /// <returns>The platform-specific algorithm.</returns>
     internal static CngAlgorithm GetCngAlgorithm(AsymmetricAlgorithm algorithm)

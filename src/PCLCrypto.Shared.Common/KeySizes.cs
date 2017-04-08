@@ -5,14 +5,10 @@ namespace PCLCrypto
 {
     using System.Collections.Generic;
 
-    /// <summary>
-    /// Describes a range of valid key sizes.
-    /// </summary>
+    /// <summary>Describes a range of valid key sizes.</summary>
     public struct KeySizes : IEnumerable<int>
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="KeySizes"/> struct.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="KeySizes"/> struct.</summary>
         /// <param name="minSize">The minimum key size (in bits).</param>
         /// <param name="maxSize">The maximum key size (in bits).</param>
         /// <param name="stepSize">The increment (in bits) between valid key sizes between <paramref name="minSize"/> and <paramref name="maxSize"/>.</param>
@@ -23,14 +19,10 @@ namespace PCLCrypto
             this.StepSize = stepSize;
         }
 
-        /// <summary>
-        /// Gets the maximum key size (in bits).
-        /// </summary>
+        /// <summary>Gets the maximum key size (in bits).</summary>
         public int MaxSize { get; }
 
-        /// <summary>
-        /// Gets the minimum key size (in bits).
-        /// </summary>
+        /// <summary>Gets the minimum key size (in bits).</summary>
         public int MinSize { get; }
 
         /// <summary>

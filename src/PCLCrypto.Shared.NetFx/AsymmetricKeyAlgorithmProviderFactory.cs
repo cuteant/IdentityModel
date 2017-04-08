@@ -10,14 +10,10 @@ namespace PCLCrypto
     using System.Threading.Tasks;
     using Validation;
 
-    /// <summary>
-    /// .NET Framework implementation of the <see cref="IAsymmetricKeyAlgorithmProviderFactory"/> interface.
-    /// </summary>
+    /// <summary>.NET Framework implementation of the <see cref="IAsymmetricKeyAlgorithmProviderFactory"/> interface.</summary>
     internal class AsymmetricKeyAlgorithmProviderFactory : IAsymmetricKeyAlgorithmProviderFactory
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AsymmetricKeyAlgorithmProviderFactory"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="AsymmetricKeyAlgorithmProviderFactory"/> class.</summary>
         public AsymmetricKeyAlgorithmProviderFactory()
         {
         }
@@ -56,9 +52,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the hash algorithm for a given asymmetric algorithm.
-        /// </summary>
+        /// <summary>Gets the hash algorithm for a given asymmetric algorithm.</summary>
         /// <param name="algorithm">The algorithm.</param>
         /// <returns>A hash algorithm.</returns>
         internal static HashAlgorithm GetHashAlgorithmEnum(AsymmetricAlgorithm algorithm)

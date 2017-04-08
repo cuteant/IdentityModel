@@ -10,14 +10,10 @@ using Thinktecture.IdentityModel.Constants;
 
 namespace Thinktecture.IdentityModel
 {
-    /// <summary>
-    /// Helper class to create an authentication instant claim
-    /// </summary>
+    /// <summary>Helper class to create an authentication instant claim</summary>
     public static class AuthenticationInstantClaim
     {
-        /// <summary>
-        /// Returns an authentication instant claim for the current date/time
-        /// </summary>
+        /// <summary>Returns an authentication instant claim for the current date/time</summary>
         /// <value>authentication instant claim.</value>
         public static Claim Now
         {

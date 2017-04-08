@@ -14,9 +14,7 @@ namespace PCLCrypto
     /// </summary>
     public interface IAsymmetricKeyAlgorithmProviderFactory
     {
-        /// <summary>
-        /// Returns a crypto key management for a specified algorithm.
-        /// </summary>
+        /// <summary>Returns a crypto key management for a specified algorithm.</summary>
         /// <param name="algorithm">The algorithm.</param>
         /// <returns>An instance of <see cref="IAsymmetricKeyAlgorithmProvider"/>.</returns>
         IAsymmetricKeyAlgorithmProvider OpenAlgorithm(AsymmetricAlgorithm algorithm);

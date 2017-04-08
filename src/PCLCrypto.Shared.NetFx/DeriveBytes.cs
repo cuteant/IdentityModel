@@ -11,9 +11,7 @@ namespace PCLCrypto
     using System.Threading.Tasks;
     using Validation;
 
-    /// <summary>
-    /// Exposes the .NET Framework implementation of <see cref="IDeriveBytes"/>.
-    /// </summary>
+    /// <summary>Exposes the .NET Framework implementation of <see cref="IDeriveBytes"/>.</summary>
     internal class DeriveBytes : IDeriveBytes
     {
         /// <inheritdoc/>

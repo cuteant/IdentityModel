@@ -9,9 +9,7 @@ namespace PCLCrypto
     using System.Text;
     using Validation;
 
-    /// <summary>
-    /// A .NET Framework implementation of the <see cref="IKeyDerivationParametersFactory"/> interface.
-    /// </summary>
+    /// <summary>A .NET Framework implementation of the <see cref="IKeyDerivationParametersFactory"/> interface.</summary>
     internal class KeyDerivationParametersFactory : IKeyDerivationParametersFactory
     {
         /// <inheritdoc />
@@ -32,14 +30,10 @@ namespace PCLCrypto
             throw new NotSupportedException();
         }
 
-        /// <summary>
-        /// A .NET Framework implementation of the <see cref="IKeyDerivationParameters"/> interface.
-        /// </summary>
+        /// <summary>A .NET Framework implementation of the <see cref="IKeyDerivationParameters"/> interface.</summary>
         private class KeyDerivationParameters : IKeyDerivationParameters
         {
-            /// <summary>
-            /// Initializes a new instance of the <see cref="KeyDerivationParameters"/> class.
-            /// </summary>
+            /// <summary>Initializes a new instance of the <see cref="KeyDerivationParameters"/> class.</summary>
             /// <param name="iterationCount">The iteration count.</param>
             /// <param name="kdfGenericBinary">The KDF generic binary.</param>
             internal KeyDerivationParameters(int iterationCount, byte[] kdfGenericBinary)

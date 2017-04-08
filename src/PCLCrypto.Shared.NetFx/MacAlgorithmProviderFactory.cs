@@ -9,9 +9,7 @@ namespace PCLCrypto
     using System.Text;
     using System.Threading.Tasks;
 
-    /// <summary>
-    /// The shared implementation of the <see cref="IMacAlgorithmProviderFactory"/> interface.
-    /// </summary>
+    /// <summary>The shared implementation of the <see cref="IMacAlgorithmProviderFactory"/> interface.</summary>
     internal class MacAlgorithmProviderFactory : IMacAlgorithmProviderFactory
     {
         /// <inheritdoc />
@@ -20,9 +18,7 @@ namespace PCLCrypto
             return new MacAlgorithmProvider(algorithm);
         }
 
-        /// <summary>
-        /// Returns the string to pass to the platform APIs for a given algorithm.
-        /// </summary>
+        /// <summary>Returns the string to pass to the platform APIs for a given algorithm.</summary>
         /// <param name="algorithm">The algorithm desired.</param>
         /// <returns>The platform-specific string to pass to OpenAlgorithm.</returns>
         internal static string GetAlgorithmName(MacAlgorithm algorithm)

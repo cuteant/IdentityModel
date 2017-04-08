@@ -3,29 +3,19 @@
 
 namespace PCLCrypto
 {
-    /// <summary>
-    /// The simple names of asymmetric algorithms.
-    /// </summary>
+    /// <summary>The simple names of asymmetric algorithms.</summary>
     public enum AsymmetricAlgorithmName
     {
-        /// <summary>
-        /// Digital signing algorithm.
-        /// </summary>
+        /// <summary>Digital signing algorithm.</summary>
         Dsa,
 
-        /// <summary>
-        /// Elliptic curve digital signing algorithm.
-        /// </summary>
+        /// <summary>Elliptic curve digital signing algorithm.</summary>
         Ecdsa,
 
-        /// <summary>
-        /// RSA encryption.
-        /// </summary>
+        /// <summary>RSA encryption.</summary>
         Rsa,
 
-        /// <summary>
-        /// RSA signature.
-        /// </summary>
+        /// <summary>RSA signature.</summary>
         RsaSign,
     }
 }

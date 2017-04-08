@@ -9,9 +9,7 @@ namespace PCLCrypto
     using System.Text;
     using System.Threading.Tasks;
 
-    /// <summary>
-    /// The .NET Framework implementation of the <see cref="IKeyDerivationAlgorithmProviderFactory"/> interface.
-    /// </summary>
+    /// <summary>The .NET Framework implementation of the <see cref="IKeyDerivationAlgorithmProviderFactory"/> interface.</summary>
     internal class KeyDerivationAlgorithmProviderFactory : IKeyDerivationAlgorithmProviderFactory
     {
         /// <inheritdoc />

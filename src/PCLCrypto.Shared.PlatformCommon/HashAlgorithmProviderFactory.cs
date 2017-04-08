@@ -8,9 +8,7 @@ namespace PCLCrypto
     using System.Linq;
     using System.Text;
 
-    /// <summary>
-    /// A WinRT implementation of <see cref="IHashAlgorithmProviderFactory"/>.
-    /// </summary>
+    /// <summary>A WinRT implementation of <see cref="IHashAlgorithmProviderFactory"/>.</summary>
     internal class HashAlgorithmProviderFactory : IHashAlgorithmProviderFactory
     {
         /// <inheritdoc />
@@ -19,9 +17,7 @@ namespace PCLCrypto
             return new HashAlgorithmProvider(algorithm);
         }
 
-        /// <summary>
-        /// Gets the name for a given hash algorithm.
-        /// </summary>
+        /// <summary>Gets the name for a given hash algorithm.</summary>
         /// <param name="algorithm">The algorithm.</param>
         /// <returns>A non-empty string.</returns>
         internal static string GetHashAlgorithmName(HashAlgorithm algorithm)

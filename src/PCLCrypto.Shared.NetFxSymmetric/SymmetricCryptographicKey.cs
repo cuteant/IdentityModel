@@ -11,29 +11,19 @@ namespace PCLCrypto
     using Validation;
     using Platform = System.Security.Cryptography;
 
-    /// <summary>
-    /// A .NET Framework implementation of <see cref="ICryptographicKey"/> for use with symmetric algorithms.
-    /// </summary>
+    /// <summary>A .NET Framework implementation of <see cref="ICryptographicKey"/> for use with symmetric algorithms.</summary>
     internal partial class SymmetricCryptographicKey : CryptographicKey, ICryptographicKey, IDisposable
     {
-        /// <summary>
-        /// The platform's symmetric algorithm.
-        /// </summary>
+        /// <summary>The platform's symmetric algorithm.</summary>
         private readonly Platform.SymmetricAlgorithm algorithm;
 
-        /// <summary>
-        /// The transform used for the last encryption algorithm.
-        /// </summary>
+        /// <summary>The transform used for the last encryption algorithm.</summary>
         private Platform.ICryptoTransform encryptor;
 
-        /// <summary>
-        /// The transform used for the last decryption algorithm.
-        /// </summary>
+        /// <summary>The transform used for the last decryption algorithm.</summary>
         private Platform.ICryptoTransform decryptor;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SymmetricCryptographicKey"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="SymmetricCryptographicKey"/> class.</summary>
         /// <param name="algorithm">The algorithm, initialized with the key.</param>
         /// <param name="name">The name of the base algorithm to use.</param>
         /// <param name="mode">The algorithm's mode (i.e. streaming or some block mode).</param>
@@ -132,9 +122,7 @@ namespace PCLCrypto
             base.Dispose(disposing);
         }
 
-        /// <summary>
-        /// Creates a zero IV buffer.
-        /// </summary>
+        /// <summary>Creates a zero IV buffer.</summary>
         /// <param name="iv">The IV supplied by the caller.</param>
         /// <returns><paramref name="iv"/> if not null; otherwise a zero-filled buffer.</returns>
         private byte[] ThisOrDefaultIV(byte[] iv)
@@ -154,9 +142,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Checks whether the given length is a valid one for an input buffer to the symmetric algorithm.
-        /// </summary>
+        /// <summary>Checks whether the given length is a valid one for an input buffer to the symmetric algorithm.</summary>
         /// <param name="lengthInBytes">The length of the input buffer in bytes.</param>
         /// <returns><c>true</c> if the size is allowed; <c>false</c> otherwise.</returns>
         private bool IsValidInputSize(int lengthInBytes)
@@ -164,9 +150,7 @@ namespace PCLCrypto
             return (lengthInBytes * 8) % this.algorithm.BlockSize == 0;
         }
 
-        /// <summary>
-        /// Transforms an input block.
-        /// </summary>
+        /// <summary>Transforms an input block.</summary>
         /// <param name="transformField">Either the <see cref="encryptor"/> or <see cref="decryptor"/> field.</param>
         /// <param name="transformCreator">The function to create a new transformer.</param>
         /// <param name="data">The input data.</param>
@@ -201,19 +185,13 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Adapts a platform ICryptoTransform to the PCL interface.
-        /// </summary>
+        /// <summary>Adapts a platform ICryptoTransform to the PCL interface.</summary>
         private class CryptoTransformAdaptor : ICryptoTransform
         {
-            /// <summary>
-            /// The platform transform.
-            /// </summary>
+            /// <summary>The platform transform.</summary>
             private readonly Platform.ICryptoTransform transform;
 
-            /// <summary>
-            /// Initializes a new instance of the <see cref="CryptoTransformAdaptor"/> class.
-            /// </summary>
+            /// <summary>Initializes a new instance of the <see cref="CryptoTransformAdaptor"/> class.</summary>
             /// <param name="transform">The transform.</param>
             internal CryptoTransformAdaptor(Platform.ICryptoTransform transform)
             {

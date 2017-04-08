@@ -1,5 +1,5 @@
 ﻿using System;
-#if NET_4_0_GREATER
+#if !NET40
 using System.Runtime.InteropServices.WindowsRuntime;
 #endif
 
@@ -7,7 +7,7 @@ namespace JosePCL.Serialization
 {
   public sealed class Base64Url
   {
-#if NET_4_0_GREATER
+#if !NET40
     public static string Encode([ReadOnlyArray] byte[] input)
 #else
     public static string Encode(byte[] input)

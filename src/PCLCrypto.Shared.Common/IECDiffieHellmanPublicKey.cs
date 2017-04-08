@@ -14,9 +14,7 @@ namespace PCLCrypto
     /// </summary>
     public interface IECDiffieHellmanPublicKey
     {
-        /// <summary>
-        /// Serializes the ECDiffieHellmanPublicKey key BLOB to a byte array.
-        /// </summary>
+        /// <summary>Serializes the ECDiffieHellmanPublicKey key BLOB to a byte array.</summary>
         /// <returns>A byte array.</returns>
         byte[] ToByteArray();
     }

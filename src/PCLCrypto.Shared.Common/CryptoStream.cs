@@ -10,44 +10,28 @@ namespace PCLCrypto
     using System.Text;
     using Validation;
 
-    /// <summary>
-    /// Defines a stream that links data streams to cryptographic transformations.
-    /// </summary>
+    /// <summary>Defines a stream that links data streams to cryptographic transformations.</summary>
     public class CryptoStream : Stream
     {
-        /// <summary>
-        /// The stream that is read from or written to with each I/O operation.
-        /// </summary>
+        /// <summary>The stream that is read from or written to with each I/O operation.</summary>
         private readonly Stream chainedStream;
 
-        /// <summary>
-        /// The crypto transform to use for each block.
-        /// </summary>
+        /// <summary>The crypto transform to use for each block.</summary>
         private readonly ICryptoTransform transform;
 
-        /// <summary>
-        /// The read/write mode of this stream.
-        /// </summary>
+        /// <summary>The read/write mode of this stream.</summary>
         private readonly CryptoStreamMode mode;
 
-        /// <summary>
-        /// Data that has not yet been transformed.
-        /// </summary>
+        /// <summary>Data that has not yet been transformed.</summary>
         private readonly byte[] inputBuffer;
 
-        /// <summary>
-        /// Data that has been transformed but not flushed.
-        /// </summary>
+        /// <summary>Data that has been transformed but not flushed.</summary>
         private byte[] outputBuffer;
 
-        /// <summary>
-        /// The number of valid bytes in <see cref="inputBuffer"/>.
-        /// </summary>
+        /// <summary>The number of valid bytes in <see cref="inputBuffer"/>.</summary>
         private int inputBufferSize;
 
-        /// <summary>
-        /// The number of valid bytes in <see cref="outputBuffer"/>.
-        /// </summary>
+        /// <summary>The number of valid bytes in <see cref="outputBuffer"/>.</summary>
         private int outputBufferSize;
 
         /// <summary>
@@ -56,9 +40,7 @@ namespace PCLCrypto
         /// </summary>
         private int outputBufferIndex;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CryptoStream"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="CryptoStream"/> class.</summary>
         /// <param name="stream">The stream to write to or read from.</param>
         /// <param name="transform">The cryptographic operation to use for transforming data.</param>
         /// <param name="mode">The mode of operation.</param>
@@ -87,9 +69,7 @@ namespace PCLCrypto
             this.outputBuffer = new byte[transform.OutputBlockSize];
         }
 
-        /// <summary>
-        /// Gets a value indicating whether the final buffer block has been written to the underlying stream.
-        /// </summary>
+        /// <summary>Gets a value indicating whether the final buffer block has been written to the underlying stream.</summary>
         public bool HasFlushedFinalBlock { get; private set; }
 
         #region Stream Properties
@@ -152,12 +132,8 @@ namespace PCLCrypto
             return Chain(stream, CryptoStreamMode.Read, transforms);
         }
 
-        /// <summary>
-        /// Updates the underlying data source or repository with the current state of the buffer, then clears the buffer.
-        /// </summary>
-        /// <remarks>
-        /// Calling the Close method will call FlushFinalBlock. If you do not call Close, call FlushFinalBlock to complete flushing the buffer. Call FlushFinalBlock only when all stream activity is complete.
-        /// </remarks>
+        /// <summary>Updates the underlying data source or repository with the current state of the buffer, then clears the buffer.</summary>
+        /// <remarks>Calling the Close method will call FlushFinalBlock. If you do not call Close, call FlushFinalBlock to complete flushing the buffer. Call FlushFinalBlock only when all stream activity is complete.</remarks>
         public void FlushFinalBlock()
         {
             byte[] final = this.transform.TransformFinalBlock(this.inputBuffer, 0, this.inputBufferSize);
@@ -375,9 +351,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Creates a CryptoStream chain of transforms.
-        /// </summary>
+        /// <summary>Creates a CryptoStream chain of transforms.</summary>
         /// <param name="stream">The ultimate stream to be read from or written to.</param>
         /// <param name="cryptoStreamMode">Whether to prepare for read or write operations to trigger the operations.</param>
         /// <param name="transforms">The transforms to apply.</param>
@@ -413,14 +387,10 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Creates a CryptoStream chain of transforms for writing streams.
-        /// </summary>
+        /// <summary>Creates a CryptoStream chain of transforms for writing streams.</summary>
         /// <param name="stream">The ultimate stream to be read from or written to.</param>
         /// <param name="transforms">An enumerator positioned just before the transform to create for the outer-most stream.</param>
-        /// <returns>
-        /// The start of the chain of CryptoStreams.
-        /// </returns>
+        /// <returns>The start of the chain of CryptoStreams.</returns>
         private static Stream ChainWrite(Stream stream, IEnumerator<ICryptoTransform> transforms)
         {
             Requires.NotNull(stream, "stream");

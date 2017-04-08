@@ -16,19 +16,13 @@ namespace PCLCrypto
     /// </summary>
     internal class MacCryptographicKey : CryptographicKey, ICryptographicKey
     {
-        /// <summary>
-        /// The algorithm to use when hashing.
-        /// </summary>
+        /// <summary>The algorithm to use when hashing.</summary>
         private readonly MacAlgorithm algorithm;
 
-        /// <summary>
-        /// The key material.
-        /// </summary>
+        /// <summary>The key material.</summary>
         private readonly byte[] key;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MacCryptographicKey" /> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="MacCryptographicKey" /> class.</summary>
         /// <param name="algorithm">The algorithm.</param>
         /// <param name="key">The key.</param>
         internal MacCryptographicKey(MacAlgorithm algorithm, byte[] key)

@@ -17,19 +17,13 @@ namespace PCLCrypto
     /// </summary>
     internal class CngCryptographicKey : CryptographicKey, ICryptographicKey
     {
-        /// <summary>
-        /// The platform crypto key.
-        /// </summary>
+        /// <summary>The platform crypto key.</summary>
         private readonly CngKey key;
 
-        /// <summary>
-        /// The ECC Private key blob from which this key was imported, if applicable.
-        /// </summary>
+        /// <summary>The ECC Private key blob from which this key was imported, if applicable.</summary>
         private readonly byte[] eccPrivateKeyBlob;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CngCryptographicKey"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="CngCryptographicKey"/> class.</summary>
         /// <param name="key">The key.</param>
         /// <param name="eccPrivateKeyBlob">The ECC Private key blob from which this key was imported, if applicable.</param>
         internal CngCryptographicKey(CngKey key, byte[] eccPrivateKeyBlob)

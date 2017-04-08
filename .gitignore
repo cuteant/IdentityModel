@@ -270,3 +270,4 @@ TODO.txt
 *.project.lock.json
 
 /nuspecs/nuget.exe
+/NuGet.Config

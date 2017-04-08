@@ -10,14 +10,10 @@ namespace PCLCrypto
     using System.Threading.Tasks;
     using PInvoke;
 
-    /// <summary>
-    /// Crypto utilities for Windows platforms (Cryptography Next Generation).
-    /// </summary>
+    /// <summary>Crypto utilities for Windows platforms (Cryptography Next Generation).</summary>
     internal static class CngUtilities
     {
-        /// <summary>
-        /// Gets the key size that is mandated by certain algorithms.
-        /// </summary>
+        /// <summary>Gets the key size that is mandated by certain algorithms.</summary>
         /// <param name="algorithm">The asymmetric algorithm that mandates a specific key size.</param>
         /// <returns>The key size, in bits.</returns>
         /// <exception cref="ArgumentException">Thrown if <paramref name="algorithm"/> does not mandate a key size.</exception>
@@ -36,9 +32,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the BCrypt (or NCrypt) algorithm identifier for an asymmetric algorithm.
-        /// </summary>
+        /// <summary>Gets the BCrypt (or NCrypt) algorithm identifier for an asymmetric algorithm.</summary>
         /// <param name="algorithm">The PCL asymmetric algorithm.</param>
         /// <returns>The BCrypt/NCrypt compatible algorithm identifier.</returns>
         internal static string GetAlgorithmId(AsymmetricAlgorithm algorithm)

@@ -14,25 +14,17 @@ namespace PCLCrypto.Formatters
     /// Encodes/decodes public keys and private keys in the PKCS#1 format
     /// (rsaPublicKey and rsaPrivateKey).
     /// </summary>
-    /// <remarks>
-    /// The format is described here: http://tools.ietf.org/html/rfc3447#page-46
-    /// </remarks>
+    /// <remarks>The format is described here: http://tools.ietf.org/html/rfc3447#page-46</remarks>
     internal class Pkcs1KeyFormatter : KeyFormatter
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Pkcs1KeyFormatter"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="Pkcs1KeyFormatter"/> class.</summary>
         internal Pkcs1KeyFormatter()
         {
         }
 
-        /// <summary>
-        /// Reads a key from the specified stream.
-        /// </summary>
+        /// <summary>Reads a key from the specified stream.</summary>
         /// <param name="stream">The stream.</param>
-        /// <returns>
-        /// The RSA Parameters of the key.
-        /// </returns>
+        /// <returns>The RSA Parameters of the key.</returns>
         protected override RSAParameters ReadCore(Stream stream)
         {
             var keyBlobElement = Asn.ReadAsn1Elements(stream).First();
@@ -70,9 +62,7 @@ namespace PCLCrypto.Formatters
             }
         }
 
-        /// <summary>
-        /// Writes the core.
-        /// </summary>
+        /// <summary>Writes the core.</summary>
         /// <param name="stream">The stream.</param>
         /// <param name="value">The value.</param>
         protected override void WriteCore(Stream stream, RSAParameters value)

@@ -1,42 +1,34 @@
-﻿/*
- * Copyright 2014, 2015 Dominick Baier, Brock Allen
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 
 namespace IdentityModel
 {
-    public static class Principal
+  /// <summary>Helper class to create ClaimsPrincipal</summary>
+  public static class Principal
+  {
+    /// <summary>Gets an anoymous ClaimsPrincipal.</summary>
+    public static ClaimsPrincipal Anonymous => new ClaimsPrincipal(Identity.Anonymous);
+
+    /// <summary>Creates a ClaimsPrincipal using the specified authentication type and claims.</summary>
+    /// <param name="authenticationType">Type of the authentication.</param>
+    /// <param name="claims">The claims.</param>
+    /// <returns></returns>
+    public static ClaimsPrincipal Create(string authenticationType, params Claim[] claims)
     {
-        public static ClaimsPrincipal Anonymous
-        {
-            get
-            {
-                return new ClaimsPrincipal(Identity.Anonymous);
-            }
-        }
-
-        public static ClaimsPrincipal Create(string authenticationType, params Claim[] claims)
-        {
-            return new ClaimsPrincipal(Identity.Create(authenticationType, claims));
-        }
-
-        public static ClaimsPrincipal CreateFromCertificate(X509Certificate2 certificate, string authenticationType = "X.509", bool includeAllClaims = false)
-        {
-            return new ClaimsPrincipal(Identity.CreateFromCertificate(certificate, authenticationType, includeAllClaims));
-        }
+      return new ClaimsPrincipal(Identity.Create(authenticationType, claims));
     }
+
+    /// <summary>Creates a ClaimsPrincipal based on information found in an X509 certificate.</summary>
+    /// <param name="certificate">The certificate.</param>
+    /// <param name="authenticationType">Type of the authentication.</param>
+    /// <param name="includeAllClaims">if set to <c>true</c> [include all claims].</param>
+    /// <returns></returns>
+    public static ClaimsPrincipal CreateFromCertificate(X509Certificate2 certificate, string authenticationType = "X.509", bool includeAllClaims = false)
+    {
+      return new ClaimsPrincipal(Identity.CreateFromCertificate(certificate, authenticationType, includeAllClaims));
+    }
+  }
 }

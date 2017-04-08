@@ -10,14 +10,10 @@ namespace PCLCrypto
     using Validation;
 #endif
 
-    /// <summary>
-    /// Extension methods for the <see cref="RSAParameters"/> struct.
-    /// </summary>
+    /// <summary>Extension methods for the <see cref="RSAParameters"/> struct.</summary>
     internal static class RSAParametersExtensions
     {
-        /// <summary>
-        /// Gets a value indicating whether the specified <see cref="RSAParameters"/> carries private key data.
-        /// </summary>
+        /// <summary>Gets a value indicating whether the specified <see cref="RSAParameters"/> carries private key data.</summary>
         /// <param name="rsa">The <see cref="RSAParameters"/> to check for private key data.</param>
         /// <returns><c>true</c> if private key data is included; <c>false</c> otherwise.</returns>
         internal static bool HasPrivateKey(this RSAParameters rsa) => rsa.P != null;
@@ -30,9 +26,7 @@ namespace PCLCrypto
         /// <returns><c>true</c> if full private key data is included; <c>false</c> otherwise.</returns>
         internal static bool HasFullPrivateKeyData(this RSAParameters rsa) => rsa.InverseQ != null;
 
-        /// <summary>
-        /// Fills in missing optional private key data.
-        /// </summary>
+        /// <summary>Fills in missing optional private key data.</summary>
         /// <param name="rsa">The <see cref="RSAParameters"/> that contain a private key but not the optional parameters.</param>
         /// <returns>The fully populated private key data.</returns>
         internal static RSAParameters ComputeFullPrivateKeyData(this RSAParameters rsa)
@@ -49,9 +43,7 @@ namespace PCLCrypto
 #endif
         }
 
-        /// <summary>
-        /// Removes the private key data that can be recomputed given P and Q (private data).
-        /// </summary>
+        /// <summary>Removes the private key data that can be recomputed given P and Q (private data).</summary>
         /// <param name="rsa">The <see cref="RSAParameters"/> that may contain optional private key data.</param>
         /// <returns>The <see cref="RSAParameters"/> that do not contain optional private key data, but may still contain (the minimum required) private key data.</returns>
         internal static RSAParameters StripOptionalPrivateKeyData(this RSAParameters rsa)

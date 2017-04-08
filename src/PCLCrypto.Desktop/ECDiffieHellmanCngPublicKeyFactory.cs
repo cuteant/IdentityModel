@@ -1,4 +1,5 @@
-﻿// Copyright (c) Andrew Arnott. All rights reserved.
+﻿#if DESKTOPCLR
+// Copyright (c) Andrew Arnott. All rights reserved.
 // Licensed under the Microsoft Public License (Ms-PL) license. See LICENSE file in the project root for full license information.
 
 namespace PCLCrypto
@@ -10,9 +11,7 @@ namespace PCLCrypto
     using Validation;
     using Platform = System.Security.Cryptography;
 
-    /// <summary>
-    /// The .NET implementation of <see cref="IECDiffieHellmanCngPublicKeyFactory"/>.
-    /// </summary>
+    /// <summary>The .NET implementation of <see cref="IECDiffieHellmanCngPublicKeyFactory"/>.</summary>
     internal class ECDiffieHellmanCngPublicKeyFactory : IECDiffieHellmanCngPublicKeyFactory
     {
         /// <inheritdoc />
@@ -25,3 +24,4 @@ namespace PCLCrypto
         }
     }
 }
+#endif

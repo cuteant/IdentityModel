@@ -3,24 +3,16 @@
 
 namespace PCLCrypto
 {
-    /// <summary>
-    /// A PCL-compatible enumeration describing asymmetric encryption padding options.
-    /// </summary>
+    /// <summary>A PCL-compatible enumeration describing asymmetric encryption padding options.</summary>
     public enum AsymmetricEncryptionPadding
     {
-        /// <summary>
-        /// No padding at all.
-        /// </summary>
+        /// <summary>No padding at all.</summary>
         None,
 
-        /// <summary>
-        /// The data will be padded with a random number to round out the block size.
-        /// </summary>
+        /// <summary>The data will be padded with a random number to round out the block size.</summary>
         Pkcs1,
 
-        /// <summary>
-        /// Use Optimal Asymmetric Encryption Padding (OAEP).
-        /// </summary>
+        /// <summary>Use Optimal Asymmetric Encryption Padding (OAEP).</summary>
         Oaep,
     }
 }

@@ -20,9 +20,7 @@ namespace CuteAnt.IdentityModel.OidcClient
             _logger = options.LoggerFactory.CreateLogger<IdentityTokenValidator>();
         }
 
-        /// <summary>
-        /// Validates the specified identity token.
-        /// </summary>
+        /// <summary>Validates the specified identity token.</summary>
         /// <param name="identityToken">The identity token.</param>
         /// <returns>The validation result</returns>
         public IdentityTokenValidationResult Validate(string identityToken)

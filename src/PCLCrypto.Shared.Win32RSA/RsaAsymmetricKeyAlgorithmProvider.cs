@@ -13,14 +13,10 @@ namespace PCLCrypto
   using Validation;
   using static PInvoke.NCrypt;
 
-  /// <summary>
-  /// WinRT implementation of the <see cref="IAsymmetricKeyAlgorithmProvider"/> interface.
-  /// </summary>
+  /// <summary>WinRT implementation of the <see cref="IAsymmetricKeyAlgorithmProvider"/> interface.</summary>
   internal class RsaAsymmetricKeyAlgorithmProvider : NCryptAsymmetricKeyProviderBase
   {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="RsaAsymmetricKeyAlgorithmProvider"/> class.
-    /// </summary>
+    /// <summary>Initializes a new instance of the <see cref="RsaAsymmetricKeyAlgorithmProvider"/> class.</summary>
     /// <param name="algorithm">The algorithm.</param>
     public RsaAsymmetricKeyAlgorithmProvider(AsymmetricAlgorithm algorithm)
         : base(algorithm)

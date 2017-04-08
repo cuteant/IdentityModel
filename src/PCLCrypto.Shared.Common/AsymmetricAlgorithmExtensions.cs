@@ -5,14 +5,10 @@ namespace PCLCrypto
 {
     using System;
 
-    /// <summary>
-    /// Extension methods for the <see cref="AsymmetricAlgorithm"/> type.
-    /// </summary>
+    /// <summary>Extension methods for the <see cref="AsymmetricAlgorithm"/> type.</summary>
     public static class AsymmetricAlgorithmExtensions
     {
-        /// <summary>
-        /// Gets the simple name of an asymmetric algorithm.
-        /// </summary>
+        /// <summary>Gets the simple name of an asymmetric algorithm.</summary>
         /// <param name="algorithm">The algorithm.</param>
         /// <returns>The name of the algorithm.</returns>
         public static AsymmetricAlgorithmName GetName(this AsymmetricAlgorithm algorithm)
@@ -46,9 +42,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the padding used for the specified asymmetric signing algorithm.
-        /// </summary>
+        /// <summary>Gets the padding used for the specified asymmetric signing algorithm.</summary>
         /// <param name="algorithm">The signing algorithm.</param>
         /// <returns>The signature padding used, if applicable.</returns>
         public static AsymmetricSignaturePadding? GetSignaturePadding(this AsymmetricAlgorithm algorithm)
@@ -87,9 +81,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the padding used for the specified asymmetric encryption algorithm.
-        /// </summary>
+        /// <summary>Gets the padding used for the specified asymmetric encryption algorithm.</summary>
         /// <param name="algorithm">The encryption algorithm.</param>
         /// <returns>The encryption padding used, if applicable.</returns>
         public static AsymmetricEncryptionPadding? GetEncryptionPadding(this AsymmetricAlgorithm algorithm)
@@ -126,9 +118,7 @@ namespace PCLCrypto
             }
         }
 
-        /// <summary>
-        /// Gets the hash algorithm utilized by the specified asymmetric algorithm.
-        /// </summary>
+        /// <summary>Gets the hash algorithm utilized by the specified asymmetric algorithm.</summary>
         /// <param name="algorithm">The asymmetric algorithm.</param>
         /// <returns>The hash algorithm, if applicable.</returns>
         public static HashAlgorithm? GetHashAlgorithm(this AsymmetricAlgorithm algorithm)

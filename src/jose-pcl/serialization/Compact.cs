@@ -1,5 +1,5 @@
 ﻿using System.Text;
-#if NET_4_0_GREATER
+#if !NET40
 using System.Runtime.InteropServices.WindowsRuntime;
 #endif
 
@@ -45,7 +45,7 @@ namespace JosePCL.Serialization
       return new Part(Encoding.UTF8.GetBytes(data));
     }
 
-#if NET_4_0_GREATER
+#if !NET40
     public Part([ReadOnlyArray] byte[] bytes)
 #else
     public Part(byte[] bytes)

@@ -12,23 +12,17 @@ namespace PCLCrypto
   using Validation;
   using Platform = System.Security.Cryptography;
 
-  /// <summary>
-  /// A .NET Framework implementation of the <see cref="ISymmetricKeyAlgorithmProvider"/> interface.
-  /// </summary>
+  /// <summary>A .NET Framework implementation of the <see cref="ISymmetricKeyAlgorithmProvider"/> interface.</summary>
   internal partial class SymmetricKeyAlgorithmProvider : ISymmetricKeyAlgorithmProvider
   {
-    /// <summary>
-    /// A lazy-initialized cache for the <see cref="LegalKeySizes"/> property.
-    /// </summary>
+    /// <summary>A lazy-initialized cache for the <see cref="LegalKeySizes"/> property.</summary>
 #if NET40
     private IList<KeySizes> legalKeySizes;
 #else
     private IReadOnlyList<KeySizes> legalKeySizes;
 #endif
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SymmetricKeyAlgorithmProvider"/> class.
-    /// </summary>
+    /// <summary>Initializes a new instance of the <see cref="SymmetricKeyAlgorithmProvider"/> class.</summary>
     /// <param name="name">The name of the base algorithm to use.</param>
     /// <param name="mode">The algorithm's mode (i.e. streaming or some block mode).</param>
     /// <param name="padding">The padding to use.</param>
@@ -100,9 +94,7 @@ namespace PCLCrypto
     }
 
 #if !SILVERLIGHT
-    /// <summary>
-    /// Gets the platform enum value for the block mode used by the specified algorithm.
-    /// </summary>
+    /// <summary>Gets the platform enum value for the block mode used by the specified algorithm.</summary>
     /// <param name="mode">The algorithm mode.</param>
     /// <returns>The platform-specific enum value describing the block mode.</returns>
     private static Platform.CipherMode GetMode(SymmetricAlgorithmMode mode)
@@ -118,9 +110,7 @@ namespace PCLCrypto
       }
     }
 
-    /// <summary>
-    /// Gets the platform enum value for the padding used by the specified algorithm.
-    /// </summary>
+    /// <summary>Gets the platform enum value for the padding used by the specified algorithm.</summary>
     /// <param name="padding">The algorithm padding.</param>
     /// <returns>The platform-specific enum value for the padding.</returns>
     private static Platform.PaddingMode GetPadding(SymmetricAlgorithmPadding padding)
@@ -139,12 +129,8 @@ namespace PCLCrypto
     }
 #endif
 
-    /// <summary>
-    /// Returns a platform-specific algorithm that conforms to the prescribed platform-neutral algorithm.
-    /// </summary>
-    /// <returns>
-    /// The platform-specific algorithm.
-    /// </returns>
+    /// <summary>Returns a platform-specific algorithm that conforms to the prescribed platform-neutral algorithm.</summary>
+    /// <returns>The platform-specific algorithm.</returns>
     private Platform.SymmetricAlgorithm GetAlgorithm()
     {
 #if SILVERLIGHT

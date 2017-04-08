@@ -11,9 +11,7 @@ namespace Thinktecture.IdentityModel.Extensions
 {
     public static partial class XmlExtensions
     {
-        /// <summary>
-        /// Converts a XmlElement to a XElement.
-        /// </summary>
+        /// <summary>Converts a XmlElement to a XElement.</summary>
         /// <param name="element">The XmlElement.</param>
         /// <returns>A XElement</returns>
         public static XElement ToXElement(this XmlElement element)

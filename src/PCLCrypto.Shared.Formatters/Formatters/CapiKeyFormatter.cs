@@ -16,34 +16,22 @@ namespace PCLCrypto.Formatters
     /// </summary>
     internal class CapiKeyFormatter : KeyFormatter
     {
-        /// <summary>
-        /// An identifier that the contents of this blob conform to the PUBLICKEYBLOB specification.
-        /// </summary>
+        /// <summary>An identifier that the contents of this blob conform to the PUBLICKEYBLOB specification.</summary>
         private const byte PublicKeyBlobHeader = 0x06;
 
-        /// <summary>
-        /// An identifier that the contents of this blob conform to the PRIVATEKEYBLOB specification.
-        /// </summary>
+        /// <summary>An identifier that the contents of this blob conform to the PRIVATEKEYBLOB specification.</summary>
         private const byte PrivateKeyBlobHeader = 0x07;
 
-        /// <summary>
-        /// A byte indicating the blob version.
-        /// </summary>
+        /// <summary>A byte indicating the blob version.</summary>
         private const byte CurrentBlobVersion = 0x02;
 
-        /// <summary>
-        /// A magic string: "RSA1"
-        /// </summary>
+        /// <summary>A magic string: "RSA1"</summary>
         private const string PublicKeyMagicHeader = "RSA1"; // 0x31415352
 
-        /// <summary>
-        /// A magic string: "RSA2"
-        /// </summary>
+        /// <summary>A magic string: "RSA2"</summary>
         private const string PrivateKeyMagicHeader = "RSA2"; // 0x32415352
 
-        /// <summary>
-        /// A magic header that indicates key exchange use.
-        /// </summary>
+        /// <summary>A magic header that indicates key exchange use.</summary>
         private const int KeySpecKeyExchange = 0x0000a400;
 
         /// <summary>
@@ -96,13 +84,9 @@ namespace PCLCrypto.Formatters
             }
         }
 
-        /// <summary>
-        /// Reads a key from the specified stream.
-        /// </summary>
+        /// <summary>Reads a key from the specified stream.</summary>
         /// <param name="stream">The stream.</param>
-        /// <returns>
-        /// The RSA Parameters of the key.
-        /// </returns>
+        /// <returns>The RSA Parameters of the key.</returns>
         protected override RSAParameters ReadCore(Stream stream)
         {
             var parameters = default(RSAParameters);
@@ -154,9 +138,7 @@ namespace PCLCrypto.Formatters
             return parameters;
         }
 
-        /// <summary>
-        /// Writes a key to the specified stream.
-        /// </summary>
+        /// <summary>Writes a key to the specified stream.</summary>
         /// <param name="stream">The stream.</param>
         /// <param name="parameters">The RSA parameters of the key.</param>
         protected override void WriteCore(Stream stream, RSAParameters parameters)
@@ -210,9 +192,7 @@ namespace PCLCrypto.Formatters
             writer.Dispose();
         }
 
-        /// <summary>
-        /// Writes a buffer to a stream in reverse byte order.
-        /// </summary>
+        /// <summary>Writes a buffer to a stream in reverse byte order.</summary>
         /// <param name="writer">The writer to copy <paramref name="data"/> to.</param>
         /// <param name="data">The data to copy, reverse and write to the stream. This buffer instance is not modified.</param>
         /// <param name="length">The number of bytes to write to the stream after the order reversal. A negative value means to copy the entire buffer.</param>
@@ -221,9 +201,7 @@ namespace PCLCrypto.Formatters
             writer.Write(CopyAndReverse(data), 0, length < 0 ? data.Length : length);
         }
 
-        /// <summary>
-        /// Reads data from a stream and reverses the byte order.
-        /// </summary>
+        /// <summary>Reads data from a stream and reverses the byte order.</summary>
         /// <param name="reader">The reader to use to read from the stream.</param>
         /// <param name="length">The number of bytes to read.</param>
         /// <returns>The buffer read from the stream, after reversing its byte order.</returns>

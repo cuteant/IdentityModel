@@ -10,19 +10,13 @@ namespace PCLCrypto
     using System.Threading.Tasks;
     using Platform = System.Security.Cryptography;
 
-    /// <summary>
-    /// The .NET Framework implementation of the <see cref="IKeyDerivationAlgorithmProvider"/> interface.
-    /// </summary>
+    /// <summary>The .NET Framework implementation of the <see cref="IKeyDerivationAlgorithmProvider"/> interface.</summary>
     internal class KeyDerivationAlgorithmProvider : IKeyDerivationAlgorithmProvider
     {
-        /// <summary>
-        /// The algorithm used by this instance.
-        /// </summary>
+        /// <summary>The algorithm used by this instance.</summary>
         private readonly KeyDerivationAlgorithm algorithm;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="KeyDerivationAlgorithmProvider"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="KeyDerivationAlgorithmProvider"/> class.</summary>
         /// <param name="algorithm">The algorithm.</param>
         internal KeyDerivationAlgorithmProvider(KeyDerivationAlgorithm algorithm)
         {

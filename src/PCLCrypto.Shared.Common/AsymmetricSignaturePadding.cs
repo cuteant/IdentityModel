@@ -3,24 +3,16 @@
 
 namespace PCLCrypto
 {
-    /// <summary>
-    /// A PCL-compatible enumeration describing asymmetric signing padding options.
-    /// </summary>
+    /// <summary>A PCL-compatible enumeration describing asymmetric signing padding options.</summary>
     public enum AsymmetricSignaturePadding
     {
-        /// <summary>
-        /// No padding at all.
-        /// </summary>
+        /// <summary>No padding at all.</summary>
         None,
 
-        /// <summary>
-        /// The data will be padded with a random number to round out the block size.
-        /// </summary>
+        /// <summary>The data will be padded with a random number to round out the block size.</summary>
         Pkcs1,
 
-        /// <summary>
-        /// Probabilistic Signature Scheme (PSS)
-        /// </summary>
+        /// <summary>Probabilistic Signature Scheme (PSS)</summary>
         Pss,
     }
 }

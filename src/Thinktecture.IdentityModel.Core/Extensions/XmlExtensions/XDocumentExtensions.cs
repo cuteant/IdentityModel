@@ -9,14 +9,10 @@ using System.Xml.Linq;
 
 namespace Thinktecture.IdentityModel.Extensions
 {
-    /// <summary>
-    /// Extension methods for XML related tasks
-    /// </summary>
+    /// <summary>Extension methods for XML related tasks</summary>
     public static partial class XmlExtensions
     {
-        /// <summary>
-        /// Converts a XDocument to a XmlDocument.
-        /// </summary>
+        /// <summary>Converts a XDocument to a XmlDocument.</summary>
         /// <param name="document">The XDocument.</param>
         /// <returns>A XmlDocument</returns>
         public static XmlDocument ToXmlDocument(this XDocument document)

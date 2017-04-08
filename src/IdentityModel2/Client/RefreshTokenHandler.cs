@@ -10,9 +10,7 @@ using System.Threading.Tasks;
 
 namespace CuteAnt.IdentityModel.Client
 {
-    /// <summary>
-    /// HTTP message handler that encapsulates token handling and refresh
-    /// </summary>
+    /// <summary>HTTP message handler that encapsulates token handling and refresh</summary>
     public class RefreshTokenHandler : DelegatingHandler
     {
         private static readonly TimeSpan _lockTimeout = TimeSpan.FromSeconds(2);
@@ -24,9 +22,7 @@ namespace CuteAnt.IdentityModel.Client
         private string _refreshToken;
         private bool _disposed;
 
-        /// <summary>
-        /// Gets the current access token
-        /// </summary>
+        /// <summary>Gets the current access token</summary>
         public string AccessToken
         {
             get
@@ -47,9 +43,7 @@ namespace CuteAnt.IdentityModel.Client
             }
         }
 
-        /// <summary>
-        /// Gets the current refresh token
-        /// </summary>
+        /// <summary>Gets the current refresh token</summary>
         public string RefreshToken
         {
             get

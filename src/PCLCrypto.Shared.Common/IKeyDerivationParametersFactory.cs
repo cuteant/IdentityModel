@@ -8,9 +8,7 @@ namespace PCLCrypto
     using System.Linq;
     using System.Text;
 
-    /// <summary>
-    /// A factory for constructing parameters for deriving a key.
-    /// </summary>
+    /// <summary>A factory for constructing parameters for deriving a key.</summary>
     public interface IKeyDerivationParametersFactory
     {
         /// <summary>
@@ -21,9 +19,7 @@ namespace PCLCrypto
         /// in multiple iterations. A salt is used to increase entropy above what can
         /// be obtained from using a password alone.</param>
         /// <param name="iterationCount">Number of iterations to be used to derive a key.</param>
-        /// <returns>
-        /// Refers to the parameters used during key derivation.
-        /// </returns>
+        /// <returns>Refers to the parameters used during key derivation.</returns>
         IKeyDerivationParameters BuildForPbkdf2(byte[] pbkdf2Salt, int iterationCount);
 
         /// <summary>
@@ -34,9 +30,7 @@ namespace PCLCrypto
         /// <param name="context">Buffer that specifies information related to the derived keying material.
         /// For example, the context can identify the parties who are deriving the keying
         /// material and, optionally, a nonce known by the parties.</param>
-        /// <returns>
-        /// Refers to the parameters used during key derivation.
-        /// </returns>
+        /// <returns>Refers to the parameters used during key derivation.</returns>
         IKeyDerivationParameters BuildForSP800108(byte[] label, byte[] context);
 
         /// <summary>
@@ -49,9 +43,7 @@ namespace PCLCrypto
         /// <param name="suppPubInfo">Contains public information known to both initiator and responder.</param>
         /// <param name="suppPrivInfo">Contains private information known to both initiator and responder, such
         /// as a shared secret.</param>
-        /// <returns>
-        /// Refers to the parameters used during key derivation.
-        /// </returns>
+        /// <returns>Refers to the parameters used during key derivation.</returns>
         IKeyDerivationParameters BuildForSP80056a(byte[] algorithmId, byte[] partyUInfo, byte[] partyVInfo, byte[] suppPubInfo, byte[] suppPrivInfo);
     }
 }

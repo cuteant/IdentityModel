@@ -29,24 +29,18 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace IdentityModel.Jwt
+namespace IdentityModel.Jwk
 {
-    /// <summary>
-    /// Contains a collection of <see cref="JsonWebKey"/> that can be populated from a json string.
-    /// </summary>
+    /// <summary>Contains a collection of <see cref="JsonWebKey"/> that can be populated from a json string.</summary>
     public class JsonWebKeySet
     {
         private List<JsonWebKey> _keys = new List<JsonWebKey>();
 
-        /// <summary>
-        /// Initializes an new instance of <see cref="JsonWebKeySet"/>.
-        /// </summary>
+        /// <summary>Initializes an new instance of <see cref="JsonWebKeySet"/>.</summary>
         public JsonWebKeySet()
         { }
 
-        /// <summary>
-        /// Initializes an new instance of <see cref="JsonWebKeySet"/> from a json string.
-        /// </summary>
+        /// <summary>Initializes an new instance of <see cref="JsonWebKeySet"/> from a json string.</summary>
         /// <param name="json">a json string containing values.</param>
         /// <exception cref="ArgumentNullException">if 'json' is null or whitespace.</exception>
         public JsonWebKeySet(string json)
@@ -57,9 +51,7 @@ namespace IdentityModel.Jwt
             _keys = jwebKeys._keys;
         }
 
-        /// <summary>
-        /// Gets the <see cref="IList{JsonWebKey}"/>.
-        /// </summary>       
+        /// <summary>Gets the <see cref="IList{JsonWebKey}"/>.</summary>       
         public IList<JsonWebKey> Keys
         {
             get

@@ -11,9 +11,7 @@ namespace Thinktecture.IdentityModel.Extensions
 {
     public static partial class XmlExtensions
     {
-        /// <summary>
-        /// Converts a XmlDocument to a XDocument.
-        /// </summary>
+        /// <summary>Converts a XmlDocument to a XDocument.</summary>
         /// <param name="document">The XmlDocument.</param>
         /// <returns>A XDocument</returns>
         public static XDocument ToXDocument(this XmlDocument document)

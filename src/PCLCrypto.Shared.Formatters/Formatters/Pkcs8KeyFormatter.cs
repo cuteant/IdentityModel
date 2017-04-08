@@ -11,21 +11,13 @@ namespace PCLCrypto.Formatters
     using System.Linq;
     using System.Text;
 
-    /// <summary>
-    /// Serializes RSA keys in the PKCS8 PrivateKeyInfo format.
-    /// </summary>
-    /// <remarks>
-    /// Spec found at: http://tools.ietf.org/html/rfc5208#page-3
-    /// </remarks>
+    /// <summary>Serializes RSA keys in the PKCS8 PrivateKeyInfo format.</summary>
+    /// <remarks>Spec found at: http://tools.ietf.org/html/rfc5208#page-3</remarks>
     internal class Pkcs8KeyFormatter : KeyFormatter
     {
-        /// <summary>
-        /// Reads a key from the specified stream.
-        /// </summary>
+        /// <summary>Reads a key from the specified stream.</summary>
         /// <param name="stream">The stream.</param>
-        /// <returns>
-        /// The RSA Parameters of the key.
-        /// </returns>
+        /// <returns>The RSA Parameters of the key.</returns>
         protected override RSAParameters ReadCore(Stream stream)
         {
             var universalConstructedSequence = stream.ReadAsn1Elements().Single();
@@ -36,9 +28,7 @@ namespace PCLCrypto.Formatters
             return KeyFormatter.Pkcs1.Read(sequence[2].Content);
         }
 
-        /// <summary>
-        /// Writes a key to the specified stream.
-        /// </summary>
+        /// <summary>Writes a key to the specified stream.</summary>
         /// <param name="stream">The stream.</param>
         /// <param name="parameters">The RSA parameters of the key.</param>
         protected override void WriteCore(Stream stream, RSAParameters parameters)

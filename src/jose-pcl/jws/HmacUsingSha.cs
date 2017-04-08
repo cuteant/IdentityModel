@@ -1,4 +1,4 @@
-﻿#if NET_4_0_GREATER
+﻿#if !NET40
 using System.Runtime.InteropServices.WindowsRuntime;
 #endif
 using JosePCL.Util;
@@ -15,7 +15,7 @@ namespace JosePCL.Jws
       this.keySizeBits = keySizeBits;
     }
 
-#if NET_4_0_GREATER
+#if !NET40
     public byte[] Sign([ReadOnlyArray] byte[] securedInput, object key)
 #else
     public byte[] Sign(byte[] securedInput, object key)
@@ -28,7 +28,7 @@ namespace JosePCL.Jws
       return WinRTCrypto.CryptographicEngine.Sign(hmacKey, securedInput);
     }
 
-#if NET_4_0_GREATER
+#if !NET40
     public bool Verify([ReadOnlyArray] byte[] signature, [ReadOnlyArray] byte[] securedInput, object key)
 #else
     public bool Verify(byte[] signature, byte[] securedInput, object key)

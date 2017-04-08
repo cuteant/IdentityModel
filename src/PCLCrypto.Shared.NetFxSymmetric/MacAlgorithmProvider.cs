@@ -11,19 +11,13 @@ namespace PCLCrypto
     using Validation;
     using Platform = System.Security.Cryptography;
 
-    /// <summary>
-    /// The WinRT implementation of the <see cref="IMacAlgorithmProvider"/> interface.
-    /// </summary>
+    /// <summary>The WinRT implementation of the <see cref="IMacAlgorithmProvider"/> interface.</summary>
     internal class MacAlgorithmProvider : IMacAlgorithmProvider
     {
-        /// <summary>
-        /// The algorithm of this instance.
-        /// </summary>
+        /// <summary>The algorithm of this instance.</summary>
         private readonly MacAlgorithm algorithm;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MacAlgorithmProvider"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="MacAlgorithmProvider"/> class.</summary>
         /// <param name="algorithm">The algorithm.</param>
         internal MacAlgorithmProvider(MacAlgorithm algorithm)
         {
@@ -64,9 +58,7 @@ namespace PCLCrypto
             return new MacCryptographicKey(this.Algorithm, keyMaterial);
         }
 
-        /// <summary>
-        /// Returns the keyed hash algorithm from the platform.
-        /// </summary>
+        /// <summary>Returns the keyed hash algorithm from the platform.</summary>
         /// <param name="algorithm">The algorithm desired.</param>
         /// <returns>The platform-specific algorithm.</returns>
         internal static Platform.KeyedHashAlgorithm GetAlgorithm(MacAlgorithm algorithm)

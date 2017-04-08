@@ -8,14 +8,10 @@ namespace PCLCrypto
     using System.Linq;
     using System.Text;
 
-    /// <summary>
-    /// Provides access to key derivation algorithms.
-    /// </summary>
+    /// <summary>Provides access to key derivation algorithms.</summary>
     public interface IKeyDerivationAlgorithmProviderFactory
     {
-        /// <summary>
-        /// Acquires a key derivation algorithm.
-        /// </summary>
+        /// <summary>Acquires a key derivation algorithm.</summary>
         /// <param name="algorithm">The algorithm to obtain.</param>
         /// <returns>An instance of <see cref="IKeyDerivationAlgorithmProvider"/>.</returns>
         IKeyDerivationAlgorithmProvider OpenAlgorithm(KeyDerivationAlgorithm algorithm);

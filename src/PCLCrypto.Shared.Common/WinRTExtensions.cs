@@ -11,14 +11,10 @@ namespace PCLCrypto
 #endif
     using Validation;
 
-    /// <summary>
-    /// Extension methods that add functionality to the WinRT crypto API.
-    /// </summary>
+    /// <summary>Extension methods that add functionality to the WinRT crypto API.</summary>
     public static class WinRTExtensions
     {
-        /// <summary>
-        /// Creates a cryptographic key based on the specified RSA parameters.
-        /// </summary>
+        /// <summary>Creates a cryptographic key based on the specified RSA parameters.</summary>
         /// <param name="provider">The asymmetric algorithm provider.</param>
         /// <param name="parameters">The RSA parameters from which to initialize the key.</param>
         /// <returns>The cryptographic key.</returns>
@@ -36,9 +32,7 @@ namespace PCLCrypto
 #endif
         }
 
-        /// <summary>
-        /// Exports the RSA parameters of a cryptographic key.
-        /// </summary>
+        /// <summary>Exports the RSA parameters of a cryptographic key.</summary>
         /// <param name="key">The cryptographic key.</param>
         /// <param name="includePrivateParameters"><c>true</c> to include the private key in the exported parameters; <c>false</c> to only include the public key.</param>
         /// <returns>The RSA parameters for the key.</returns>
@@ -57,9 +51,7 @@ namespace PCLCrypto
 #endif
         }
 
-        /// <summary>
-        /// Returns a crypto key management for a specified algorithm.
-        /// </summary>
+        /// <summary>Returns a crypto key management for a specified algorithm.</summary>
         /// <param name="factory">The factory.</param>
         /// <param name="algorithm">The algorithm.</param>
         /// <returns>An instance of <see cref="ISymmetricKeyAlgorithmProvider"/>.</returns>

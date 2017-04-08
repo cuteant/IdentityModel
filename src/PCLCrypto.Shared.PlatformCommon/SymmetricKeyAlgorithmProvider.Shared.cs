@@ -8,19 +8,13 @@ namespace PCLCrypto
     /// </content>
     internal partial class SymmetricKeyAlgorithmProvider
     {
-        /// <summary>
-        /// Gets the algorithm used by this instance.
-        /// </summary>
+        /// <summary>Gets the algorithm used by this instance.</summary>
         public SymmetricAlgorithmName Name { get; }
 
-        /// <summary>
-        /// Gets the mode used by this instance.
-        /// </summary>
+        /// <summary>Gets the mode used by this instance.</summary>
         public SymmetricAlgorithmMode Mode { get; }
 
-        /// <summary>
-        /// Gets the padding used by this instance.
-        /// </summary>
+        /// <summary>Gets the padding used by this instance.</summary>
         public SymmetricAlgorithmPadding Padding { get; }
     }
 }

@@ -13,18 +13,12 @@ namespace PCLCrypto.Formatters
     using System.Text;
     using Validation;
 
-    /// <summary>
-    /// Encodes/decodes public keys in the X.509 subject public key info format.
-    /// </summary>
+    /// <summary>Encodes/decodes public keys in the X.509 subject public key info format.</summary>
     internal class X509SubjectPublicKeyInfoFormatter : KeyFormatter
     {
-        /// <summary>
-        /// Reads a key from the specified stream.
-        /// </summary>
+        /// <summary>Reads a key from the specified stream.</summary>
         /// <param name="stream">The stream.</param>
-        /// <returns>
-        /// The RSA Parameters of the key.
-        /// </returns>
+        /// <returns>The RSA Parameters of the key.</returns>
         /// <exception cref="System.ArgumentException">
         /// Unexpected format.
         /// or
@@ -63,9 +57,7 @@ namespace PCLCrypto.Formatters
             return KeyFormatter.PublicKeyFilter(KeyFormatter.Pkcs1.Read(rsaPublicKey));
         }
 
-        /// <summary>
-        /// Writes a key to the specified stream.
-        /// </summary>
+        /// <summary>Writes a key to the specified stream.</summary>
         /// <param name="stream">The stream.</param>
         /// <param name="parameters">The RSA parameters of the key.</param>
         protected override void WriteCore(Stream stream, RSAParameters parameters)

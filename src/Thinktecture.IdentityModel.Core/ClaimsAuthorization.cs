@@ -13,19 +13,13 @@ using System.Security.Principal;
 
 namespace Thinktecture.IdentityModel
 {
-    /// <summary>
-    /// Provides direct access methods for evaluating authorization policy
-    /// </summary>
+    /// <summary>Provides direct access methods for evaluating authorization policy</summary>
     public static class ClaimsAuthorization
     {
-        /// <summary>
-        /// Default action claim type.
-        /// </summary>
+        /// <summary>Default action claim type.</summary>
         public const string ActionType = "http://application/claims/authorization/action";
 
-        /// <summary>
-        /// Default resource claim type
-        /// </summary>
+        /// <summary>Default resource claim type</summary>
         public const string ResourceType = "http://application/claims/authorization/resource";
 
         public static bool EnforceAuthorizationManagerImplementation { get; set; }
@@ -35,9 +29,7 @@ namespace Thinktecture.IdentityModel
         static Lazy<ClaimsAuthorizationManager> _claimsAuthorizationManager = new Lazy<ClaimsAuthorizationManager>(()
             => new IdentityConfiguration().ClaimsAuthorizationManager);
 
-        /// <summary>
-        /// Gets the registered authorization manager.
-        /// </summary>
+        /// <summary>Gets the registered authorization manager.</summary>
         public static ClaimsAuthorizationManager AuthorizationManager
         {
             get
@@ -56,9 +48,7 @@ namespace Thinktecture.IdentityModel
             EnforceAuthorizationManagerImplementation = true;
         }
 
-        /// <summary>
-        /// Checks the authorization policy.
-        /// </summary>
+        /// <summary>Checks the authorization policy.</summary>
         /// <param name="resource">The resource.</param>
         /// <param name="action">The action.</param>
         /// <returns>true when authorized, otherwise false</returns>
@@ -92,9 +82,7 @@ namespace Thinktecture.IdentityModel
         }
         
 
-        /// <summary>
-        /// Checks the authorization policy.
-        /// </summary>
+        /// <summary>Checks the authorization policy.</summary>
         /// <param name="actions">The actions.</param>
         /// <param name="resources">The resources.</param>
         /// <returns>true when authorized, otherwise false</returns>
@@ -108,9 +96,7 @@ namespace Thinktecture.IdentityModel
                 ClaimsPrincipal.Current, resources, actions));
         }
 
-        /// <summary>
-        /// Checks the authorization policy.
-        /// </summary>
+        /// <summary>Checks the authorization policy.</summary>
         /// <param name="action">The action.</param>
         /// <param name="resources">The resources.</param>
         /// <returns>true when authorized, otherwise false</returns>
@@ -128,9 +114,7 @@ namespace Thinktecture.IdentityModel
                 ClaimsPrincipal.Current, resourceCollection, actionCollection));
         }
         
-        /// <summary>
-        /// Checks the authorization policy.
-        /// </summary>
+        /// <summary>Checks the authorization policy.</summary>
         /// <param name="action">The action.</param>
         /// <param name="resource">The resource name.</param>
         /// <param name="resources">The resources.</param>
@@ -145,9 +129,7 @@ namespace Thinktecture.IdentityModel
             return CheckAccess(action, resourceList.ToArray());
         }
 
-        /// <summary>
-        /// Checks the authorization policy.
-        /// </summary>
+        /// <summary>Checks the authorization policy.</summary>
         /// <param name="context">The authorization context.</param>
         /// <returns>true when authorized, otherwise false</returns>
         public static bool CheckAccess(AuthorizationContext context)

@@ -1,4 +1,5 @@
-﻿// Copyright (c) Andrew Arnott. All rights reserved.
+﻿#if DESKTOPCLR
+// Copyright (c) Andrew Arnott. All rights reserved.
 // Licensed under the Microsoft Public License (Ms-PL) license. See LICENSE file in the project root for full license information.
 
 namespace PCLCrypto
@@ -7,21 +8,15 @@ namespace PCLCrypto
     using Validation;
     using Platform = System.Security.Cryptography;
 
-    /// <summary>
-    /// A .NET implementation of the <see cref="IECDiffieHellman"/> interface.
-    /// </summary>
+    /// <summary>A .NET implementation of the <see cref="IECDiffieHellman"/> interface.</summary>
     internal class ECDiffieHellman : IECDiffieHellman
     {
-        /// <summary>
-        /// The .NET algorithm backing this instance.
-        /// </summary>
+        /// <summary>The .NET algorithm backing this instance.</summary>
         private readonly Platform.ECDiffieHellman platformAlgorithm;
 
         private ECDiffieHellmanPublicKey publicKey;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ECDiffieHellman"/> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="ECDiffieHellman"/> class.</summary>
         /// <param name="platformAlgorithm">The .NET algorithm backing this instance.</param>
         internal ECDiffieHellman(Platform.ECDiffieHellman platformAlgorithm)
         {
@@ -67,12 +62,11 @@ namespace PCLCrypto
             return this.platformAlgorithm.DeriveKeyMaterial(other.PlatformPublicKey);
         }
 
-        /// <summary>
-        /// Disposes of managed resources associated with this object.
-        /// </summary>
+        /// <summary>Disposes of managed resources associated with this object.</summary>
         public void Dispose()
         {
             this.platformAlgorithm.Dispose();
         }
     }
 }
+#endif

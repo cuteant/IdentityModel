@@ -11,23 +11,17 @@ namespace PCLCrypto
   using Validation;
   using static PInvoke.NCrypt;
 
-  /// <summary>
-  /// A base class for NCrypt-based asymmetric keys.
-  /// </summary>
+  /// <summary>A base class for NCrypt-based asymmetric keys.</summary>
   internal abstract class NCryptAsymmetricKeyProviderBase : IAsymmetricKeyAlgorithmProvider
   {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="NCryptAsymmetricKeyProviderBase"/> class.
-    /// </summary>
+    /// <summary>Initializes a new instance of the <see cref="NCryptAsymmetricKeyProviderBase"/> class.</summary>
     /// <param name="algorithm">The asymmetric algorithm.</param>
     protected NCryptAsymmetricKeyProviderBase(AsymmetricAlgorithm algorithm)
     {
       this.Algorithm = algorithm;
     }
 
-    /// <summary>
-    /// Gets the algorithm.
-    /// </summary>
+    /// <summary>Gets the algorithm.</summary>
     public AsymmetricAlgorithm Algorithm { get; }
 
     /// <inheritdoc/>
@@ -59,23 +53,17 @@ namespace PCLCrypto
     /// </summary>
     protected internal abstract CryptographicPublicKeyBlobType NativePublicKeyFormatEnum { get; }
 
-    /// <summary>
-    /// Gets the NCrypt string that identifies the preferred format for serialized public keys.
-    /// </summary>
+    /// <summary>Gets the NCrypt string that identifies the preferred format for serialized public keys.</summary>
     protected internal abstract string NativePublicKeyFormatString { get; }
 
-    /// <summary>
-    /// Gets a map of private key blob types to their NCrypt key format names.
-    /// </summary>
+    /// <summary>Gets a map of private key blob types to their NCrypt key format names.</summary>
 #if NET40
     protected internal abstract IDictionary<CryptographicPrivateKeyBlobType, string> NativePrivateKeyFormats { get; }
 #else
     protected internal abstract IReadOnlyDictionary<CryptographicPrivateKeyBlobType, string> NativePrivateKeyFormats { get; }
 #endif
 
-    /// <summary>
-    /// Gets the NCrypt string that identifies the preferred format for serialized private keys.
-    /// </summary>
+    /// <summary>Gets the NCrypt string that identifies the preferred format for serialized private keys.</summary>
     protected internal abstract CryptographicPrivateKeyBlobType PreferredNativePrivateKeyFormat { get; }
 
     /// <inheritdoc/>

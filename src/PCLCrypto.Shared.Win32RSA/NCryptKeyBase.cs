@@ -14,14 +14,10 @@ namespace PCLCrypto
     using Validation;
     using static PInvoke.NCrypt;
 
-    /// <summary>
-    /// The base class for NCrypt implementations of the <see cref="ICryptographicKey"/> interface.
-    /// </summary>
+    /// <summary>The base class for NCrypt implementations of the <see cref="ICryptographicKey"/> interface.</summary>
     internal abstract class NCryptKeyBase : CryptographicKey, ICryptographicKey
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NCryptKeyBase" /> class.
-        /// </summary>
+        /// <summary>Initializes a new instance of the <see cref="NCryptKeyBase" /> class.</summary>
         /// <param name="key">The native NCrypt key that this instance represents.</param>
         internal NCryptKeyBase(SafeKeyHandle key)
         {
@@ -32,9 +28,7 @@ namespace PCLCrypto
         /// <inheritdoc />
         public int KeySize => NCryptGetProperty<int>(this.Key, KeyStoragePropertyIdentifiers.NCRYPT_LENGTH_PROPERTY);
 
-        /// <summary>
-        /// Gets the handle to the NCrypt cryptographic key for purposes of key export.
-        /// </summary>
+        /// <summary>Gets the handle to the NCrypt cryptographic key for purposes of key export.</summary>
         protected SafeKeyHandle Key { get; }
 
         /// <inheritdoc />
@@ -43,9 +37,7 @@ namespace PCLCrypto
         /// <inheritdoc />
         public abstract byte[] ExportPublicKey(CryptographicPublicKeyBlobType blobType = CryptographicPublicKeyBlobType.X509SubjectPublicKeyInfo);
 
-        /// <summary>
-        /// Disposes of managed and native resources of this object.
-        /// </summary>
+        /// <summary>Disposes of managed and native resources of this object.</summary>
         /// <param name="disposing"><c>true</c> if this object is being disposed of; <c>false</c> if being finalized.</param>
         protected override void Dispose(bool disposing)
         {

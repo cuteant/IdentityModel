@@ -3,9 +3,7 @@ using Newtonsoft.Json.Converters;
 
 namespace CuteAnt.IdentityModel.OidcClient.Infrastructure
 {
-    /// <summary>
-    /// Helper to JSON serialize object data for logging.
-    /// </summary>
+    /// <summary>Helper to JSON serialize object data for logging.</summary>
     internal static class LogSerializer
     {
         static readonly JsonSerializerSettings jsonSettings = new JsonSerializerSettings
@@ -20,9 +18,7 @@ namespace CuteAnt.IdentityModel.OidcClient.Infrastructure
             jsonSettings.Converters.Add(new StringEnumConverter());
         }
 
-        /// <summary>
-        /// Serializes the specified object.
-        /// </summary>
+        /// <summary>Serializes the specified object.</summary>
         /// <param name="logObject">The object.</param>
         /// <returns></returns>
         public static string Serialize(object logObject)

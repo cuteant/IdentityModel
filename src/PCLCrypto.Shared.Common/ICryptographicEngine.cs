@@ -8,14 +8,10 @@ namespace PCLCrypto
     using System.Linq;
     using System.Text;
 
-    /// <summary>
-    /// Offers functionality similar to CryptographicEngine in WinRT.
-    /// </summary>
+    /// <summary>Offers functionality similar to CryptographicEngine in WinRT.</summary>
     public interface ICryptographicEngine
     {
-        /// <summary>
-        /// Encrypts data by using a symmetric or asymmetric algorithm.
-        /// </summary>
+        /// <summary>Encrypts data by using a symmetric or asymmetric algorithm.</summary>
         /// <param name="key">
         /// Cryptographic key to use for encryption. This can be an asymmetric or a symmetric
         /// key. For more information, see AsymmetricKeyAlgorithmProvider and SymmetricKeyAlgorithmProvider.
@@ -71,17 +67,13 @@ namespace PCLCrypto
         /// <returns>The transform.</returns>
         ICryptoTransform CreateDecryptor(ICryptographicKey key, byte[] iv = null);
 
-        /// <summary>
-        /// Signs digital content.
-        /// </summary>
+        /// <summary>Signs digital content.</summary>
         /// <param name="key">Key used for signing.</param>
         /// <param name="data">Data to be signed.</param>
         /// <returns>The signature.</returns>
         byte[] Sign(ICryptographicKey key, byte[] data);
 
-        /// <summary>
-        /// Signs the hashed input data using the specified key.
-        /// </summary>
+        /// <summary>Signs the hashed input data using the specified key.</summary>
         /// <param name="key">The key to use to sign the hash.</param>
         /// <param name="data">
         /// The input data to sign. The data is a hashed value which can be obtained
@@ -90,9 +82,7 @@ namespace PCLCrypto
         /// <returns>The signature.</returns>
         byte[] SignHashedData(ICryptographicKey key, byte[] data);
 
-        /// <summary>
-        /// Verifies a message signature.
-        /// </summary>
+        /// <summary>Verifies a message signature.</summary>
         /// <param name="key">
         /// Key used for verification. This must be the same key previously used to sign
         /// the message.
@@ -102,9 +92,7 @@ namespace PCLCrypto
         /// <returns>true if the message is verified.</returns>
         bool VerifySignature(ICryptographicKey key, byte[] data, byte[] signature);
 
-        /// <summary>
-        /// Verifies the signature of the specified input data against a known signature.
-        /// </summary>
+        /// <summary>Verifies the signature of the specified input data against a known signature.</summary>
         /// <param name="key">
         /// The key to use to retrieve the signature from the input data.
         /// </param>
@@ -113,16 +101,12 @@ namespace PCLCrypto
         /// <returns>True if the signature is verified; otherwise false.</returns>
         bool VerifySignatureWithHashInput(ICryptographicKey key, byte[] data, byte[] signature);
 
-        /// <summary>
-        /// Derives a key from another key by using a key derivation function.
-        /// </summary>
+        /// <summary>Derives a key from another key by using a key derivation function.</summary>
         /// <param name="key">The symmetric or secret key used for derivation.</param>
         /// <param name="parameters">Derivation parameters. The parameters vary depending on the type of KDF algorithm
         /// used.</param>
         /// <param name="desiredKeySize">Requested size, in bytes, of the derived key.</param>
-        /// <returns>
-        /// Buffer that contains the derived key.
-        /// </returns>
+        /// <returns>Buffer that contains the derived key.</returns>
         byte[] DeriveKeyMaterial(ICryptographicKey key, IKeyDerivationParameters parameters, int desiredKeySize);
     }
 }

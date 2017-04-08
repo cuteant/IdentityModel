@@ -10,9 +10,7 @@ namespace PCLCrypto
     using System.Threading.Tasks;
     using Validation;
 
-    /// <summary>
-    /// The .NET Framework implementation of the <see cref="ICryptographicBuffer"/> interface.
-    /// </summary>
+    /// <summary>The .NET Framework implementation of the <see cref="ICryptographicBuffer"/> interface.</summary>
     internal class CryptographicBuffer : ICryptographicBuffer
     {
         /// <inheritdoc/>

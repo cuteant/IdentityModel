@@ -25,7 +25,7 @@
 //
 //------------------------------------------------------------------------------
 
-namespace IdentityModel.Jwt
+namespace IdentityModel.Jwk
 {
     /// <summary>
     /// Constants for JsonWebAlgorithms  "kty" Key Type (sec 6.1)

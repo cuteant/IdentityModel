@@ -1,19 +1,19 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
+﻿#if false
+// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-using System;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Security.Claims;
-using System.Collections.Generic;
 
 namespace System.Security.Principal
 {
     [Serializable]
     public class GenericIdentity : ClaimsIdentity
     {
-        private string m_name;
-        private string m_type;
+        private readonly string m_name;
+        private readonly string m_type;
 
         public GenericIdentity(string name)
         {
@@ -69,7 +69,6 @@ namespace System.Security.Principal
             }
         }
 
-
         public override string Name
         {
             get
@@ -94,7 +93,6 @@ namespace System.Security.Principal
             }
         }
 
-
         private void AddNameClaim()
         {
             if (m_name != null)
@@ -104,3 +102,4 @@ namespace System.Security.Principal
         }
     }
 }
+#endif

@@ -8,14 +8,10 @@ using System.Diagnostics;
 
 namespace Thinktecture.IdentityModel.Extensions
 {
-    /// <summary>
-    /// Helper class to write out colored messages to the console
-    /// </summary>
+    /// <summary>Helper class to write out colored messages to the console</summary>
     public static class ConsoleExtensions
     {
-        /// <summary>
-        /// Writes green text to the console.
-        /// </summary>
+        /// <summary>Writes green text to the console.</summary>
         /// <param name="text">The text.</param>
         [DebuggerStepThrough]
         public static void ConsoleGreen(this string text)
@@ -23,9 +19,7 @@ namespace Thinktecture.IdentityModel.Extensions
             text.ColoredWriteLine(ConsoleColor.Green);
         }
 
-        /// <summary>
-        /// Writes red text to the console.
-        /// </summary>
+        /// <summary>Writes red text to the console.</summary>
         /// <param name="text">The text.</param>
         [DebuggerStepThrough]
         public static void ConsoleRed(this string text)
@@ -33,9 +27,7 @@ namespace Thinktecture.IdentityModel.Extensions
             text.ColoredWriteLine(ConsoleColor.Red);
         }
 
-        /// <summary>
-        /// Writes yellow text to the console.
-        /// </summary>
+        /// <summary>Writes yellow text to the console.</summary>
         /// <param name="text">The text.</param>
         [DebuggerStepThrough]
         public static void ConsoleYellow(this string text)
@@ -43,9 +35,7 @@ namespace Thinktecture.IdentityModel.Extensions
             text.ColoredWriteLine(ConsoleColor.Yellow);
         }
 
-        /// <summary>
-        /// Writes out text with the specified ConsoleColor.
-        /// </summary>
+        /// <summary>Writes out text with the specified ConsoleColor.</summary>
         /// <param name="text">The text.</param>
         /// <param name="color">The color.</param>
         [DebuggerStepThrough]
