@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems" Label="Shared" />
+  <Import Project="..\MsVersion.props" />
+  
+  <PropertyGroup>
+    <TargetFrameworks>net40</TargetFrameworks>
+    <RootNamespace>System.IdentityModel.Tokens.Jwt</RootNamespace>
+    <AssemblyName>System.IdentityModel.Tokens.Jwt</AssemblyName>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet">
+    <PackageId>System.IdentityModel.Tokens.Jwt.Net40</PackageId>
+    <Title>System.IdentityModel.Tokens.Jwt-net40-fork</Title>
+    <Description>Includes types that provide support for creating, serializing and validating JWT tokens.</Description>
+    <PackageTags></PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\CommonVersionInfo.cs" Link="Properties\CommonVersionInfo.cs" />
+    <Compile Include="..\MsVersionInfo.cs" Link="Properties\MsVersionInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.IdentityModel.Tokens\Microsoft.IdentityModel.Tokens.csproj" />
+  </ItemGroup>
+</Project>

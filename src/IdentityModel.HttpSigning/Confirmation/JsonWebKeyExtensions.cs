@@ -10,7 +10,7 @@ using CuteAnt.Extensions.Logging;
 using Microsoft.Extensions.Logging;
 #endif
 
-namespace IdentityModel.Jwt
+namespace IdentityModel.Jwk
 {
     public static class JsonWebKeyExtensions
     {

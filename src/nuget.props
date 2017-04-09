@@ -7,14 +7,14 @@
   
   <PropertyGroup Label="NuGet">
     <IsPackable>true</IsPackable>
-    <Authors>Seabiscuit</Authors>
-    <Copyright>Copyright © CuteAnt Development Team</Copyright>
+    <Authors>Microsoft</Authors>
+    <Copyright>Copyright (c) Microsoft Corporation. All rights reserved.</Copyright>
     <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288859</PackageIconUrl>
-    <PackageProjectUrl>http://git.oschina.net/cuteant</PackageProjectUrl>
-    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/LICENSE.txt</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>http://git.oschina.net/cuteant</RepositoryUrl>
+    <RepositoryUrl>https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet</RepositoryUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
 </Project>

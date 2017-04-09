@@ -1,19 +1,23 @@
-﻿using System.Reflection;
+﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
+
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-#if NET40
-[assembly: AssemblyTitle("IdentityModel.OidcClient for .NetFx4.0")]
-#elif NET451
-[assembly: AssemblyTitle("IdentityModel.OidcClient for .NetFx4.5")]
-#endif
-#if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
-[assembly: AssemblyDescription("IdentityModel.OidcClient Library (Flavor=Debug)")]
-#else
-[assembly: AssemblyConfiguration("Retail")]
-[assembly: AssemblyDescription("IdentityModel.OidcClient Library (Flavor=Retail)")]
-#endif
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+[assembly: AssemblyTitle("IdentityModel.OidcClient")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("IdentityModel.OidcClient")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//[assembly: NeutralResourcesLanguage("en")]
+
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("d7c0ec27-d373-4711-93fa-65d4e784a5bc")]
+[assembly: Guid("7e30e379-dcfc-4d18-9657-b36d338da40c")]

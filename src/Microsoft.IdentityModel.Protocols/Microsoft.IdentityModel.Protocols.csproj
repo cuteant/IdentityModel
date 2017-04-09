@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems" Label="Shared" />
+  <Import Project="..\MsVersion.props" />
+  
+  <PropertyGroup>
+    <TargetFrameworks>net40</TargetFrameworks>
+    <RootNamespace>Microsoft.IdentityModel.Protocols</RootNamespace>
+    <AssemblyName>Microsoft.IdentityModel.Protocols</AssemblyName>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet">
+    <PackageId>Microsoft.IdentityModel.Protocols.Net40</PackageId>
+    <Title>Microsoft.IdentityModel.Protocols-net40-fork</Title>
+    <Description>Provides types that are common across openidconnect and wsfed protocols.</Description>
+    <PackageTags></PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
+    <PackageReference Include="Microsoft.Bcl" Version="1.1.10" />
+    <PackageReference Include="Microsoft.Bcl.Async" Version="1.0.168" />
+    <PackageReference Include="Microsoft.Bcl.Build" Version="1.0.21" />
+    <PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\CommonVersionInfo.cs" Link="Properties\CommonVersionInfo.cs" />
+    <Compile Include="..\MsVersionInfo.cs" Link="Properties\MsVersionInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\System.IdentityModel.Tokens.Jwt\System.IdentityModel.Tokens.Jwt.csproj" />
+  </ItemGroup>
+</Project>

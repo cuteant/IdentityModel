@@ -1,14 +1,13 @@
 ﻿using IdentityModel.Client;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace IdentityModel.OidcClient.Infrastructure
 {
     internal class TokenClientFactory
     {
-        public static async Task<TokenClient> CreateAsync(OidcClientOptions options)
+        public static TokenClient Create(OidcClientOptions options)
         {
-            var info = await options.GetProviderInformationAsync().ConfigureAwait(false);
+            var info = options.ProviderInformation;
             var handler = options.BackchannelHandler ?? new HttpClientHandler();
 
             TokenClient tokenClient;
@@ -22,6 +21,7 @@ namespace IdentityModel.OidcClient.Infrastructure
             }
 
             tokenClient.Timeout = options.BackchannelTimeout;
+            tokenClient.AuthenticationStyle = options.TokenClientAuthenticationStyle;
 
             return tokenClient;
         }

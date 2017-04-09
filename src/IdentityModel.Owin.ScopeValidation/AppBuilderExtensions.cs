@@ -1,4 +1,4 @@
-﻿using IdentityModel.Owin.ScopeValidation;
+﻿using Thinktecture.IdentityModel.Owin.ScopeValidation;
 
 namespace CuteAnt.Owin
 {

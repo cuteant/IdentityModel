@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems" Label="Shared" />
+  <Import Project="..\MsVersion.props" />
+  
+  <PropertyGroup>
+    <TargetFrameworks>net40</TargetFrameworks>
+    <RootNamespace>Microsoft.IdentityModel.Logging</RootNamespace>
+    <AssemblyName>Microsoft.IdentityModel.Logging</AssemblyName>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet">
+    <PackageId>Microsoft.IdentityModel.Logging.Net40</PackageId>
+    <Title>Microsoft.IdentityModel.Logging-net40-fork</Title>
+    <Description>Includes Event Source based logging support.</Description>
+    <PackageTags></PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\CommonVersionInfo.cs" Link="Properties\CommonVersionInfo.cs" />
+    <Compile Include="..\MsVersionInfo.cs" Link="Properties\MsVersionInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CuteAnt.Extensions.Logging" Version="2.0.0-rtm-170201" />
+    <PackageReference Include="CuteAnt.Extensions.Logging.NLog" Version="2.0.0-rtm-170301" />
+  </ItemGroup>
+</Project>

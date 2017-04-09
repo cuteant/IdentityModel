@@ -120,8 +120,10 @@ namespace IdentityModel.Client
     {
       HttpResponseMessage response;
 
-      var request = new HttpRequestMessage(HttpMethod.Post, Address);
-      request.Content = new FormUrlEncodedContent(form);
+      var request = new HttpRequestMessage(HttpMethod.Post, Address)
+      {
+        Content = new FormUrlEncodedContent(form)
+      };
 
       if (AuthenticationStyle == AuthenticationStyle.BasicAuthentication)
       {

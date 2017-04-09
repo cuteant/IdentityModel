@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\OIdentityModelVersion.props" />
+  
+  <PropertyGroup>
+    <TargetFrameworks>net461;net451</TargetFrameworks>
+    <RootNamespace>Thinktecture.IdentityModel.Owin.ScopeValidation</RootNamespace>
+    <AssemblyName>Thinktecture.IdentityModel.Owin.ScopeValidation</AssemblyName>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet">
+    <PackageId>Thinktecture.IdentityModel.Owin.ScopeValidation.Unofficial</PackageId>
+    <Title>Thinktecture.IdentityModel.Owin (Unofficial) - OAuth2/OpenID Connect Scope Validation</Title>
+    <Description>OWIN middleware for validating OAuth2 and OpenID Connect scope claims.</Description>
+    <PackageTags>Security OWIN Katana OAuth2 OpenID Connect Identity Claims Authorization Access Control WebAPI Web API</PackageTags>
+    <IsPackable>true</IsPackable>
+    <Authors>Dominick Baier, Brock Allen, Seabiscuit</Authors>
+    <Copyright>Copyright Dominick Baier, Brock Allen, Seabiscuit 2016</Copyright>
+    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <PackageIconUrl>http://1.gravatar.com/blavatar/3b437c799e12e32beb1d8cfda1199ab3?s=32</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/IdentityModel</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/IdentityModel/IdentityModel2/blob/release/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/IdentityModel</RepositoryUrl>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net451'">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\CommonVersionInfo.cs" Link="Properties\CommonVersionInfo.cs" />
+    <Compile Include="..\OIdentityModelVersionInfo.cs" Link="Properties\OIdentityModelVersionInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CuteAnt.Owin" Version="2.0.0-rtm-170301" />
+  </ItemGroup>
+</Project>

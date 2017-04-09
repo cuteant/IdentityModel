@@ -4,6 +4,7 @@
 
 using System;
 using System.Net.Http;
+using System.Security.Claims;
 
 namespace IdentityModel.OidcClient
 {
@@ -11,15 +12,14 @@ namespace IdentityModel.OidcClient
     {
         public LoginResult()
         {
-
         }
 
-        public LoginResult(string errorMessage)
+        public LoginResult(string error)
         {
-            Error = errorMessage;
+            Error = error;
         }
 
-        public Claims Claims { get; set; }
+        public ClaimsPrincipal User { get; set; }
         public string AccessToken { get; set; }
         public string IdentityToken { get; set; }
         public string RefreshToken { get; set; }
@@ -27,8 +27,6 @@ namespace IdentityModel.OidcClient
         public DateTime AccessTokenExpiration { get; set; }
         public DateTime AuthenticationTime { get; set; }
 
-        public int SecondsBeforeRenewRequired { get; set; } = 60;
-
-        public HttpMessageHandler Handler { get; set; }
+        public HttpMessageHandler RefreshTokenHandler { get; set; }
     }
 }

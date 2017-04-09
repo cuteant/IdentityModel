@@ -1,24 +1,33 @@
-﻿using System.Diagnostics;
-using IdentityModel.OidcClient;
+﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
+
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Security.Claims;
 #if NET40
-namespace CuteAnt.Extensions.Logging
+using CuteAnt.Extensions.Logging;
 #else
-namespace Microsoft.Extensions.Logging
+using Microsoft.Extensions.Logging;
 #endif
+
+namespace IdentityModel.OidcClient
 {
   internal static class LoggingExtensions
   {
     [DebuggerStepThrough]
-    public static void LogClaims(this ILogger logger, Claims claims)
+    public static void LogClaims(this ILogger logger, IEnumerable<Claim> claims)
     {
-      if (logger.IsDebugLevelEnabled())
+      foreach (var claim in claims)
       {
-        foreach (var claim in claims)
-        {
-          logger.LogDebug($"Claim: {claim.Type}: {claim.Value}");
-        }
+        logger.LogDebug($"Claim: {claim.Type}: {claim.Value}");
       }
+    }
+
+    [DebuggerStepThrough]
+    public static void LogClaims(this ILogger logger, ClaimsPrincipal user)
+    {
+      logger.LogClaims(user.Claims);
     }
   }
 }

@@ -50,6 +50,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="..\CommonVersionInfo.cs" Link="Properties\CommonVersionInfo.cs" />
     <Compile Include="..\PCLCryptoVersionInfo.cs" Link="Properties\PCLCryptoVersionInfo.cs" />
   </ItemGroup>
 

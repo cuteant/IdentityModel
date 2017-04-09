@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems" Label="Shared" />
+  <Import Project="..\MsVersion.props" />
+  
+  <PropertyGroup>
+    <TargetFrameworks>net40</TargetFrameworks>
+    <RootNamespace>Microsoft.IdentityModel.Tokens</RootNamespace>
+    <AssemblyName>Microsoft.IdentityModel.Tokens</AssemblyName>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet">
+    <PackageId>Microsoft.IdentityModel.Tokens.Net40</PackageId>
+    <Title>Microsoft.IdentityModel.Tokens-net40-fork</Title>
+    <Description>Includes types that provide support for cryptographic operations.</Description>
+    <PackageTags></PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\CommonVersionInfo.cs" Link="Properties\CommonVersionInfo.cs" />
+    <Compile Include="..\MsVersionInfo.cs" Link="Properties\MsVersionInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+    <PackageReference Include="System.Security.Claims.Net40" Version="2.0.0-rtm-170201" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.IdentityModel.Logging\Microsoft.IdentityModel.Logging.csproj" />
+  </ItemGroup>
+</Project>

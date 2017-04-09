@@ -7,7 +7,7 @@ using CuteAnt.Owin.Security.OAuth;
 using System;
 using System.IdentityModel.Selectors;
 using System.IdentityModel.Tokens;
-using IdentityModel.Owin;
+using Thinktecture.IdentityModel.Owin;
 using Thinktecture.IdentityModel.Tokens;
 
 namespace CuteAnt.Owin

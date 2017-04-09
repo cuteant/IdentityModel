@@ -6,7 +6,7 @@
 using CuteAnt.Owin.Security.OAuth;
 using System.Threading.Tasks;
 
-namespace IdentityModel.Owin
+namespace Thinktecture.IdentityModel.Owin
 {
     public class HeaderOAuthBearerProvider : OAuthBearerAuthenticationProvider
     {

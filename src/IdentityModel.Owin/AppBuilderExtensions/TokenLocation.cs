@@ -3,7 +3,7 @@
  * see license.txt
  */
 
-using IdentityModel.Owin;
+using Thinktecture.IdentityModel.Owin;
 
 namespace CuteAnt.Owin
 {

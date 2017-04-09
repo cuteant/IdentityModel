@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\IdentityModelVersion.props" />
+  <Import Project="..\..\..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems" Label="Shared" />
+  <ImportGroup Condition="'$(TargetFramework)' == 'net40'">
+    <Import Project="..\..\..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Reflection.Sources\CuteAnt.Extensions.Reflection.Sources.projitems" Label="Shared" />
+  </ImportGroup>
+  
+  <PropertyGroup>
+    <TargetFrameworks>net461;net451;net40</TargetFrameworks>
+    <RootNamespace>IdentityModel.HttpSigning</RootNamespace>
+    <AssemblyName>IdentityModel.HttpSigning</AssemblyName>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet">
+    <PackageId>IdentityModel.HttpSigning.Unofficial</PackageId>
+    <Title>IdentityModel.HttpSigning.Unofficial</Title>
+    <Description>A Method for Signing HTTP Requests for OAuth (https://tools.ietf.org/html/draft-ietf-oauth-signed-http-request-02)</Description>
+    <PackageTags>OAuth2 PoP Signing HTTP JWT Tokens API</PackageTags>
+    <IsPackable>true</IsPackable>
+    <Authors>Dominick Baier, Brock Allen, Seabiscuit</Authors>
+    <Copyright>Copyright Dominick Baier, Brock Allen, Seabiscuit 2016</Copyright>
+    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <PackageIconUrl>https://identityserver.github.io/Documentation/assets/images/icons/IDmodel_icon128.png</PackageIconUrl>
+    <PackageProjectUrl>http://github.com/IdentityModel/IdentityModel.HttpSigning</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/IdentityModel/IdentityModel2/blob/release/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>http://github.com/IdentityModel/IdentityModel.HttpSigning</RepositoryUrl>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net451' or '$(TargetFramework)' == 'net40'">
+    <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\CommonVersionInfo.cs" Link="Properties\CommonVersionInfo.cs" />
+    <Compile Include="..\IdentityModelVersionInfo.cs" Link="Properties\IdentityModelVersionInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="jose-jwt" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net451'">
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.4-rtm-170301" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
+    <PackageReference Include="CuteAnt" Version="2.0.0-rtm-170301" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="4.0.30506.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IdentityModel\IdentityModel.csproj" />
+  </ItemGroup>
+</Project>

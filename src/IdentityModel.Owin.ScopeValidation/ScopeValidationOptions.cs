@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace IdentityModel.Owin.ScopeValidation
+namespace Thinktecture.IdentityModel.Owin.ScopeValidation
 {
     public class ScopeValidationOptions
     {

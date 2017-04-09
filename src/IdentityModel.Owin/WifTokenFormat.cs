@@ -8,7 +8,7 @@ using System;
 using System.IdentityModel.Tokens;
 using System.Linq;
 
-namespace IdentityModel.Owin
+namespace Thinktecture.IdentityModel.Owin
 {
     public class WifTokenFormat : ISecureDataFormat<AuthenticationTicket>
     {
