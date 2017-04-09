@@ -4,10 +4,11 @@
 
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Security.Claims;
 #if NET40
 using CuteAnt.Extensions.Logging;
+using CuteAnt.Security.Claims;
 #else
+using System.Security.Claims;
 using Microsoft.Extensions.Logging;
 #endif
 

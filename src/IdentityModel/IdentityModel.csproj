@@ -47,7 +47,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\CommonVersionInfo.cs" Link="Properties\CommonVersionInfo.cs" />
     <Compile Include="..\IdentityModelVersionInfo.cs" Link="Properties\IdentityModelVersionInfo.cs" />
   </ItemGroup>
 
@@ -72,8 +71,8 @@
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
     <PackageReference Include="CuteAnt" Version="2.0.0-rtm-170301" />
-    <PackageReference Include="CuteAnt.Text.Encodings.Web" Version="2.0.0-rtm-170201" />
-    <PackageReference Include="System.Security.Claims.Net40" Version="2.0.0-rtm-170201" />
+    <PackageReference Include="CuteAnt.Text.Encodings.Web" Version="2.0.0-rtm-170202" />
+    <PackageReference Include="System.Security.Claims.Net40" Version="2.0.0-rtm-170202" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
     <PackageReference Include="Microsoft.Bcl" Version="1.1.10" />
     <PackageReference Include="Microsoft.Bcl.Async" Version="1.0.168" />

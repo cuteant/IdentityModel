@@ -5,7 +5,11 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if NET40
+using CuteAnt.Security.Claims;
+#else
 using System.Security.Claims;
+#endif
 
 namespace IdentityModel.Client
 {

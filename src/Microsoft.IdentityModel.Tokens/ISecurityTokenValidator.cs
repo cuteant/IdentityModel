@@ -26,7 +26,7 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Security.Claims;
+using CuteAnt.Security.Claims;
 
 namespace Microsoft.IdentityModel.Tokens
 {

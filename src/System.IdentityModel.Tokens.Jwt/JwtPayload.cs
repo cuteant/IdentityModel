@@ -27,7 +27,7 @@
 
 using System.Collections.Generic;
 using System.Globalization;
-using System.Security.Claims;
+using CuteAnt.Security.Claims;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;

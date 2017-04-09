@@ -1,5 +1,9 @@
 ﻿using IdentityModel.Client;
+#if NET40
+using CuteAnt.Security.Claims;
+#else
 using System.Security.Claims;
+#endif
 
 namespace IdentityModel.OidcClient
 {

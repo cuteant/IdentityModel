@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
-using System.Security.Claims;
+using CuteAnt.Security.Claims;
 using CuteAnt.Extensions.Logging;
 using Microsoft.IdentityModel.Logging;
 

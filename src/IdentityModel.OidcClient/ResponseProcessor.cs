@@ -2,11 +2,12 @@
 using IdentityModel.OidcClient.Infrastructure;
 using IdentityModel.OidcClient.Results;
 using System;
-using System.Security.Claims;
 using System.Threading.Tasks;
 #if NET40
 using CuteAnt.Extensions.Logging;
+using CuteAnt.Security.Claims;
 #else
+using System.Security.Claims;
 using Microsoft.Extensions.Logging;
 #endif
 

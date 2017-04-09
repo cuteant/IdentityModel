@@ -4,8 +4,12 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Security.Claims;
 using Newtonsoft.Json.Linq;
+#if NET40
+using CuteAnt.Security.Claims;
+#else
+using System.Security.Claims;
+#endif
 
 namespace IdentityModel.Client
 {

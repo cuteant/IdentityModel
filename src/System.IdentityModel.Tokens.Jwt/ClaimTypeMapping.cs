@@ -26,7 +26,7 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using System.Security.Claims;
+using CuteAnt.Security.Claims;
 
 namespace System.IdentityModel.Tokens.Jwt
 {

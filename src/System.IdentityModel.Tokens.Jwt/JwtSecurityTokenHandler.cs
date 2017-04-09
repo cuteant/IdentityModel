@@ -28,15 +28,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
-using System.Security.Claims;
+using CuteAnt.Security.Claims;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Xml;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using CuteAnt.Extensions.Logging;
+using CuteAnt.Text.RegularExpressions;
 
 namespace System.IdentityModel.Tokens.Jwt
 {
@@ -333,11 +333,11 @@ namespace System.IdentityModel.Tokens.Jwt
       string[] tokenParts = tokenString.Split(new char[] { '.' }, JwtConstants.MaxJwtSegmentCount + 1);
       if (tokenParts.Length == JwtConstants.JwsSegmentCount)
       {
-        return Regex.IsMatch(tokenString, JwtConstants.JsonCompactSerializationRegex, RegexOptions.Compiled);//, TimeSpan.FromMilliseconds(100));
+        return Regex.IsMatch(tokenString, JwtConstants.JsonCompactSerializationRegex, RegexOptions.Compiled, TimeSpan.FromMilliseconds(100));
       }
       else if (tokenParts.Length == JwtConstants.JweSegmentCount)
       {
-        return Regex.IsMatch(tokenString, JwtConstants.JweCompactSerializationRegex, RegexOptions.Compiled);//, TimeSpan.FromMilliseconds(100));
+        return Regex.IsMatch(tokenString, JwtConstants.JweCompactSerializationRegex, RegexOptions.Compiled, TimeSpan.FromMilliseconds(100));
       }
 
       if (LogHelper.Logger.IsInformationLevelEnabled()) LogHelper.Logger.LogInformation(LogMessages.IDX10720);

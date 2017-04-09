@@ -27,11 +27,11 @@
 
 using System.Collections.Generic;
 using System.Globalization;
-using System.Security.Claims;
-using System.Text.RegularExpressions;
+using CuteAnt.Security.Claims;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using CuteAnt.Extensions.Logging;
+using CuteAnt.Text.RegularExpressions;
 
 namespace System.IdentityModel.Tokens.Jwt
 {
@@ -63,12 +63,12 @@ namespace System.IdentityModel.Tokens.Jwt
       string[] tokenParts = jwtEncodedString.Split(new char[] { '.' }, JwtConstants.MaxJwtSegmentCount + 1);
       if (tokenParts.Length == JwtConstants.JwsSegmentCount)
       {
-        if (!Regex.IsMatch(jwtEncodedString, JwtConstants.JsonCompactSerializationRegex, RegexOptions.Compiled))//, TimeSpan.FromMilliseconds(100)))
+        if (!Regex.IsMatch(jwtEncodedString, JwtConstants.JsonCompactSerializationRegex, RegexOptions.Compiled, TimeSpan.FromMilliseconds(100)))
           throw LogHelper.LogExceptionMessage(new ArgumentException(string.Format(CultureInfo.InvariantCulture, LogMessages.IDX10709, jwtEncodedString)));
       }
       else if (tokenParts.Length == JwtConstants.JweSegmentCount)
       {
-        if (!Regex.IsMatch(jwtEncodedString, JwtConstants.JweCompactSerializationRegex, RegexOptions.Compiled))//, TimeSpan.FromMilliseconds(100)))
+        if (!Regex.IsMatch(jwtEncodedString, JwtConstants.JweCompactSerializationRegex, RegexOptions.Compiled, TimeSpan.FromMilliseconds(100)))
           throw LogHelper.LogExceptionMessage(new ArgumentException(string.Format(CultureInfo.InvariantCulture, LogMessages.IDX10709, jwtEncodedString)));
       }
       else

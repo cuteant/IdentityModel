@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
-    <PackageReference Include="System.Security.Claims.Net40" Version="2.0.0-rtm-170201" />
+    <PackageReference Include="System.Security.Claims.Net40" Version="2.0.0-rtm-170202" />
   </ItemGroup>
 
   <ItemGroup>

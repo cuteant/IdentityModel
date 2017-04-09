@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\IdentityModelVersion.props" />
+  <Import Project="..\HttpSigningVersion.props" />
   <Import Project="..\..\..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Logging.Sources\CuteAnt.Extensions.Logging.Sources.projitems" Label="Shared" />
   <ImportGroup Condition="'$(TargetFramework)' == 'net40'">
     <Import Project="..\..\..\CuteAnt.Extensions.Common\src\CuteAnt.Extensions.Reflection.Sources\CuteAnt.Extensions.Reflection.Sources.projitems" Label="Shared" />
@@ -46,12 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\CommonVersionInfo.cs" Link="Properties\CommonVersionInfo.cs" />
-    <Compile Include="..\IdentityModelVersionInfo.cs" Link="Properties\IdentityModelVersionInfo.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="jose-jwt" Version="2.2.0" />
+    <Compile Include="..\HttpSigningVersionInfo.cs" Link="Properties\HttpSigningVersionInfo.cs" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net451'">
@@ -65,5 +60,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IdentityModel\IdentityModel.csproj" />
+    <ProjectReference Include="..\jose-jwt\jose-jwt.csproj" />
   </ItemGroup>
 </Project>

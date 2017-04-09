@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\OIdentityModelVersion.props" />
+  <Import Project="..\OwinVersion.props" />
   
   <PropertyGroup>
     <TargetFrameworks>net461;net451</TargetFrameworks>
@@ -42,7 +42,7 @@
 
   <ItemGroup>
     <Compile Include="..\CommonVersionInfo.cs" Link="Properties\CommonVersionInfo.cs" />
-    <Compile Include="..\OIdentityModelVersionInfo.cs" Link="Properties\OIdentityModelVersionInfo.cs" />
+    <Compile Include="..\OwinVersionInfo.cs" Link="Properties\OwinVersionInfo.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\TIdentityModelVersion.props" />
+  <Import Project="..\ThinktectureVersion.props" />
   
   <PropertyGroup>
     <TargetFrameworks>net461;net451</TargetFrameworks>
@@ -49,7 +49,7 @@
 
   <ItemGroup>
     <Compile Include="..\CommonVersionInfo.cs" Link="Properties\CommonVersionInfo.cs" />
-    <Compile Include="..\TIdentityModelVersionInfo.cs" Link="Properties\TIdentityModelVersionInfo.cs" />
+    <Compile Include="..\ThinktectureVersionInfo.cs" Link="Properties\ThinktectureVersionInfo.cs" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net461'">

@@ -15,9 +15,13 @@
  */
 
 using System.Collections.Generic;
-using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
+#if NET40
+using CuteAnt.Security.Claims;
+#else
+using System.Security.Claims;
+#endif
 
 namespace IdentityModel
 {

@@ -16,7 +16,11 @@
 
 using System;
 using System.Collections.Generic;
+#if NET40
+using CuteAnt.Security.Claims;
+#else
 using System.Security.Claims;
+#endif
 
 namespace IdentityModel
 {

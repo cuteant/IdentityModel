@@ -4,7 +4,11 @@
 
 using System;
 using System.Net.Http;
+#if NET40
+using CuteAnt.Security.Claims;
+#else
 using System.Security.Claims;
+#endif
 
 namespace IdentityModel.OidcClient
 {

@@ -1,19 +1,19 @@
 ﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityModel.Client;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 using IdentityModel.OidcClient.Infrastructure;
-using System.Security.Claims;
 using System.Collections.Generic;
 using IdentityModel.OidcClient.Results;
 using IdentityModel.OidcClient.Browser;
 #if NET40
 using CuteAnt.Extensions.Logging;
+using CuteAnt.Security.Claims;
 #else
+using System.Security.Claims;
 using Microsoft.Extensions.Logging;
 #endif
 
