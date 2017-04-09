@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		clean.cmd = clean.cmd
 		NuGet.Config = NuGet.Config
+		README.md = README.md
 		TechnicalReference.txt = TechnicalReference.txt
 	EndProjectSection
 EndProject
@@ -73,6 +74,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityModel", "IdentityModel", "{999A8CB8-A21F-43A0-9058-B49411006869}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identitymodel-Extensions", "Identitymodel-Extensions", "{4D7C12FB-E51F-4795-9C7E-D98F2F96F728}"
+	ProjectSection(SolutionItems) = preProject
+		src\CHANGELOG.md = src\CHANGELOG.md
+		src\LICENSE.txt = src\LICENSE.txt
+		src\README.md = src\README.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityModel.Owin", "src\IdentityModel.Owin\IdentityModel.Owin.csproj", "{49016C65-F170-4DA6-BB6D-C7557439FA39}"
 EndProject
