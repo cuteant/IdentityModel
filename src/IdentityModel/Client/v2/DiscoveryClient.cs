@@ -10,12 +10,16 @@ using System.Threading.Tasks;
 
 namespace IdentityModel.Client
 {
-    /// <summary>Client for retrieving OpenID Connect discovery documents</summary>
+    /// <summary>
+    /// Client for retrieving OpenID Connect discovery documents
+    /// </summary>
     public class DiscoveryClient : IDisposable
     {
         private bool _disposed;
 
-        /// <summary>Retrieves a discovery document using the default policy.</summary>
+        /// <summary>
+        /// Retrieves a discovery document using the default policy.
+        /// </summary>
         /// <param name="authority">The authority.</param>
         /// <returns></returns>
         public static async Task<DiscoveryResponse> GetAsync(string authority)
@@ -26,22 +30,78 @@ namespace IdentityModel.Client
             }
         }
 
+        /// <summary>
+        /// Parses a URL and turns it into authority and discovery endpoint URL.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns></returns>
+        /// <exception cref="System.InvalidOperationException">
+        /// Malformed URL
+        /// </exception>
+        public static (string authority, string discoveryEndpoint) ParseUrl(string input)
+        {
+            string discoveryEndpoint = "";
+            string authority = "";
+
+            var success = Uri.TryCreate(input, UriKind.Absolute, out var uri);
+            if (success == false)
+            {
+                throw new InvalidOperationException("Malformed URL");
+            }
+
+            if (!DiscoveryUrlHelper.IsValidScheme(uri))
+            {
+                throw new InvalidOperationException("Malformed URL");
+            }
+
+            var url = input.RemoveTrailingSlash();
+
+            if (url.EndsWith(OidcConstants.Discovery.DiscoveryEndpoint, StringComparison.OrdinalIgnoreCase))
+            {
+                discoveryEndpoint = url;
+                authority = url.Substring(0, url.Length - OidcConstants.Discovery.DiscoveryEndpoint.Length - 1);
+            }
+            else
+            {
+                authority = url;
+                discoveryEndpoint = url.EnsureTrailingSlash() + OidcConstants.Discovery.DiscoveryEndpoint;
+            }
+
+            return (authority, discoveryEndpoint);
+        }
+
         private readonly HttpClient _client;
 
-        /// <summary>Gets the authority.</summary>
-        /// <value>The authority.</value>
+        /// <summary>
+        /// Gets the authority.
+        /// </summary>
+        /// <value>
+        /// The authority.
+        /// </value>
         public string Authority { get; }
 
-        /// <summary>Gets the URL.</summary>
-        /// <value>The URL.</value>
+        /// <summary>
+        /// Gets the URL.
+        /// </summary>
+        /// <value>
+        /// The URL.
+        /// </value>
         public string Url { get; }
 
-        /// <summary>Gets or sets the policy.</summary>
-        /// <value>The policy.</value>
+        /// <summary>
+        /// Gets or sets the policy.
+        /// </summary>
+        /// <value>
+        /// The policy.
+        /// </value>
         public DiscoveryPolicy Policy { get; set; } = new DiscoveryPolicy();
 
-        /// <summary>Sets the timeout.</summary>
-        /// <value>The timeout.</value>
+        /// <summary>
+        /// Sets the timeout.
+        /// </summary>
+        /// <value>
+        /// The timeout.
+        /// </value>
         public TimeSpan Timeout
         {
             set
@@ -50,45 +110,23 @@ namespace IdentityModel.Client
             }
         }
 
-        /// <summary>Initializes a new instance of the <see cref="DiscoveryClient"/> class.</summary>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DiscoveryClient"/> class.
+        /// </summary>
         /// <param name="authority">The authority.</param>
         /// <param name="innerHandler">The inner handler.</param>
-        /// <exception cref="System.InvalidOperationException">
-        /// Malformed authority URL
-        /// or
-        /// Malformed authority URL
-        /// </exception>
         public DiscoveryClient(string authority, HttpMessageHandler innerHandler = null)
         {
             var handler = innerHandler ?? new HttpClientHandler();
 
-            var success = Uri.TryCreate(authority, UriKind.Absolute, out var uri);
-            if (success == false)
-            {
-                throw new InvalidOperationException("Malformed authority URL");
-            }
-
-            if (!DiscoveryUrlHelper.IsValidScheme(uri))
-            {
-                throw new InvalidOperationException("Malformed authority URL");
-            }
-
-            var url = authority.RemoveTrailingSlash();
-            if (url.EndsWith(OidcConstants.Discovery.DiscoveryEndpoint, StringComparison.OrdinalIgnoreCase))
-            {
-                Url = url;
-                Authority = url.Substring(0, url.Length - OidcConstants.Discovery.DiscoveryEndpoint.Length - 1);
-            }
-            else
-            {
-                Authority = url;
-                Url = url.EnsureTrailingSlash() + OidcConstants.Discovery.DiscoveryEndpoint;
-            }
-
+            (Authority, Url) = ParseUrl(authority);
+            
             _client = new HttpClient(handler);
         }
 
-        /// <summary>Retrieves the discovery document.</summary>
+        /// <summary>
+        /// Retrieves the discovery document.
+        /// </summary>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
         public async Task<DiscoveryResponse> GetAsync(CancellationToken cancellationToken = default(CancellationToken))
@@ -146,14 +184,18 @@ namespace IdentityModel.Client
             }
         }
 
-        /// <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
 
-        /// <summary>Releases unmanaged and - optionally - managed resources.</summary>
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
         /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
         protected virtual void Dispose(bool disposing)
         {
