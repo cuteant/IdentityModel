@@ -118,7 +118,7 @@ Compression:
     <PackageTags>jose,jwt,json,jwa,jwe,jws,aes,cbc,gcm,rsa,hmac,sha,rsassa,pss,rsaes,oaep,pkcs1-v1_5,es,elliptic,curve,diffe,hellman,agreement,ecdsa,key wrap,kw,ecdh,pbes,pbes2,pbkdf,pbkdf2,password based encryption,javascript object signing,two phase validation,netcore,clr,coreclr,portable,fips,compliant</PackageTags>
     <IsPackable>true</IsPackable>
     <Authors>Dmitry Vsekhvalnov</Authors>
-    <Copyright>Copyright dvsekhvalnov 2014-2016</Copyright>
+    <Copyright>Copyright dvsekhvalnov 2014-2017</Copyright>
     <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     <PackageIconUrl></PackageIconUrl>
     <PackageProjectUrl>https://github.com/dvsekhvalnov/jose-jwt</PackageProjectUrl>
